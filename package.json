@@ -1,0 +1,17 @@
+{
+  "name": "homey-jsdoc-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "publish.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "taffydb": "^2.7.3"
+  },
+  "peerDependencies": {
+    "jsdoc": "3.6.x"
+  }
+}
