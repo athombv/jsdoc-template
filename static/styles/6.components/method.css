@@ -1,3 +1,13 @@
 .method {
     margin: 40px 0;
 }
+
+.method__name {
+    top: 0;
+    position: sticky;
+    background: var(--color-background-component);
+    z-index: 10;
+    margin-top: -10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-line);
+}

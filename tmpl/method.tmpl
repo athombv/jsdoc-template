@@ -9,7 +9,7 @@
   <?js } ?>
 
   <?js if (data.kind !== 'namespace') { ?>
-  <h4 class="name" id="<?js= id ?>"><?js= data.attribs + (kind === 'class' ? 'new ' : '') +
+  <h4 class="method__name name" id="<?js= id ?>"><?js= data.attribs + (kind === 'class' ? 'new ' : '') +
     name + (data.signature || '') ?></h4>
   <?js } ?>
 
