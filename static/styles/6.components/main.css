@@ -1,3 +1,10 @@
 .main {
+    flex: 1 1 auto;
     margin-left: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.main__content {
+    max-width: 800px;
 }

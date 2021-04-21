@@ -1,3 +1,25 @@
 .navigation {
     min-width: 300px;
 }
+
+.navigation__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.navigation__logo {
+    margin-right: 10px;
+}
+
+.navigation__title {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    font-weight: var(--fontWeight-medium);
+    margin: 0;
+}
+
+.navigation__title a {
+    color: inherit;
+}

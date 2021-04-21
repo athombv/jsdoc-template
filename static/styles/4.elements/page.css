@@ -9,7 +9,7 @@ body
 {
     font-family: 'Roboto', sans-serif;
     line-height: 1.5;
-    color: #4d4e53;
+    color: var(--color-text);
     background-color: var(--color-body);
     padding: 20px;
     font-weight: var(--fontWeight-regular);

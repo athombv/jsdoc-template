@@ -9,11 +9,13 @@
 @import "4.elements/page.css";
 /* Objects */
 @import "5.objects/flex.css";
+@import "5.objects/display.css";
 /* Components */
 @import "6.components/navigation.css";
 @import "6.components/nav-group.css";
 @import "6.components/component.css";
 @import "6.components/main.css";
+@import "6.components/method.css";
 
 
 .class-description {
@@ -33,15 +35,6 @@ article dl {
 
 article img {
   max-width: 100%;
-}
-
-section
-{
-    display: block;
-    background-color: #fff;
-    padding: 12px 24px;
-    border-bottom: 1px solid #ccc;
-    margin-right: 30px;
 }
 
 .variation {
