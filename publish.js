@@ -353,9 +353,9 @@ function linktoExternal(longName, name) {
  * @param {array<object>} members.interfaces
  * @return {string} The HTML for the navigation sidebar.
  */
-function buildNav(members) {
+function buildNav(members, opts) {
     let globalNav;
-    let nav = '<h2><a href="index.html">Home</a></h2>';
+    let nav = `<h2><a href="index.html">${opts.mainpagetitle}</a></h2>`;
     const seen = {};
     const seenTutorials = {};
 
@@ -599,7 +599,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     view.outputSourceFiles = outputSourceFiles;
 
     // once for all
-    view.nav = buildNav(members);
+    view.nav = buildNav(members,opts);
     attachModuleSymbols( find({ longname: {left: 'module:'} }), members.modules );
 
     // generate the pretty-printed source files first so other pages can link to them
