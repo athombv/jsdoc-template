@@ -1,0 +1,32 @@
+/**
+ * Global variables
+ */
+:root{
+    /* Box Shadows */
+    --boxShadow: 0 10px 44px 0 rgba(0, 0, 0, 0.07),0 2px 12px 0 rgba(0, 0, 0, 0.1),0 2px 4px 0 rgba(0, 0, 0, 0.04);
+
+    /* Border Radius */
+    --borderRadius: 10px;
+
+    /* Font-weights*/
+    --fontWeight-thin: 100;
+    --fontWeight-light: 300;
+    --fontWeight-regular: 400;
+    --fontWeight-medium: 500;
+    --fontWeight-bold: 700;
+
+    /* Transitions */
+    --transition-normal: all 500ms ease-in-out;
+    --transition-fast: all 200ms ease-in-out;
+    --transition-micro: all 100ms ease-in-out;
+    --transition-normal-partial: 500ms ease-in-out;
+    --transition-micro-partial: 100ms ease-in-out;
+
+    /* Durations */
+    --duration-normal: 500ms;
+    --duration-fast: 200ms;
+    --duration-micro: 100ms;
+
+    /* Curves */
+    --curve-fastInNormalOut: cubic-bezier(.25,0,.5,1);
+}

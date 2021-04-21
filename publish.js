@@ -309,7 +309,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
             let displayName;
 
             if ( !hasOwnProp.call(item, 'longname') ) {
-                itemsNav += `<li>${linktoFn('', item.name)}</li>`;
+                itemsNav += `<li class="nav-group__item">${linktoFn('', item.name)}</li>`;
             }
             else if ( !hasOwnProp.call(itemsSeen, item.longname) ) {
                 if (env.conf.templates.default.useLongnameInNav) {
@@ -317,14 +317,14 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 } else {
                     displayName = item.name;
                 }
-                itemsNav += `<li>${linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''))}</li>`;
+                itemsNav += `<li class="nav-group__item">${linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''))}</li>`;
 
                 itemsSeen[item.longname] = true;
             }
         });
 
         if (itemsNav !== '') {
-            nav += `<h3>${itemHeading}</h3><ul>${itemsNav}</ul>`;
+            nav += `<nav class="nav-group"><h3 class="nav-group__title">${itemHeading}</h3><ul class="nav-group__list">${itemsNav}</ul></nav>`;
         }
     }
 

@@ -1,0 +1,33 @@
+.nav-group {
+}
+
+.nav-group__title {
+
+}
+
+.nav-group__list {
+
+}
+
+.nav-group__item {
+    margin: 0;
+}
+
+.nav-group__item a {
+    color: var(--color-text);
+    display: block;
+    border-radius: var(--borderRadius);
+    padding: 5px 10px;
+    margin: 0 -10px;
+}
+
+.nav-group__item a:hover {
+    background-color: var(--color-background-hover);
+    font-weight: var(--fontWeight-medium);
+    text-decoration: none;
+}
+
+.nav-group__item a.is-active {
+    color: var(--color-highlight);
+    font-weight: var(--fontWeight-medium);
+}
