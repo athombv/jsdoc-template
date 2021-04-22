@@ -2,12 +2,30 @@
     margin: 40px 0;
 }
 
-.method__name {
+.method__header {
     top: 0;
     position: sticky;
     background: var(--color-background-component);
     z-index: 10;
     margin-top: -10px;
-    padding: 10px 0;
     border-bottom: 1px solid var(--color-line);
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 10px 20px;
+    border-top-left-radius: var(--borderRadius);
+    border-top-right-radius: var(--borderRadius);
+}
+
+.method__name {
+    margin-bottom: 0;
+    transform: translateY(-6px); /* Optical correct */
+}
+
+.method__function {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.method__content {
+    padding: 10px 0;
 }

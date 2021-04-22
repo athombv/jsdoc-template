@@ -1,13 +1,10 @@
-html
-{
+html {
     overflow: auto;
     background-color: #fff;
     font-size: 14px;
 }
 
-body
-{
-    font-family: 'Roboto', sans-serif;
+body {
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-body);
@@ -24,12 +21,16 @@ a:hover {
     text-decoration: underline;
 }
 
-header
-{
+header {
     display: block;
     padding: 0px 4px;
 }
 
-tt, code, kbd, samp {
-    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+nav ul a, nav ul a:visited, nav ul a:active {
 }

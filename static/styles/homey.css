@@ -6,7 +6,8 @@
 @import "3.generic/normalize.css";
 /* Elements */
 @import "4.elements/page.css";
-@import "4.elements/page.css";
+@import "4.elements/typography.css";
+@import "4.elements/table.css";
 /* Objects */
 @import "5.objects/flex.css";
 @import "5.objects/display.css";
@@ -16,6 +17,8 @@
 @import "6.components/component.css";
 @import "6.components/main.css";
 @import "6.components/method.css";
+/* Utilities */
+@import "7.utilities/trim.css";
 
 
 .class-description {
@@ -48,108 +51,6 @@ article img {
     font-weight: lighter;
 }
 
-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
-
-nav ul a, nav ul a:visited, nav ul a:active {
-}
-
-nav h3 {
-    margin-top: 12px;
-}
-
-nav li {
-    margin-top: 6px;
-}
-
-footer {
-    display: block;
-    padding: 6px;
-    margin-top: 12px;
-    font-style: italic;
-    font-size: 90%;
-}
-
-h1, h2, h3, h4 {
-    font-weight: 200;
-    margin: 0;
-}
-
-h1
-{
-    font-size: 48px;
-    margin-bottom: 40px;
-}
-
-h2, h3.subsection-title
-{
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: -1px;
-    margin-bottom: 12px;
-    margin-top: 80px;
-}
-
-h3
-{
-    font-size: 24px;
-    letter-spacing: -0.5px;
-    margin-bottom: 12px;
-}
-
-h4
-{
-    font-size: 18px;
-    letter-spacing: -0.33px;
-    margin-bottom: 12px;
-    color: #4d4e53;
-}
-
-h5, .container-overview .subsection-title
-{
-    font-size: 120%;
-    font-weight: bold;
-    letter-spacing: -0.01em;
-    margin: 8px 0 3px 0;
-}
-
-h6
-{
-    font-size: 100%;
-    letter-spacing: -0.01em;
-    margin: 6px 0 3px 0;
-    font-style: italic;
-}
-
-table
-{
-    border-spacing: 0;
-    border: 0;
-    border-collapse: collapse;
-}
-
-td, th
-{
-    border: 1px solid #ddd;
-    margin: 0px;
-    text-align: left;
-    vertical-align: top;
-    padding: 4px 6px;
-    display: table-cell;
-}
-
-thead tr
-{
-    background-color: #ddd;
-    font-weight: bold;
-}
-
-th { border-right: 1px solid #aaa; }
-tr > th:last-child { border-right: 1px solid #ddd; }
-
 .ancestors, .attribs { color: #999; }
 .ancestors a, .attribs a
 {
@@ -177,7 +78,7 @@ tr > th:last-child { border-right: 1px solid #ddd; }
 }
 
 .name, .signature {
-    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
 }
 
 .details { margin-top: 14px; border-left: 2px solid #DDD; }
@@ -263,7 +164,7 @@ tr > th:last-child { border-right: 1px solid #ddd; }
 
 .params .name, .props .name, .name code {
     color: #4D4E53;
-    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-family: 'Roboto Mono', Monaco, 'Andale Mono', monospace;
     font-size: 100%;
 }
 
