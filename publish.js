@@ -359,6 +359,7 @@ function buildNav(members, opts) {
   const seen = {};
   const seenTutorials = {};
 
+  nav += `<div class="navigation__scroll">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
@@ -395,6 +396,7 @@ function buildNav(members, opts) {
       nav += `<h3>Global</h3><ul>${globalNav}</ul>`;
     }
   }
+  nav += `</div>`;
 
   return nav;
 }
