@@ -9,6 +9,46 @@ function isModuleClass(data) {
 
   return 'component';
 }
+
+/**
+ * Is Content not Empty
+ * @desc super loaded power function to check if any content is loaded.
+ * @param data
+ * @returns {boolean}
+ */
+function isContentNotEmpty(data) {
+  if (data.kind !== 'module' && data.description && !data.hideconstructor) {
+    return true;
+  } else if (data.augments && data.alias && data.alias.indexOf('module:') === 0) {
+    return true;
+  } else if (kind === 'event' && data.type && data.type.names) {
+    return true;
+  } else if (data['this']) {
+    return true;
+  } else if (data.params && params.length && !data.hideconstructor) {
+    return true;
+  } else if (data.kind !== 'module' && data.requires && data.requires.length) {
+    return true;
+  } else if (data.fires && fires.length) {
+    return true;
+  } else if (data.listens && listens.length) {
+    return true;
+  } else if (data.listeners && listeners.length) {
+    return true;
+  } else if (data.modifies && modifies.length) {
+    return true;
+  } else if (data.exceptions && exceptions.length) {
+    return true;
+  } else if (data.returns && returns.length) {
+    return true;
+  } else if (data.yields && yields.length) {
+    return true;
+  } else if (data.examples && examples.length) {
+    return true;
+  }
+
+  return false;
+}
 ?>
 
 <section class="method trim <?js= isModuleClass(data) ?>">
@@ -28,6 +68,7 @@ function isModuleClass(data) {
   <?js } ?>
   <?js } ?>
 
+  <?js if (isContentNotEmpty(data)){ ?>
   <div class="method__content trim">
     <?js if (data.kind !== 'module' && data.description && !data.hideconstructor) { ?>
     <div class="method__description">
@@ -194,4 +235,6 @@ function isModuleClass(data) {
     </section>
     <?js } ?>
   </div>
+  <?js } ?>
+
 </section>
