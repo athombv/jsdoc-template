@@ -1,11 +1,15 @@
 .nav-group {
+    margin: 20px 0;
 }
 
 .nav-group__title {
-    margin-top: 20px;
+    margin: 0;
     font-weight: var(--fontWeight-medium);
     font-size: 17px;
     border-bottom: 1px solid var(--color-line);
+    background: var(--color-component);
+    position: sticky;
+    top: 0;
 }
 
 .nav-group__list {
