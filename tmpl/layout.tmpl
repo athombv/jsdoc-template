@@ -2,20 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>JSDoc:
-    <?js= title ?>
-  </title>
+  <title><?js- title ?></title>
 
-  <script src="scripts/prettify/prettify.js"></script>
-  <script src="scripts/prettify/lang-css.js"></script>
-  <!--[if lt IE 9]>
-  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@100;300;400;500;700&display=swap"
         rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="styles/homey.css">
-  <link type="text/css" rel="stylesheet" href="styles/pretify-jsdocs">
+  <link type="text/css" rel="stylesheet" href="styles/prettify-homey.css">
 </head>
 
 <body>
@@ -26,7 +19,7 @@
 
   <main id="main" class="main">
     <div class="main__content">
-      <h1 class="page-title">
+      <h1 class="text-preset-title">
         <?js= title ?>
       </h1>
 
@@ -46,6 +39,11 @@
   <?js } ?>
 </footer>
 
+<script src="scripts/prettify/prettify.js"></script>
+<script src="scripts/prettify/lang-css.js"></script>
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"></script>
 <script src="scripts/ready.js"></script>

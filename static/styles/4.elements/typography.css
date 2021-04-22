@@ -37,9 +37,7 @@ h3 {
 
 h4 {
     font-size: 18px;
-    letter-spacing: -0.33px;
     margin-bottom: 12px;
-    color: #4d4e53;
 }
 
 h5, .container-overview .subsection-title {
@@ -61,6 +59,26 @@ p {
     max-width: 65ch;
 }
 
+
 tt, code, kbd, samp {
     font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
+    background: var(--color-background-code);
+    border-radius: var(--borderRadius-small);
+    padding: 0.1em .5em;
+    font-size: 0.8em;
+    color: var(--color-text-invert);
+}
+
+pre {
+    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
+    background: var(--color-mono-90);
+    color: var(--color-mono-0);
+    display: block;
+    padding: 20px;
+    border-radius: var(--borderRadius);
+}
+
+pre code {
+    padding: 0;
+    background: none;
 }

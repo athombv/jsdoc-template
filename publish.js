@@ -92,14 +92,14 @@ function getSignatureAttributes({ optional, nullable }) {
 
 function updateItemName(item) {
   const attributes = getSignatureAttributes(item);
-  let itemName = item.name || '';
+  let itemName = `<span class="function__parameter">${item.name}</span>` || '';
 
   if (item.variable) {
     itemName = `&hellip;${itemName}`;
   }
 
   if (attributes && attributes.length) {
-    itemName = util.format('%s<span class="signature-attributes">%s</span>', itemName,
+    itemName = util.format('<span class="function__parameter">%s</span><span class="function__signature-attributes">%s</span>', itemName,
       attributes.join(', '));
   }
 
@@ -177,20 +177,20 @@ function addSignatureReturns(f) {
     returnTypesString = util.format(' &rarr; %s{%s}', attribsString, returnTypes.join('|'));
   }
 
-  f.signature = `<span class="signature">${f.signature || ''}</span><span class="type-signature">${returnTypesString}</span>`;
+  f.signature = `<span class="function__parameters">${f.signature || ''}</span><span class="function__type-signature">${returnTypesString}</span>`;
 }
 
 function addSignatureTypes(f) {
   const types = f.type ? buildItemTypeStrings(f) : [];
 
-  f.signature = `${f.signature || ''}<span class="type-signature">${types.length ? ` :${types.join('|')}` : ''}</span>`;
+  f.signature = `${f.signature || ''}<span class="function__type-signature">${types.length ? ` :${types.join('|')}` : ''}</span>`;
 }
 
 function addAttribs(f) {
   const attribs = helper.getAttribs(f);
   const attribsString = buildAttribsString(attribs);
 
-  f.attribs = util.format('<span class="type-signature">%s</span>', attribsString);
+  f.attribs = util.format('<span class="function__type-signature">%s</span>', attribsString);
 }
 
 function shortenPaths(files, commonPrefix) {
@@ -362,7 +362,17 @@ function buildNav(members, opts) {
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
-  nav += buildMemberNav(members.classes, 'Classes', seen, linkto);
+
+  /* Exception for SDK Docs*/
+  const managers = members.classes.filter(doclet => {
+    return doclet.meta.path.endsWith('manager');
+  });
+  nav += buildMemberNav(managers, 'Managers', seen, linkto);
+  const classes = members.classes.filter(doclet => {
+    return doclet.meta.path.endsWith('manager') === false;
+  });
+  /*(End exception for SDK Docs*/
+  nav += buildMemberNav(classes, 'Classes', seen, linkto);
   nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto);
   nav += buildMemberNav(members.events, 'Events', seen, linkto);
   nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto);
@@ -643,7 +653,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     }
 
     if (myClasses.length) {
-      generate(`Class: ${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname]);
+      generate(`<div class="text-preset-caption">Classes</div> ${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname]);
     }
 
     if (myNamespaces.length) {

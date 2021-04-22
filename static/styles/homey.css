@@ -11,21 +11,22 @@
 /* Objects */
 @import "5.objects/flex.css";
 @import "5.objects/display.css";
+@import "5.objects/text-preset.css";
 /* Components */
 @import "6.components/navigation.css";
 @import "6.components/nav-group.css";
 @import "6.components/component.css";
 @import "6.components/main.css";
 @import "6.components/method.css";
+@import "6.components/function.css";
+@import "6.components/params.css";
 /* Utilities */
 @import "7.utilities/trim.css";
 
 
 .class-description {
-    font-size: 130%;
-    line-height: 140%;
-    margin-bottom: 1em;
-    margin-top: 1em;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .class-description:empty {
@@ -42,13 +43,6 @@ article img {
 
 .variation {
     display: none;
-}
-
-.signature-attributes {
-    font-size: 60%;
-    color: #aaa;
-    font-style: italic;
-    font-weight: lighter;
 }
 
 .ancestors, .attribs { color: #999; }
@@ -73,12 +67,17 @@ article img {
     text-indent: -1000px;
 }
 
-.type-signature {
-    color: #aaa;
+.name {
+    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
 }
 
-.name, .signature {
-    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
+.name code{
+    color: var(--color-code-param);
+    background: var(--color-mono-02);
+}
+
+.param-type{
+    color: var(--color-code-param-type);
 }
 
 .details { margin-top: 14px; border-left: 2px solid #DDD; }
@@ -162,25 +161,12 @@ article img {
   user-select: text;
 }
 
-.params .name, .props .name, .name code {
-    color: #4D4E53;
-    font-family: 'Roboto Mono', Monaco, 'Andale Mono', monospace;
-    font-size: 100%;
-}
+/*.params .name, .props .name, .name code {*/
+/*    color: #4D4E53;*/
+/*    font-family: 'Roboto Mono', Monaco, 'Andale Mono', monospace;*/
+/*    font-size: 100%;*/
+/*}*/
 
-.params td.description > p:first-child,
-.props td.description > p:first-child
-{
-    margin-top: 0;
-    padding-top: 0;
-}
-
-.params td.description > p:last-child,
-.props td.description > p:last-child
-{
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
 
 .disabled {
     color: #454545;

@@ -45,6 +45,7 @@
     --color-background-component: var(--color-mono-0);
     --color-background-hover: var(--color-mono-02);
     --color-background-overlay: var(--color-mono-o-50);
+    --color-background-code: var(--color-mono-80);
 
     /* States */
     --color-danger: var(--color-red);

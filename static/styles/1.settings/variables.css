@@ -7,6 +7,7 @@
 
     /* Border Radius */
     --borderRadius: 10px;
+    --borderRadius-small: 5px;
 
     /* Font-weights*/
     --fontWeight-thin: 100;
@@ -29,4 +30,12 @@
 
     /* Curves */
     --curve-fastInNormalOut: cubic-bezier(.25,0,.5,1);
+
+    /* Font Families */
+    --fontFamily: 'Roboto', sans-serif;
+    --fontFamily-code: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
+
+    /* Font Sizes */
+    --fontSize-medium: 20px;
+    --fontSize-default: 15px;
 }

@@ -1,0 +1,19 @@
+/**
+ * Text Presets
+ */
+
+.text-preset-title {
+    font-size: 48px;
+    font-weight: var(--fontWeight-medium);
+}
+
+.text-preset-caption {
+    font-size: var(--fontSize-medium);
+    font-weight: var(--fontWeight-light);
+    color: var(--color-text-light);
+}
+
+.text-preset-intro {
+    font-size: var(--fontSize-medium);
+    line-height: 30px;
+}
