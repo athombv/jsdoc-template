@@ -20,12 +20,12 @@
         <?js } ?>
       </h2>
       <?js if (doc.classdesc) { ?>
-      <div class="class-description text-preset-intro"><?js= doc.classdesc ?></div>
+      <div class="class-description text-preset-intro trim"><?js= doc.classdesc ?></div>
       <?js } ?>
     <?js } else if (doc.kind === 'module' && doc.modules) { ?>
     <?js doc.modules.forEach(function(module) { ?>
     <?js if (module.classdesc) { ?>
-    <div class="class-description text-preset-intro"><?js= module.classdesc ?></div>
+    <div class="class-description text-preset-intro trim"><?js= module.classdesc ?></div>
     <?js } ?>
     <?js }) ?>
     <?js } ?>
@@ -202,11 +202,13 @@
     var events = self.find({ kind: 'event', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (events && events.length && events.forEach) {
     ?>
-    <h3 class="subsection-title">Events</h3>
+    <section id="section-events">
+      <h3 class="subsection-title">Events</h3>
 
-    <?js events.forEach(function(e) { ?>
-    <?js= self.partial('method.tmpl', e) ?>
-    <?js }); ?>
+      <?js events.forEach(function(e) { ?>
+      <?js= self.partial('method.tmpl', e) ?>
+      <?js }); ?>
+    </section>
     <?js } ?>
   </article>
 

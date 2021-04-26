@@ -1,7 +1,6 @@
 .toc {
     position: sticky;
-    top: 0;
-    padding: 10px 0;
+    top: 10px;
 }
 
 .toc__list .toc__list {

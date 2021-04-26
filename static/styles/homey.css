@@ -27,11 +27,6 @@
 @import "7.utilities/trim.css";
 
 
-.class-description {
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
 .class-description:empty {
     margin: 0;
 }
