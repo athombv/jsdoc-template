@@ -12,7 +12,7 @@ body {
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-body);
-    padding: 20px;
+    padding: var(--body-padding, 10px);
     font-weight: var(--fontWeight-regular);
 }
 
@@ -27,7 +27,6 @@ a:hover {
 
 header {
     display: block;
-    padding: 0px 4px;
 }
 
 nav ul {
@@ -37,4 +36,20 @@ nav ul {
 }
 
 nav ul a, nav ul a:visited, nav ul a:active {
+}
+
+figure {
+    margin: 0;
+}
+
+button {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    :root {
+        --body-padding: 20px;
+    }
 }

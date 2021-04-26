@@ -13,13 +13,15 @@
 @import "5.objects/display.css";
 @import "5.objects/text-preset.css";
 /* Components */
+@import "6.components/container.css";
 @import "6.components/navigation.css";
+@import "6.components/main.css";
 @import "6.components/nav-group.css";
 @import "6.components/component.css";
-@import "6.components/main.css";
 @import "6.components/method.css";
 @import "6.components/function.css";
 @import "6.components/params.css";
+@import "6.components/table-container.css";
 /* Utilities */
 @import "7.utilities/trim.css";
 

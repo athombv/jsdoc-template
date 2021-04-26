@@ -76,6 +76,8 @@ pre {
     display: block;
     padding: 20px;
     border-radius: var(--borderRadius);
+    overflow-x:  auto;
+    max-width: 100%;
 }
 
 pre code {

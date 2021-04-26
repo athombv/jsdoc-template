@@ -337,7 +337,7 @@ function linktoExternal(longName, name) {
 }
 
 /**
- * Create the navigation sidebar.
+ * Create the navigation sidebar
  * @param {object} members The members that will be used to create the sidebar.
  * @param {array<object>} members.classes
  * @param {array<object>} members.externals
@@ -355,11 +355,12 @@ function buildNav(members, opts) {
   let nav = `<header class="navigation__header">
                 <div class="navigation__logo"><img class="display-block" src="images/logo.png" width="40" alt="Homey"></div>
                 <h2 class="navigation__title"><a href="index.html">${opts.mainpagetitle}</a></h2>
+                <button data-navigation-toggle class="navigation__button" title="menu"></button>
              </header>`;
   const seen = {};
   const seenTutorials = {};
 
-  nav += `<div class="navigation__scroll">`;
+  nav += `<div data-navigation-target class="navigation__scroll">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
@@ -375,7 +376,7 @@ function buildNav(members, opts) {
   /*(End exception for SDK Docs*/
   nav += buildMemberNav(classes, 'Classes', seen, linkto);
   nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto);
-  nav += buildMemberNav(members.events, 'Events', seen, linkto);
+  // nav += buildMemberNav(members.events, 'Events', seen, linkto);
   nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto);
   nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
 

@@ -36,6 +36,24 @@
     --fontFamily-code: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
 
     /* Font Sizes */
-    --fontSize-medium: 20px;
+    --fontSize-xlarge: 24px;
+    --fontSize-medium: 17px;
     --fontSize-default: 15px;
+
+    /* Z-index */
+    --z-index-navigation: 100;
+}
+
+@media only screen and (min-width: 768px) {
+    :root{
+        --fontSize-xlarge: 36px;
+        --fontSize-medium: 21px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    :root{
+        --fontSize-xlarge: 48px;
+        --fontSize-medium: 21px;
+    }
 }

@@ -1,11 +1,17 @@
 .main {
-    flex: 1 1 auto;
-    margin-left: 40px;
     display: flex;
     justify-content: center;
+    padding: var(--main-padding, 10px);
 }
 
 .main__content {
     width: 100%;
     max-width: 900px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    :root{
+        --main-padding: 0;
+    }
 }

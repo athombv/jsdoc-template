@@ -1,9 +1,8 @@
 /**
  * Text Presets
  */
-
-.text-preset-title {
-    font-size: 48px;
+.text-preset-heading-1 {
+    font-size: var(--fontSize-xlarge);
     font-weight: var(--fontWeight-medium);
 }
 
