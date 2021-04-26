@@ -1,0 +1,54 @@
+<?js
+var self = this;
+var isGlobalPage;
+?>
+<nav class="toc">
+  <h2>Table of Contents</h2>
+  <ul class="toc__list">
+    <?js
+    var members = self.find({ kind: 'member', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
+    if (members && members.length && members.forEach) {
+    ?>
+    <li>
+      <a href="#section-members">Properties</a>
+    </li>
+    <ul>
+      <?js members.forEach(function(m) { ?>
+      <li>
+        <a href="#<?js= m.name ?>"><?js= m.name ?></a>
+      </li>
+      <?js }); ?>
+    </ul>
+    <?js } ?>
+    <?js
+    var methods = self.find({ kind: 'function', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
+    if (methods && methods.length && methods.forEach) {
+    ?>
+    <li>
+      <a href="#section-methods">Methods</a>
+    </li>
+    <ul>
+      <?js methods.forEach(function(m) { ?>
+      <li>
+        <a href="#<?js= m.name ?>"><?js= m.name ?></a>
+      </li>
+      <?js }); ?>
+    </ul>
+    <?js } ?>
+    <?js
+    var events = self.find({ kind: 'event', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
+    if (events && events.length && events.forEach) {
+    ?>
+    <li>
+      <a href="#section-events">Events</a>
+    </li>
+    <ul>
+      <?js events.forEach(function(e) { ?>
+      <li>
+        <a href="#event:<?js= e.name ?>"><?js= e.name ?></a>
+      </li>
+      <?js }); ?>
+    </ul>
+    <?js } ?>
+  </ul>
+</nav>

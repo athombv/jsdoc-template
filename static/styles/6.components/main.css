@@ -4,14 +4,25 @@
     padding: var(--main-padding, 10px);
 }
 
+.main__center {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
 .main__content {
+    flex: 1 1 auto;
     width: 100%;
     max-width: 900px;
 }
 
+.main__index {
+    width: 300px;
+}
+
 
 @media only screen and (min-width: 768px) {
-    :root{
+    :root {
         --main-padding: 0;
     }
 }
