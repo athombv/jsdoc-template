@@ -76,11 +76,17 @@ pre {
     display: block;
     padding: 20px;
     border-radius: var(--borderRadius);
-    overflow-x:  auto;
+    overflow-x: auto;
     max-width: 100%;
 }
 
 pre code {
     padding: 0;
     background: none;
+}
+
+
+dl dt {
+    clear: left;
+    float: left;
 }

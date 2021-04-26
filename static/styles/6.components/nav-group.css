@@ -6,6 +6,7 @@
     margin: 0;
     font-weight: var(--fontWeight-medium);
     font-size: 17px;
+    line-height: 32px;
     border-bottom: 1px solid var(--color-line);
     background: var(--color-component);
     position: sticky;
@@ -13,7 +14,7 @@
 }
 
 .nav-group__list {
-
+    margin-top: 10px;
 }
 
 .nav-group__item {
