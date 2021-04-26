@@ -1,4 +1,26 @@
 .toc {
     position: sticky;
     top: 0;
+    padding: 10px 0;
+}
+
+.toc__list .toc__list {
+    padding-left: 10px;
+    margin-left: 0.5ch;
+    border-left: 1px solid var(--color-line-medium);
+}
+
+.toc__link {
+    padding: 5px 0;
+    display: block;
+    font-weight: var(--fontWeight-medium);
+}
+
+.toc__list--lvl2 .toc__link {
+    color: var(--color-mono-60);
+    font-weight: var(--fontWeight-regular);
+}
+
+.toc__link:hover {
+    color: var(--color-text-light-hover);
 }

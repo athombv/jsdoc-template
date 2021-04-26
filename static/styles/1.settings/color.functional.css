@@ -25,6 +25,7 @@
     --color-line: var(--color-mono-10);
     --color-line-hover: var(--color-mono-30);
     --color-line-light: var(--color-mono-02);
+    --color-line-medium: var(--color-mono-05);
 
     /* Icons */
     --color-icon-light: var(--color-mono-15);

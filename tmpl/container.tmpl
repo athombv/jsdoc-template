@@ -32,17 +32,28 @@ docs.forEach(function(doc, i) {
     </div>
   </div>
   <?js } else { ?>
-  <div class="main__center">
-    <div class="main__content">
-      <h1 class="text-preset-heading-1">
-        <div class="text-preset-caption"><?js= caption ?></div>
-        <?js= title ?>
-      </h1>
-      <?js= self.partial('main.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
+  <div class="flex flex-direction-column flex-fill max-100">
+    <div class="flex">
+      <div class="main__center">
+        <div class="main__content">
+          <h1 class="text-preset-heading-1">
+            <div class="text-preset-caption"><?js= caption ?></div>
+            <?js= title ?>
+          </h1>
+        </div>
+      </div>
+      <div class="main__index"></div>
     </div>
-  </div>
-  <div class="main__index">
-    <?js= self.partial('toc.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
+    <div class="flex">
+      <div class="main__center">
+        <div class="main__content">
+          <?js= self.partial('main.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
+        </div>
+      </div>
+      <div class="main__index">
+        <?js= self.partial('toc.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
+      </div>
+    </div>
   </div>
   <?js } ?>
 

@@ -3,19 +3,21 @@ var self = this;
 var isGlobalPage;
 ?>
 <nav class="toc trim">
-  <h2>Table of Contents</h2>
+  <h4>Table of Contents</h4>
+
   <ul class="toc__list">
+    <li class="toc__item"><a class="toc__link" href="#">Introduction</a></li>
     <?js
     var members = self.find({ kind: 'member', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (members && members.length && members.forEach) {
     ?>
-    <li>
-      <a href="#section-members">Properties</a>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-members">Properties</a>
     </li>
-    <ul>
+    <ul class="toc__list toc__list--lvl2">
       <?js members.forEach(function(m) { ?>
-      <li>
-        <a href="#<?js= m.name ?>"><?js= m.name ?></a>
+      <li class="toc__item">
+        <a class="toc__link" href="#<?js= m.name ?>"><?js= m.name ?></a>
       </li>
       <?js }); ?>
     </ul>
@@ -24,13 +26,13 @@ var isGlobalPage;
     var methods = self.find({ kind: 'function', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (methods && methods.length && methods.forEach) {
     ?>
-    <li>
-      <a href="#section-methods">Methods</a>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-methods">Methods</a>
     </li>
-    <ul>
+    <ul class="toc__list toc__list--lvl2">
       <?js methods.forEach(function(m) { ?>
-      <li>
-        <a href="#<?js= m.name ?>"><?js= m.name ?></a>
+      <li class="toc__item">
+        <a class="toc__link" href="#<?js= m.name ?>"><?js= m.name ?></a>
       </li>
       <?js }); ?>
     </ul>
@@ -39,16 +41,17 @@ var isGlobalPage;
     var events = self.find({ kind: 'event', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (events && events.length && events.forEach) {
     ?>
-    <li>
-      <a href="#section-events">Events</a>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-events">Events</a>
     </li>
-    <ul>
+    <ul class="toc__list toc__list--lvl2">
       <?js events.forEach(function(e) { ?>
-      <li>
-        <a href="#event:<?js= e.name ?>"><?js= e.name ?></a>
+      <li class="toc__item">
+        <a class="toc__link" href="#event:<?js= e.name ?>"><?js= e.name ?></a>
       </li>
       <?js }); ?>
     </ul>
     <?js } ?>
   </ul>
+
 </nav>
