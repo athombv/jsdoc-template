@@ -13,7 +13,7 @@
 
     /* Active menu item */
     const url = window.location.toString();
-    const page = url.substring(url.lastIndexOf('/') + 1);
+    const page = url.substring(url.lastIndexOf('/') + 1).split('#')[0];
     const $activeMenuItem = document.querySelector(`[href="${page}.html"]`);
     $activeMenuItem.classList.add('is-active');
   });

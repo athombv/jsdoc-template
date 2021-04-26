@@ -213,7 +213,7 @@ function getPathFromDoclet({ meta }) {
     meta.filename;
 }
 
-function generate(title, docs, filename, resolveLinks) {
+function generate(title, docs, filename, resolveLinks, caption) {
   let docData;
   let html;
   let outpath;
@@ -222,6 +222,7 @@ function generate(title, docs, filename, resolveLinks) {
 
   docData = {
     env: env,
+    caption: caption,
     title: title,
     docs: docs
   };
@@ -656,7 +657,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     }
 
     if (myClasses.length) {
-      generate(`<div class="text-preset-caption">Classes</div> ${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname]);
+      generate(`${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname],false,'Class');
     }
 
     if (myNamespaces.length) {

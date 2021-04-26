@@ -1,5 +1,4 @@
 <section>
-
   <header>
     <?js if (!doc.longname || doc.kind !== 'module') { ?>
       <h2 class="display-none">
@@ -59,19 +58,21 @@
     </div>
 
     <?js if (doc.augments && doc.augments.length) { ?>
-    <h3 class="subsection-title">Extends</h3>
+    <section>
+      <h3 class="subsection-title">Extends</h3>
 
-    <?js= self.partial('augments.tmpl', doc) ?>
-    <?js } ?>
+      <?js= self.partial('augments.tmpl', doc) ?>
+      <?js } ?>
 
-    <?js if (doc.requires && doc.requires.length) { ?>
-    <h3 class="subsection-title">Requires</h3>
+      <?js if (doc.requires && doc.requires.length) { ?>
+      <h3 class="subsection-title">Requires</h3>
 
-    <ul>
-      <?js doc.requires.forEach(function(r) { ?>
-      <li><?js= self.linkto(r, r) ?></li>
-      <?js }); ?>
-    </ul>
+      <ul>
+        <?js doc.requires.forEach(function(r) { ?>
+        <li><?js= self.linkto(r, r) ?></li>
+        <?js }); ?>
+      </ul>
+    </section>
     <?js } ?>
 
     <?js
@@ -168,11 +169,13 @@
     var methods = self.find({ kind: 'function', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (methods && methods.length && methods.forEach) {
     ?>
-    <h3 class="subsection-title">Methods</h3>
+    <section id="section-methods">
+      <h3 class="subsection-title">Methods</h3>
 
-    <?js methods.forEach(function(m) { ?>
-    <?js= self.partial('method.tmpl', m) ?>
-    <?js }); ?>
+      <?js methods.forEach(function(m) { ?>
+      <?js= self.partial('method.tmpl', m) ?>
+      <?js }); ?>
+    </section>
     <?js } ?>
 
     <?js

@@ -51,7 +51,7 @@ function isContentNotEmpty(data) {
 }
 ?>
 
-<section class="method trim <?js= isModuleClass(data) ?>">
+<section id="<?js= id ?>" class="method trim <?js= isModuleClass(data) ?>">
   <?js if (data.kind !== 'module' && !data.hideconstructor) { ?>
   <?js if (data.kind === 'class' && data.classdesc) { ?>
   <h2>Constructor</h2>
@@ -59,8 +59,8 @@ function isContentNotEmpty(data) {
 
   <?js if (data.kind !== 'namespace') { ?>
   <h3 class="method__name"><?js= name ?></h3>
-  <h4 class="method__function function" id="<?js= id ?>"><?js= data.attribs + (kind === 'class' ? 'new ' : '') +
-    name + (data.signature || '') ?></h4>
+  <h4 class="method__function function"><?js= data.attribs + (kind === 'class' ? 'new ' : '') +
+    name + (data.signature || '') ?>"></h4>
   <?js } ?>
 
   <?js if (data.summary) { ?>
