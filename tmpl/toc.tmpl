@@ -22,35 +22,53 @@ var isGlobalPage;
       <?js }); ?>
     </ul>
     <?js } ?>
+
     <?js
     var methods = self.find({ kind: 'function', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (methods && methods.length && methods.forEach) {
     ?>
     <li class="toc__item">
       <a class="toc__link" href="#section-methods">Methods</a>
+      <ul class="toc__list toc__list--lvl2">
+        <?js methods.forEach(function(m) { ?>
+        <li class="toc__item">
+          <a class="toc__link" href="#<?js= m.name ?>"><?js= m.name ?></a>
+        </li>
+        <?js }); ?>
+      </ul>
     </li>
-    <ul class="toc__list toc__list--lvl2">
-      <?js methods.forEach(function(m) { ?>
-      <li class="toc__item">
-        <a class="toc__link" href="#<?js= m.name ?>"><?js= m.name ?></a>
-      </li>
-      <?js }); ?>
-    </ul>
     <?js } ?>
+
+    <?js
+    var typedefs = self.find({ kind: 'typedef', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
+    if (typedefs && typedefs.length && typedefs.forEach) {
+    ?>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-type-definitions">Type Definitions</a>
+      <ul class="toc__list toc__list--lvl2">
+        <?js typedefs.forEach(function(m) { ?>
+        <li class="toc__item">
+          <a class="toc__link" href="#<?js= m.id ?>"><?js= m.name ?></a>
+        </li>
+        <?js }); ?>
+      </ul>
+    </li>
+    <?js } ?>
+
     <?js
     var events = self.find({ kind: 'event', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (events && events.length && events.forEach) {
     ?>
     <li class="toc__item">
       <a class="toc__link" href="#section-events">Events</a>
+      <ul class="toc__list toc__list--lvl2">
+        <?js events.forEach(function(e) { ?>
+        <li class="toc__item">
+          <a class="toc__link" href="#event:<?js= e.name ?>"><?js= e.name ?></a>
+        </li>
+        <?js }); ?>
+      </ul>
     </li>
-    <ul class="toc__list toc__list--lvl2">
-      <?js events.forEach(function(e) { ?>
-      <li class="toc__item">
-        <a class="toc__link" href="#event:<?js= e.name ?>"><?js= e.name ?></a>
-      </li>
-      <?js }); ?>
-    </ul>
     <?js } ?>
   </ul>
 

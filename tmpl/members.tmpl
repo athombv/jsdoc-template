@@ -2,8 +2,8 @@
 var data = obj;
 var self = this;
 ?>
-<section class="method component">
-  <h3 class="method__name method__sticky" id="<?js= id ?>"><?js= data.attribs + name + (data.signature ? data.signature : '') ?></h3>
+<section id="<?js= id ?>" class="method component">
+  <h3 class="method__name method__sticky" ><?js= data.attribs + name + (data.signature ? data.signature : '') ?></h3>
 
   <?js if (data.summary) { ?>
   <p class="summary"><?js= summary ?></p>
