@@ -657,7 +657,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     }
 
     if (myClasses.length) {
-      generate(`${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname],false,'Class');
+      generate(`${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname],true,'Class');
     }
 
     if (myNamespaces.length) {
