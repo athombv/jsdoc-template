@@ -360,8 +360,9 @@ function buildNav(members, opts) {
              </header>`;
   const seen = {};
   const seenTutorials = {};
+  nav += `<div data-navigation-target>`
   nav += `<div class="navigation__search-wrapper"><input title="filter" placeholder="Filter..." data-navigation-search class="navigation__search" type="search"></div>`
-  nav += `<div data-navigation-target data-navigation-scroll class="navigation__scroll trim">`;
+  nav += `<div data-navigation-scroll class="navigation__scroll trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
@@ -398,6 +399,7 @@ function buildNav(members, opts) {
       nav += `<h3>Global</h3><ul>${globalNav}</ul>`;
     }
   }
+  nav += `</div>`;
   nav += `</div>`;
 
   return nav;

@@ -76,9 +76,13 @@
     flex: 1 1 auto;
     margin: 10px -10px 0;
     padding: 0 10px;
+}
+
+[data-navigation-target] {
     display: none;
 }
-.navigation__search-wrapper{
+
+.navigation__search-wrapper {
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -93,12 +97,12 @@
     border: 1px solid transparent;
 }
 
-.navigation__search:focus{
+.navigation__search:focus {
     background: var(--color-component);
 }
 
 @media only screen and (max-width: 768px) {
-    .is-navigation-active .navigation__scroll {
+    .is-navigation-active [data-navigation-target] {
         display: block;
     }
 }
@@ -113,9 +117,12 @@
         font-size: 21px;
     }
 
-    .navigation__scroll {
+    [data-navigation-target] {
         display: block;
-        margin: 20px -20px 0;
+    }
+
+    .navigation__scroll {
+        margin: 10px -20px 0;
         padding: 0 20px;
     }
 
