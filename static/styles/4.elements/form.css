@@ -1,16 +1,18 @@
 input {
     transition: all var(--duration-fast) var(--curve-fastInNormalOut);
+    color: var(--color-text);
 }
 
 input:hover {
     box-shadow: var(--input-boxShadow-hover);
     border-color: var(--input-border-hover);
-    background: var(--input-background);
+    background-color: var(--input-background);
 }
 
 input:focus {
     box-shadow: var(--input-boxShadow-focus);
     border-color: var(--input-border-focus);
+    background-color: var(--color-component);
     outline: none;
 }
 
@@ -20,5 +22,5 @@ input:invalid {
 }
 
 ::placeholder{
-    color: var(--color-text-light);
+    color: var(--color-mono-50);
 }
