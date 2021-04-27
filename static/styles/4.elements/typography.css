@@ -1,0 +1,94 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+footer {
+    display: block;
+    padding: 6px;
+    margin-top: 12px;
+    font-style: italic;
+    font-size: 90%;
+}
+
+h1, h2, h3, h4 {
+    font-weight: var(--fontWeight-regular);
+    margin: 0;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+h2, h3.subsection-title {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    margin-top: 80px;
+}
+
+h3 {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+h5, .container-overview .subsection-title {
+    font-size: 120%;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+    margin: 8px 0 3px 0;
+}
+
+h6 {
+    font-size: 100%;
+    letter-spacing: -0.01em;
+    margin: 6px 0 3px 0;
+    font-style: italic;
+}
+
+/* Max-width of 65ch which equals 65 characters, known to be a good length for improved readability*/
+p {
+    max-width: 65ch;
+}
+
+code, kbd, var, samp {
+    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.8em;
+}
+
+code:not(.example), kbd, var {
+    background: var(--color-background-code-inline);
+    border-radius: var(--borderRadius-small);
+    padding: 0.1em .5em;
+    color: var(--color-text);
+}
+
+pre {
+    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
+    background: var(--color-mono-90);
+    color: var(--color-mono-0);
+    display: block;
+    padding: 20px;
+    border-radius: var(--borderRadius);
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+pre code {
+    padding: 0;
+    background: none;
+}
+
+
+dl dt {
+    clear: left;
+    float: left;
+}

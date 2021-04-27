@@ -1,0 +1,111 @@
+/**
+ * Navigation
+ */
+.navigation {
+    max-height: calc(100vh - 20px);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 10px;
+    z-index: var(--z-index-navigation);
+}
+
+.navigation__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navigation__logo {
+    margin-right: 10px;
+}
+
+.navigation__button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.navigation__button::before,
+.navigation__button::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background: var(--color-icon-dark);
+    width: 24px;
+    left: 50%;
+    top: 50%;
+    transition: transform var(--duration-fast) var(--curve-fastInNormalOut);
+}
+
+.navigation__button::before{
+    transform: translate(-50%, -5px);
+}
+
+.navigation__button::after {
+    transform: translate(-50%, 5px);
+}
+
+.is-navigation-active .navigation__button::before{
+    transform: translate(-50%, 0) rotate(45deg);
+}
+
+.is-navigation-active .navigation__button::after{
+    transform: translate(-50%, 0) rotate(-45deg);
+}
+
+.navigation__logo img {
+    width: 30px;
+}
+
+.navigation__title {
+    font-size: 18px;
+    color: var(--color-text);
+    font-weight: var(--fontWeight-medium);
+    margin: 0;
+    flex: 1 1 auto;
+}
+
+.navigation__title a {
+    color: inherit;
+}
+
+.navigation__scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1 1 auto;
+    margin: 10px -10px 0;
+    padding: 0 10px;
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .is-navigation-active .navigation__scroll {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .navigation {
+        max-height: calc(100vh - 40px);
+        top: 20px;
+    }
+
+    .navigation__title {
+        font-size: 21px;
+    }
+
+    .navigation__scroll {
+        display: block;
+        margin: 20px -20px 0;
+        padding: 0 20px;
+    }
+
+    .navigation__logo img {
+        width: 40px;
+    }
+
+    .navigation__button {
+        display: none;
+    }
+}

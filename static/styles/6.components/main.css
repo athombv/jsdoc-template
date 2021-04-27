@@ -1,0 +1,41 @@
+.main {
+    display: flex;
+    justify-content: center;
+    padding: var(--main-padding, 10px);
+}
+
+.main__center {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+    max-width: 100%;
+}
+
+.main__content {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 900px;
+}
+
+.main__index {
+    display: none;
+    width: 300px;
+    margin-left: 20px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    :root {
+        --main-padding: 0;
+    }
+
+    .main__center {
+        margin-right: 20px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .main__index {
+        display: block;
+    }
+}

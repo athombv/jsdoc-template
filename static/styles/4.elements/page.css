@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow: auto;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+body {
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-body);
+    padding: var(--body-padding, 10px);
+    font-weight: var(--fontWeight-regular);
+}
+
+a, a:visited, a:active {
+    color: var(--color-text-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    display: block;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+nav ul a, nav ul a:visited, nav ul a:active {
+}
+
+figure {
+    margin: 0;
+}
+
+button {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+blockquote {
+    border: 1px solid var(--color-line);
+    border-left-width: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px 10px 10px 20px;
+}
+
+blockquote::before {
+    content: 'Note:';
+    display: block;
+    font-weight: var(--fontWeight-bold);
+}
+
+blockquote *:first-child {
+    margin-top: 0;
+}
+
+blockquote *:last-child {
+    margin-bottom: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    :root {
+        --body-padding: 20px;
+    }
+}
