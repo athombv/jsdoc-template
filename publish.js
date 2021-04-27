@@ -361,7 +361,7 @@ function buildNav(members, opts) {
   const seen = {};
   const seenTutorials = {};
 
-  nav += `<div data-navigation-target class="navigation__scroll">`;
+  nav += `<div data-navigation-target data-navigation-scroll class="navigation__scroll">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);

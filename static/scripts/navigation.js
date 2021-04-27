@@ -15,15 +15,30 @@
     const url = window.location.toString();
     const page = url.substring(url.lastIndexOf('/') + 1).split('#')[0];
     const $activeMenuItem = document.querySelector(`[href="${page}.html"]`);
-    $activeMenuItem.classList.add('is-active');
+    if ($activeMenuItem) {
+      $activeMenuItem.classList.add('is-active');
+    }
+
+    /* Save menu scroll position */
+    const $navigationScroll = document.querySelector(`[data-navigation-scroll]`);
+    if ($activeMenuItem) {
+      $navigationScroll.scrollTop = localStorage.getItem('navigationScroll');
+      // reset localstorage for scroll position
+      localStorage.removeItem('navigationScroll');
+    }
+
+    window.onbeforeunload = function () {
+      let position = $navigationScroll.scrollTop;
+      localStorage.setItem('navigationScroll', position);
+    }
   });
 
-  function navigationOnClickHandler(){
+  function navigationOnClickHandler() {
     navigationState = !navigationState;
 
-    if(navigationState){
+    if (navigationState) {
       $body.classList.add('is-navigation-active');
-    }else{
+    } else {
       $body.classList.remove('is-navigation-active');
     }
   }
