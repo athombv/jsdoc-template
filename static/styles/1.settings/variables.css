@@ -42,6 +42,8 @@
 
     /* Z-index */
     --z-index-navigation: 100;
+
+    /* Input */
 }
 
 @media only screen and (min-width: 768px) {

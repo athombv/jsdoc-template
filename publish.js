@@ -308,14 +308,14 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
       let displayName;
 
       if (!hasOwnProp.call(item, 'longname')) {
-        itemsNav += `<li class="nav-group__item">${linktoFn('', item.name)}</li>`;
+        itemsNav += `<li data-search-key="${item.name.toLowerCase()}" class="nav-group__item">${linktoFn('', item.name)}</li>`;
       } else if (!hasOwnProp.call(itemsSeen, item.longname)) {
         if (env.conf.templates.default.useLongnameInNav) {
           displayName = item.longname;
         } else {
           displayName = item.name;
         }
-        itemsNav += `<li class="nav-group__item">${linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''))}</li>`;
+        itemsNav += `<li data-search-key="${item.longname.toLowerCase()}" class="nav-group__item">${linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''))}</li>`;
 
         itemsSeen[item.longname] = true;
       }
@@ -360,8 +360,8 @@ function buildNav(members, opts) {
              </header>`;
   const seen = {};
   const seenTutorials = {};
-
-  nav += `<div data-navigation-target data-navigation-scroll class="navigation__scroll">`;
+  nav += `<div class="navigation__search-wrapper"><input title="filter" placeholder="Filter..." data-navigation-search class="navigation__search" type="search"></div>`
+  nav += `<div data-navigation-target data-navigation-scroll class="navigation__scroll trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);

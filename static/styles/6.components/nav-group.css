@@ -21,6 +21,11 @@
     margin: 0;
 }
 
+/* when navigation search, only show matched items */
+.is-navigation-search .nav-group__item:not(.is-match){
+    display: none;
+}
+
 .nav-group__item a {
     color: var(--color-text);
     display: block;

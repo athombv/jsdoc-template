@@ -29,6 +29,11 @@
       let position = $navigationScroll.scrollTop;
       localStorage.setItem('navigationScroll', position);
     }
+
+    /* Navigation Search */
+    const $navigationSearch = document.querySelector(`[data-navigation-search]`);
+    $navigationSearch.addEventListener('keyup', searchOnKeyUpHandler);
+
   });
 
   function navigationOnClickHandler() {
@@ -39,6 +44,31 @@
     } else {
       $body.classList.remove('is-navigation-active');
     }
+  }
+
+  function searchOnKeyUpHandler(event){
+    const val = event.target.value;
+
+    // reset matches
+    const allMenuItems = document.querySelectorAll(`[data-search-key]`);
+    allMenuItems.forEach((item)=>{
+      item.classList.remove('is-match');
+    });
+
+    // if no value stop
+    if(!val){
+      $body.classList.remove('is-navigation-search');
+      return;
+    }
+
+    // show match
+    $body.classList.add('is-navigation-search');
+
+    const matches = document.querySelectorAll(`[data-search-key*=${val.toLowerCase()}]`);
+    matches.forEach((match)=>{
+      match.classList.add('is-match');
+    });
+    
   }
 
 })();

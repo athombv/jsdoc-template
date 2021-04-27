@@ -1,0 +1,24 @@
+input {
+    transition: all var(--duration-fast) var(--curve-fastInNormalOut);
+}
+
+input:hover {
+    box-shadow: var(--input-boxShadow-hover);
+    border-color: var(--input-border-hover);
+    background: var(--input-background);
+}
+
+input:focus {
+    box-shadow: var(--input-boxShadow-focus);
+    border-color: var(--input-border-focus);
+    outline: none;
+}
+
+input:invalid {
+    box-shadow: var(--input-boxShadow-error);
+    border-color: var(--input-border-error);
+}
+
+::placeholder{
+    color: var(--color-text-light);
+}
