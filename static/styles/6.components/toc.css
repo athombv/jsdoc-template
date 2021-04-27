@@ -25,7 +25,3 @@
     color: var(--color-mono-50);
     font-weight: var(--fontWeight-regular);
 }
-
-.toc__link:hover {
-    color: var(--color-text-light-hover);
-}
