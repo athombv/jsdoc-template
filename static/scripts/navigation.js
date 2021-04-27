@@ -1,6 +1,7 @@
 (function () {
   "use strict";
   let navigationState = false;
+  let navigationSearchTerm = false;
   let $navigationButton;
   let $body;
 
@@ -25,17 +26,32 @@
     // reset localstorage for scroll position
     localStorage.removeItem('navigationScroll');
 
-    window.onbeforeunload = function () {
-      let position = $navigationScroll.scrollTop;
-      localStorage.setItem('navigationScroll', position);
-    }
-
     /* Navigation Search */
     const $navigationSearch = document.querySelector(`[data-navigation-search]`);
     $navigationSearch.addEventListener('keyup', searchOnKeyUpHandler);
+    // reactivate filter after opening new page
+    navigationSearchTerm = localStorage.getItem('navigationSearch');
+    if(navigationSearchTerm){
+      $navigationSearch.value = navigationSearchTerm;
+      filterKeyword();
+    }
+    // remove local storage for navigation search
+    localStorage.removeItem('navigationSearch');
 
+    /* Save data over multiple pages */
+    window.onbeforeunload = function () {
+      // Save scroll position in navigation
+      let position = $navigationScroll.scrollTop;
+      localStorage.setItem('navigationScroll', position);
+      // Save current search term for navigation
+      localStorage.setItem('navigationSearch', navigationSearchTerm);
+    }
   });
 
+  /**
+   * Navigation OnClick Handler
+   * @description Toggles the mobile menu
+   */
   function navigationOnClickHandler() {
     navigationState = !navigationState;
 
@@ -46,9 +62,17 @@
     }
   }
 
+  /**
+   * Search on Key Up Handler
+   * @description gets triggered when someone is using the filter in the navigation
+   * @param event
+   */
   function searchOnKeyUpHandler(event){
-    const val = event.target.value;
+    navigationSearchTerm = event.target.value;
+    filterKeyword();
+  }
 
+  function filterKeyword(){
     // reset matches
     const allMenuItems = document.querySelectorAll(`[data-search-key]`);
     allMenuItems.forEach((item)=>{
@@ -56,19 +80,19 @@
     });
 
     // if no value stop
-    if(!val){
+    if(!navigationSearchTerm){
       $body.classList.remove('is-navigation-search');
+      localStorage.removeItem('navigationSearch');
       return;
     }
 
     // show match
     $body.classList.add('is-navigation-search');
 
-    const matches = document.querySelectorAll(`[data-search-key*=${val.toLowerCase()}]`);
+    const matches = document.querySelectorAll(`[data-search-key*=${navigationSearchTerm.toLowerCase()}]`);
     matches.forEach((match)=>{
       match.classList.add('is-match');
     });
-    
   }
 
 })();
