@@ -13,14 +13,14 @@ var isGlobalPage;
     ?>
     <li class="toc__item">
       <a class="toc__link" href="#section-members">Properties</a>
+      <ul class="toc__list toc__list--lvl2">
+        <?js members.forEach(function(m) { ?>
+        <li class="toc__item">
+          <a class="toc__link" href="#<?js= m.name ?>"><?js= m.name ?></a>
+        </li>
+        <?js }); ?>
+      </ul>
     </li>
-    <ul class="toc__list toc__list--lvl2">
-      <?js members.forEach(function(m) { ?>
-      <li class="toc__item">
-        <a class="toc__link" href="#<?js= m.name ?>"><?js= m.name ?></a>
-      </li>
-      <?js }); ?>
-    </ul>
     <?js } ?>
 
     <?js

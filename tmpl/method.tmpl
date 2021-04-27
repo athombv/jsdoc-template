@@ -59,8 +59,8 @@ function isContentNotEmpty(data) {
 
   <?js if (data.kind !== 'namespace') { ?>
   <h3 class="method__name"><?js= name ?></h3>
-  <h4 class="method__function function">.on('<?js= data.attribs + (kind === 'class' ? 'new ' : '') +
-    name + (data.signature || '') ?>')</h4>
+  <h4 class="method__function function"><?js= data.attribs + (kind === 'class' ? 'new ' : '') +
+    name + (data.signature || '') ?></h4>
   <?js } ?>
 
   <?js if (data.summary) { ?>
