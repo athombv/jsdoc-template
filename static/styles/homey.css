@@ -12,6 +12,7 @@
 @import "5.objects/flex.css";
 @import "5.objects/display.css";
 @import "5.objects/text-preset.css";
+@import "5.objects/font-weight.css";
 /* Components */
 @import "6.components/container.css";
 @import "6.components/navigation.css";
