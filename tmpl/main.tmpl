@@ -158,11 +158,13 @@
     }
     if (members && members.length && members.forEach) {
     ?>
-    <h3 class="subsection-title">Properties</h3>
+    <section id="section-members">
+      <h3 class="subsection-title">Properties</h3>
 
-    <?js members.forEach(function(p) { ?>
-    <?js= self.partial('members.tmpl', p) ?>
-    <?js }); ?>
+      <?js members.forEach(function(p) { ?>
+      <?js= self.partial('members.tmpl', p) ?>
+      <?js }); ?>
+    </section>
     <?js } ?>
 
     <?js
