@@ -21,11 +21,9 @@
 
     /* Save menu scroll position */
     const $navigationScroll = document.querySelector(`[data-navigation-scroll]`);
-    if ($activeMenuItem) {
-      $navigationScroll.scrollTop = localStorage.getItem('navigationScroll');
-      // reset localstorage for scroll position
-      localStorage.removeItem('navigationScroll');
-    }
+    $navigationScroll.scrollTop = localStorage.getItem('navigationScroll');
+    // reset localstorage for scroll position
+    localStorage.removeItem('navigationScroll');
 
     window.onbeforeunload = function () {
       let position = $navigationScroll.scrollTop;
