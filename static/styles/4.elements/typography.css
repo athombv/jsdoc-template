@@ -59,14 +59,16 @@ p {
     max-width: 65ch;
 }
 
-
-tt, code, kbd, samp {
+code, kbd, var, samp {
     font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
-    background: var(--color-background-code);
+    font-size: 0.8em;
+}
+
+code:not(.example), kbd, var {
+    background: var(--color-background-code-inline);
     border-radius: var(--borderRadius-small);
     padding: 0.1em .5em;
-    font-size: 0.8em;
-    color: var(--color-text-invert);
+    color: var(--color-text);
 }
 
 pre {
