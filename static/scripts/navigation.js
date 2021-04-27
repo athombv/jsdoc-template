@@ -89,7 +89,7 @@
     // show match
     $body.classList.add('is-navigation-search');
 
-    const matches = document.querySelectorAll(`[data-search-key*=${navigationSearchTerm.toLowerCase()}]`);
+    const matches = document.querySelectorAll(`[data-search-key*="${navigationSearchTerm.toLowerCase()}"]`);
     matches.forEach((match)=>{
       match.classList.add('is-match');
     });
