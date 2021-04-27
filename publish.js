@@ -360,7 +360,7 @@ function buildNav(members, opts) {
              </header>`;
   const seen = {};
   const seenTutorials = {};
-  nav += `<div data-navigation-target>`
+  nav += `<div class="navigation__content" data-navigation-target>`
   nav += `<div class="navigation__search-wrapper"><input title="filter" placeholder="Filter..." data-navigation-search class="navigation__search" type="search"></div>`
   nav += `<div data-navigation-scroll class="navigation__scroll trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);

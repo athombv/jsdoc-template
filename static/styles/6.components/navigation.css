@@ -24,6 +24,7 @@
     position: relative;
     width: 40px;
     height: 40px;
+    margin: -5px;
 }
 
 .navigation__button::before,
@@ -70,16 +71,19 @@
     color: inherit;
 }
 
+.navigation__content{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 120px);
+}
+
 .navigation__scroll {
     overflow-y: auto;
     overflow-x: hidden;
     flex: 1 1 auto;
-    margin: 10px -10px 0;
+    margin: 0 -10px;
     padding: 0 10px;
-}
-
-[data-navigation-target] {
-    display: none;
 }
 
 .navigation__search-wrapper {
@@ -102,8 +106,12 @@
 }
 
 @media only screen and (max-width: 768px) {
+    [data-navigation-target] {
+        display: none;
+    }
+
     .is-navigation-active [data-navigation-target] {
-        display: block;
+        display: flex;
     }
 }
 
@@ -115,10 +123,6 @@
 
     .navigation__title {
         font-size: 21px;
-    }
-
-    [data-navigation-target] {
-        display: block;
     }
 
     .navigation__scroll {
