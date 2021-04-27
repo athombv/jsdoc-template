@@ -60,20 +60,20 @@ p {
 }
 
 code, kbd, var, samp {
-    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
+    font-family: var(--fontFamily-code);
     font-size: 0.8em;
 }
 
-code:not(.example), kbd, var {
-    background: var(--color-background-code-inline);
+:not(pre) > code, kbd, var {
+    background: var(--color-background-code);
     border-radius: var(--borderRadius-small);
     padding: 0.1em .5em;
     color: var(--color-text);
 }
 
 pre {
-    font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', monospace;
-    background: var(--color-mono-90);
+    font-family: var(--fontFamily-code);
+    background: var(--color-background-pre);
     color: var(--color-mono-0);
     display: block;
     padding: 20px;
