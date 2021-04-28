@@ -48,7 +48,7 @@
 
     // reactivate filter after opening new page
     navigationSearchTerm = localStorage.getItem('navigationSearch');
-    if(navigationSearchTerm){
+    if (navigationSearchTerm) {
       $navigationSearch.value = navigationSearchTerm;
       filterKeyword();
     }
@@ -64,7 +64,9 @@
       let position = $navigationScroll.scrollTop;
       localStorage.setItem('navigationScroll', position);
       // Save current search term for navigation
-      localStorage.setItem('navigationSearch', navigationSearchTerm);
+      if (navigationSearchTerm) {
+        localStorage.setItem('navigationSearch', navigationSearchTerm);
+      }
     }
   });
 
@@ -87,7 +89,7 @@
    * @description gets triggered when someone is using the filter in the navigation
    * @param event
    */
-  function searchOnKeyUpHandler(event){
+  function searchOnKeyUpHandler(event) {
     navigationSearchTerm = event.target.value;
     filterKeyword();
   }
@@ -96,7 +98,7 @@
    * Search Reset OnClick Handler
    * @description resets navigation filter input value
    */
-  function searchResetOnClickHandler(){
+  function searchResetOnClickHandler() {
     navigationSearchTerm = false;
     $navigationSearch.value = '';
     filterKeyword();
@@ -105,15 +107,15 @@
   /**
    * Filter Keyword for navigation
    */
-  function filterKeyword(){
+  function filterKeyword() {
     // reset matches
     const allMenuItems = document.querySelectorAll(`[data-search-key]`);
-    allMenuItems.forEach((item)=>{
+    allMenuItems.forEach((item) => {
       item.classList.remove('is-match');
     });
 
     // if no value stop
-    if(!navigationSearchTerm){
+    if (!navigationSearchTerm) {
       $body.classList.remove('is-navigation-search');
       localStorage.removeItem('navigationSearch');
       return;
@@ -123,7 +125,7 @@
     $body.classList.add('is-navigation-search');
 
     const matches = document.querySelectorAll(`[data-search-key*="${navigationSearchTerm.toLowerCase()}"]`);
-    matches.forEach((match)=>{
+    matches.forEach((match) => {
       match.classList.add('is-match');
     });
   }
