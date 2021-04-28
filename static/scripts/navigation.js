@@ -3,42 +3,62 @@
   let navigationState = false;
   let navigationSearchTerm = false;
   let $navigationButton;
+  let $navigationSearch;
+  let $navigationSearchReset;
   let $body;
 
   documentReady(function () {
     $body = document.querySelector(`body`);
 
-    /* Toggle mobile menu */
+    /**
+     * Toggle mobile menu
+     */
     $navigationButton = document.querySelector(`[data-navigation-toggle]`);
-    $navigationButton.addEventListener("click", navigationOnClickHandler);
+    $navigationButton.addEventListener('click', navigationOnClickHandler);
 
-    /* Active menu item */
+    /**
+     * Active menu item
+     */
     const url = window.location.toString();
     const page = url.substring(url.lastIndexOf('/') + 1).split('#')[0];
     const $activeMenuItem = document.querySelector(`[href="${page}.html"]`);
+
     if ($activeMenuItem) {
       $activeMenuItem.classList.add('is-active');
     }
 
-    /* Save menu scroll position */
+    /**
+     *  Save menu scroll position
+     */
     const $navigationScroll = document.querySelector(`[data-navigation-scroll]`);
+
     $navigationScroll.scrollTop = localStorage.getItem('navigationScroll');
+
     // reset localstorage for scroll position
     localStorage.removeItem('navigationScroll');
 
-    /* Navigation Search */
-    const $navigationSearch = document.querySelector(`[data-navigation-search]`);
+    /**
+     * Navigation Search
+     */
+    $navigationSearch = document.querySelector(`[data-navigation-search]`);
+    $navigationSearchReset = document.querySelector(`[data-navigation-search-reset]`);
+
     $navigationSearch.addEventListener('keyup', searchOnKeyUpHandler);
+    $navigationSearchReset.addEventListener('click', searchResetOnClickHandler);
+
     // reactivate filter after opening new page
     navigationSearchTerm = localStorage.getItem('navigationSearch');
     if(navigationSearchTerm){
       $navigationSearch.value = navigationSearchTerm;
       filterKeyword();
     }
+
     // remove local storage for navigation search
     localStorage.removeItem('navigationSearch');
 
-    /* Save data over multiple pages */
+    /**
+     * Save data over multiple pages
+     */
     window.onbeforeunload = function () {
       // Save scroll position in navigation
       let position = $navigationScroll.scrollTop;
@@ -63,7 +83,7 @@
   }
 
   /**
-   * Search on Key Up Handler
+   * Search onKeyUp Handler
    * @description gets triggered when someone is using the filter in the navigation
    * @param event
    */
@@ -72,6 +92,19 @@
     filterKeyword();
   }
 
+  /**
+   * Search Reset OnClick Handler
+   * @description resets navigation filter input value
+   */
+  function searchResetOnClickHandler(){
+    navigationSearchTerm = false;
+    $navigationSearch.value = '';
+    filterKeyword();
+  }
+
+  /**
+   * Filter Keyword for navigation
+   */
   function filterKeyword(){
     // reset matches
     const allMenuItems = document.querySelectorAll(`[data-search-key]`);

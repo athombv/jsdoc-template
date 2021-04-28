@@ -34,6 +34,7 @@
     --color-icon-medium: var(--color-mono-30);
     --color-icon-medium-hover: var(--color-mono-40);
     --color-icon-dark: var(--color-mono-80);
+    --color-icon-dark-hover: var(--color-mono-90);
     --color-icon-body-light: var(--color-mono-20);
 
     /* Main */

@@ -26,6 +26,7 @@
 @import "6.components/params.css";
 @import "6.components/table-container.css";
 @import "6.components/toc.css";
+@import "6.components/search.css";
 /* Utilities */
 @import "7.utilities/trim.css";
 

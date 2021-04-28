@@ -360,8 +360,11 @@ function buildNav(members, opts) {
              </header>`;
   const seen = {};
   const seenTutorials = {};
-  nav += `<div class="navigation__content" data-navigation-target>`
-  nav += `<div class="navigation__search-wrapper"><input title="filter" placeholder="Filter..." data-navigation-search class="navigation__search" type="search"></div>`
+  nav += `<div class="navigation__content" data-navigation-target>`;
+  nav += `<div class="navigation__search search">
+            <input title="filter" placeholder="Filter..." data-navigation-search class="search__input" type="search">
+            <button data-navigation-search-reset class="search__reset" type="button" title="Reset"></button>
+           </div>`;
   nav += `<div data-navigation-scroll class="navigation__scroll trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
