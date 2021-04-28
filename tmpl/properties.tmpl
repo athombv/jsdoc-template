@@ -41,6 +41,7 @@ props.forEach(function (prop) {
   }
 });
 ?>
+<?js if(typeof sub === "undefined"){ ?>
 <figure class="table-container">
   <table class="props">
     <thead>
@@ -64,6 +65,7 @@ props.forEach(function (prop) {
     </thead>
 
     <tbody>
+    <?js } ?>
     <?js
     var self = this;
     props.forEach(function(prop) {
@@ -103,14 +105,14 @@ props.forEach(function (prop) {
       </td>
       <?js } ?>
 
-      <td class="description trim last"><?js= prop.description ?>
-        <?js if (prop.subprops) { ?>
-        <h6>Properties</h6><?js= self.partial('properties.tmpl', prop) ?>
-        <?js } ?>
-      </td>
+      <td class="description trim last"><?js= prop.description ?></td>
     </tr>
-
+    <?js if (prop.subprops) { ?>
+    <?js= self.partial('properties.tmpl', { prop: prop, sub: sub ? sub++ : 1 }) ?>
+    <?js } ?>
     <?js }); ?>
+    <?js if(typeof sub === "undefined"){ ?>
     </tbody>
   </table>
 </figure>
+<?js } ?>
