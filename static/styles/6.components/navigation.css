@@ -2,7 +2,6 @@
  * Navigation
  */
 .navigation {
-    height: 100vh;
     max-height: calc(100vh - 20px);
     display: flex;
     flex-direction: column;
@@ -104,6 +103,7 @@
 
 @media only screen and (min-width: 768px) {
     .navigation {
+        height: 100vh;
         max-height: calc(100vh - 40px);
         top: 20px;
     }
