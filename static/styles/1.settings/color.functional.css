@@ -45,6 +45,7 @@
     --color-background-body: var(--color-ice-white);
     --color-background-component: var(--color-mono-0);
     --color-background-hover: var(--color-mono-02);
+    --color-background-active: var(--color-mono-05);
     --color-background-overlay: var(--color-mono-o-50);
     --color-background-pre: var(--color-mono-90);
     --color-background-code: var(--color-mono-10);

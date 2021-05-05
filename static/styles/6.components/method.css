@@ -5,7 +5,7 @@
     margin: 40px 0;
 }
 
-.method code {
+.method :not(pre) > code {
     background-color: var(--color-background-code-method);
 }
 
