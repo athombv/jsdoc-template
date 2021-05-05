@@ -88,6 +88,8 @@ pre {
     border-radius: var(--borderRadius);
     overflow-x: auto;
     max-width: 100%;
+    border: 1px solid var(--color-line);
+    margin-top: 5px;
 }
 
 pre code {

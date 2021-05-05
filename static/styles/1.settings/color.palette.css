@@ -64,8 +64,8 @@
     --color-yellow: rgba(247, 181, 0, 1.00);
 
     /* Code Palette*/
-    --color-code-orange: rgb(202, 121, 0);
+    --color-code-orange: #c18401;
     --color-code-param: var(--color-code-orange);
-    --color-code-green: rgb(74, 110, 0);
+    --color-code-green: #50a14f;
     --color-code-param-type: var(--color-code-green);
 }

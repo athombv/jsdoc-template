@@ -127,9 +127,10 @@ article img {
 }
 
 .code-caption {
-    font-style: italic;
-    font-size: 107%;
+    font-family: var(--fontFamily-code);
+    font-size: 14px;
     margin: 0;
+    font-weight: var(--fontWeight-medium);
 }
 
 .source {
