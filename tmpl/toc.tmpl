@@ -23,6 +23,12 @@ var isGlobalPage;
     </li>
     <?js } ?>
 
+    <?js if (doc.augments && doc.augments.length) { ?>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-extends">Extends</a>
+    </li>
+    <?js } ?>
+
     <?js
     var methods = self.find({ kind: 'function', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (methods && methods.length && methods.forEach) {

@@ -25,19 +25,23 @@ h2, h3.subsection-title {
     font-size: 30px;
     font-weight: 700;
     letter-spacing: -1px;
-    margin-bottom: 12px;
+    margin-bottom: 30px;
     margin-top: 80px;
+    transform: translateY(12px); /* manual baseline alignment */
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 21px;
+    line-height: 1.5;
     letter-spacing: -0.5px;
-    margin-bottom: 12px;
+    margin-bottom: 30px;
+    font-weight: var(--fontWeight-medium);
 }
 
 h4 {
-    font-size: 18px;
-    margin-bottom: 12px;
+    font-size: 17px;
+    font-weight: var(--fontWeight-bold);
+    margin-bottom: 10px;
 }
 
 h5, .container-overview .subsection-title {

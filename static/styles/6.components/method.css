@@ -17,6 +17,7 @@
     background: var(--color-background-component);
     z-index: 10;
     padding: 10px 0;
+    display: block;
     border-top-left-radius: var(--borderRadius);
     border-top-right-radius: var(--borderRadius);
 }
