@@ -55,7 +55,7 @@
 
 @media only screen and (min-width: 1280px) {
     :root{
-        --fontSize-xlarge: 30px;
+        --fontSize-xlarge: 32px;
         --fontSize-medium: 20px;
     }
 }
