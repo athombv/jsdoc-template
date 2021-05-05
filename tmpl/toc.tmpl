@@ -7,6 +7,11 @@ var isGlobalPage;
 
   <ul class="toc__list">
     <li class="toc__item"><a class="toc__link" href="#introduction">Introduction</a></li>
+
+    <?js if (self.find({kind:'class'}) && doc.classdesc && !doc.hideconstructor) { ?>
+    <li class="toc__item"><a class="toc__link" href="#section-constructor">Constructor</a></li>
+    <?js } ?>
+
     <?js
     var members = self.find({ kind: 'member', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (members && members.length && members.forEach) {

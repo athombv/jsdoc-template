@@ -26,15 +26,20 @@ h2, h3.subsection-title {
     font-weight: 700;
     letter-spacing: -0.5px;
     margin-bottom: 30px;
-    margin-top: 60px;
+    margin-top: 45px;
 }
 
 h3 {
     font-size: 21px;
+    font-weight: var(--fontWeight-medium);
     line-height: 1.5;
     letter-spacing: -0.5px;
-    margin-bottom: 30px;
-    font-weight: var(--fontWeight-medium);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+h3 + p {
+    margin-top: 10px;
 }
 
 h4 {
@@ -60,6 +65,7 @@ h6 {
 /* Max-width of 65ch which equals 65 characters, known to be a good length for improved readability*/
 p {
     max-width: 65ch;
+    margin: 1.5em 0;
 }
 
 code, kbd, var, samp {
