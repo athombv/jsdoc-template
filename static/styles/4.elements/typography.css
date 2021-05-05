@@ -91,6 +91,9 @@ pre code {
     background: none;
 }
 
+dl {
+    margin: 10px 0;
+}
 
 dl dt {
     clear: left;
