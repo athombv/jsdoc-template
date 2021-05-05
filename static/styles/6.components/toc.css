@@ -3,13 +3,17 @@
     top: 20px;
 }
 
+.toc__title {
+    margin-bottom: 15px;
+}
+
 .toc__list .toc__list {
     padding-left: 10px;
     margin-left: 0.5ch;
     border-left: 1px solid var(--color-line-medium);
 }
 
-.toc > .toc__list > .toc__item{
+.toc > .toc__list > .toc__item {
     margin-bottom: 10px;
 }
 

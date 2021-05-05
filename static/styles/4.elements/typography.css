@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 footer {
@@ -18,11 +18,11 @@ h1, h2, h3, h4 {
 
 h1 {
     font-size: var(--fontSize-xlarge);
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 h2, h3.subsection-title {
-    font-size: 27px;
+    font-size: 24px;
     font-weight: 700;
     letter-spacing: -0.5px;
     margin-bottom: 30px;
@@ -30,7 +30,7 @@ h2, h3.subsection-title {
 }
 
 h3 {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: var(--fontWeight-medium);
     line-height: 1.5;
     letter-spacing: -0.5px;
@@ -43,7 +43,7 @@ h3 + p {
 }
 
 h4 {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: var(--fontWeight-bold);
     margin-bottom: 10px;
 }

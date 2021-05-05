@@ -37,21 +37,21 @@ docs.forEach(function(doc, i) {
       <div class="main__center">
         <div class="main__content align-baseline">
           <h1 id="introduction"  class="text-preset-heading-1">
-            <div class="text-preset-caption"><?js= caption ?></div>
+<!--            <div class="text-preset-caption"><?js= caption ?></div>-->
             <?js= title ?>
           </h1>
         </div>
+        <div class="main__index"></div>
       </div>
-      <div class="main__index"></div>
     </div>
     <div class="flex">
       <div class="main__center">
         <div class="main__content align-baseline">
           <?js= self.partial('main.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
         </div>
-      </div>
-      <div class="main__index">
-        <?js= self.partial('toc.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
+        <div class="main__index">
+          <?js= self.partial('toc.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
+        </div>
       </div>
     </div>
   </div>
