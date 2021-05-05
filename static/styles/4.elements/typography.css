@@ -17,17 +17,16 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: 48px;
-    margin-bottom: 40px;
+    font-size: var(--fontSize-xlarge);
+    margin-bottom: 30px;
 }
 
 h2, h3.subsection-title {
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 700;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
     margin-bottom: 30px;
-    margin-top: 80px;
-    transform: translateY(12px); /* manual baseline alignment */
+    margin-top: 60px;
 }
 
 h3 {
