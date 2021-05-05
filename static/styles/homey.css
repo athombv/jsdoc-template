@@ -28,17 +28,13 @@
 @import "6.components/table-container.css";
 @import "6.components/toc.css";
 @import "6.components/search.css";
+@import "6.components/main-page.css";
 /* Utilities */
 @import "7.utilities/trim.css";
 
 
 .class-description:empty {
     margin: 0;
-}
-
-.class-description:not(:empty) {
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--color-line);
 }
 
 article dl {

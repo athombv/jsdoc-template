@@ -21,12 +21,11 @@ h1 {
     margin-bottom: 0;
 }
 
-h2, h3.subsection-title {
+h2 {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: -0.5px;
     margin-bottom: 30px;
-    margin-top: 45px;
 }
 
 h3 {

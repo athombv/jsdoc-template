@@ -49,13 +49,13 @@
 @media only screen and (min-width: 768px) {
     :root{
         --fontSize-xlarge: 30px;
-        --fontSize-medium: 19px;
+        --fontSize-medium: 20px;
     }
 }
 
 @media only screen and (min-width: 1280px) {
     :root{
         --fontSize-xlarge: 30px;
-        --fontSize-medium: 19px;
+        --fontSize-medium: 20px;
     }
 }

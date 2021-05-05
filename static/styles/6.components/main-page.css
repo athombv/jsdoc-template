@@ -1,0 +1,8 @@
+.main-page {
+    padding: 40px;
+}
+
+.main-page__content > p:first-child {
+    margin-top: 0;
+    font-size: 20px;
+}
