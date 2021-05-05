@@ -18,6 +18,7 @@ h1, h2, h3, h4 {
 
 h1 {
     font-size: var(--fontSize-xlarge);
+    font-weight: var(--fontWeight-medium);
     margin-bottom: 0;
 }
 
