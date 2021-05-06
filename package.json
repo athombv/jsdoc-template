@@ -4,14 +4,31 @@
   "description": "",
   "main": "publish.js",
   "scripts": {
+    "build": "NODE_ENV=none webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "css-loader": "^5.2.4",
     "taffydb": "^2.7.3"
   },
   "peerDependencies": {
     "jsdoc": "3.6.x"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^5.0.2",
+    "mini-css-extract-plugin": "^1.6.0",
+    "postcss": "^8.2.14",
+    "postcss-loader": "^5.2.0",
+    "precss": "^4.0.0",
+    "sort-css-media-queries": "^1.5.4",
+    "style-loader": "^2.0.0",
+    "svg-url-loader": "^7.1.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0"
   }
 }
