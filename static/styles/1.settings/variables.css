@@ -37,23 +37,26 @@
 
     /* Font Sizes */
     --fontSize-xlarge: 24px;
-    --fontSize-medium: 17px;
-    --fontSize-default: 15px;
+    --fontSize-medium: 18px;
+    --fontSize-default: 16px;
+    --fontSize-small: 14px;
 
     /* Z-index */
     --z-index-navigation: 100;
+
+    /* Input */
 }
 
 @media only screen and (min-width: 768px) {
     :root{
-        --fontSize-xlarge: 36px;
-        --fontSize-medium: 21px;
+        --fontSize-xlarge: 32px;
+        --fontSize-medium: 20px;
     }
 }
 
 @media only screen and (min-width: 1280px) {
     :root{
-        --fontSize-xlarge: 48px;
-        --fontSize-medium: 21px;
+        --fontSize-xlarge: 32px;
+        --fontSize-medium: 20px;
     }
 }

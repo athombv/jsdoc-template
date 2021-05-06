@@ -3,10 +3,15 @@ var self = this;
 var isGlobalPage;
 ?>
 <nav class="toc trim">
-  <h4 class="font-weight-bold">Table of Contents</h4>
+  <h4 class="toc__title font-weight-bold">Table of Contents</h4>
 
   <ul class="toc__list">
     <li class="toc__item"><a class="toc__link" href="#introduction">Introduction</a></li>
+
+    <?js if (self.find({kind:'class'}) && doc.classdesc && !doc.hideconstructor) { ?>
+    <li class="toc__item"><a class="toc__link" href="#section-constructor">Constructor</a></li>
+    <?js } ?>
+
     <?js
     var members = self.find({ kind: 'member', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (members && members.length && members.forEach) {
@@ -20,6 +25,12 @@ var isGlobalPage;
         </li>
         <?js }); ?>
       </ul>
+    </li>
+    <?js } ?>
+
+    <?js if (doc.augments && doc.augments.length) { ?>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-extends">Extends</a>
     </li>
     <?js } ?>
 

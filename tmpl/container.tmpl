@@ -15,16 +15,13 @@ docs.forEach(function(doc, i) {
   if(i > 0){
   ?>
   <div class="main__center">
-    <div class="main__content">
-      <h1 class="text-preset-heading-1">
-        <?js= title ?>
-      </h1>
+    <div class="main__content align-baseline main-page trim">
       <?js= self.partial('mainpage.tmpl', doc) ?>
     </div>
   </div>
   <?js } } else if (doc.kind === 'source') { ?>
   <div class="main__center">
-    <div class="main__content">
+    <div class="main__content align-baseline">
       <h1 class="text-preset-heading-1">
         <?js= title ?>
       </h1>
@@ -35,23 +32,22 @@ docs.forEach(function(doc, i) {
   <div class="flex flex-direction-column flex-fill max-100">
     <div class="flex">
       <div class="main__center">
-        <div class="main__content">
-          <h1 id="introduction"  class="text-preset-heading-1">
-            <div class="text-preset-caption"><?js= caption ?></div>
+        <div class="main__content align-baseline">
+          <h1 id="introduction" class="text-preset-heading-1">
             <?js= title ?>
           </h1>
         </div>
+        <div class="main__index"></div>
       </div>
-      <div class="main__index"></div>
     </div>
     <div class="flex">
       <div class="main__center">
-        <div class="main__content">
+        <div class="main__content align-baseline">
           <?js= self.partial('main.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
         </div>
-      </div>
-      <div class="main__index">
-        <?js= self.partial('toc.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
+        <div class="main__index">
+          <?js= self.partial('toc.tmpl', { doc: doc, self: self, isGlobalPage: isGlobalPage }) ?>
+        </div>
       </div>
     </div>
   </div>

@@ -27,6 +27,8 @@
     /* Mono opacity */
     --color-mono-o-02: rgba(0, 0, 0, .02);
     --color-mono-o-10: rgba(0, 0, 0, .1);
+    --color-mono-o-20: rgba(0, 0, 0, .2);
+    --color-mono-o-40: rgba(0, 0, 0, .4);
     --color-mono-o-50: rgba(0, 0, 0, .5);
     /* White opacity */
     --color-white-o-50: rgba(255, 255, 255, .50);
@@ -64,8 +66,8 @@
     --color-yellow: rgba(247, 181, 0, 1.00);
 
     /* Code Palette*/
-    --color-code-orange: rgb(202, 121, 0);
+    --color-code-orange: rgb(212, 130, 0);
     --color-code-param: var(--color-code-orange);
-    --color-code-green: rgb(74, 110, 0);
+    --color-code-green: #4f9d00;
     --color-code-param-type: var(--color-code-green);
 }

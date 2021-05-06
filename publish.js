@@ -308,14 +308,14 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
       let displayName;
 
       if (!hasOwnProp.call(item, 'longname')) {
-        itemsNav += `<li class="nav-group__item">${linktoFn('', item.name)}</li>`;
+        itemsNav += `<li data-search-key="${item.name.toLowerCase()}" class="nav-group__item">${linktoFn('', item.name)}</li>`;
       } else if (!hasOwnProp.call(itemsSeen, item.longname)) {
         if (env.conf.templates.default.useLongnameInNav) {
           displayName = item.longname;
         } else {
           displayName = item.name;
         }
-        itemsNav += `<li class="nav-group__item">${linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''))}</li>`;
+        itemsNav += `<li data-search-key="${item.longname.toLowerCase()}" class="nav-group__item">${linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''))}</li>`;
 
         itemsSeen[item.longname] = true;
       }
@@ -354,14 +354,18 @@ function linktoExternal(longName, name) {
 function buildNav(members, opts) {
   let globalNav;
   let nav = `<header class="navigation__header">
-                <div class="navigation__logo"><img class="display-block" src="images/logo.png" width="40" alt="Homey"></div>
+                <div class="navigation__logo"><a href="index.html"><img class="display-block" src="images/logo.png" width="40" alt="Homey"></a></div>
                 <h2 class="navigation__title"><a href="index.html">${opts.mainpagetitle}</a></h2>
                 <button data-navigation-toggle class="navigation__button" title="menu"></button>
              </header>`;
   const seen = {};
   const seenTutorials = {};
-
-  nav += `<div data-navigation-target class="navigation__scroll">`;
+  nav += `<div class="navigation__content" data-navigation-target>`;
+  nav += `<div class="navigation__search search">
+            <input title="filter" placeholder="Filter..." data-navigation-search class="search__input" type="search">
+            <button data-navigation-search-reset class="search__reset --mask" type="button" title="Reset"></button>
+           </div>`;
+  nav += `<div data-navigation-scroll class="navigation__scroll scroll trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
@@ -398,6 +402,7 @@ function buildNav(members, opts) {
       nav += `<h3>Global</h3><ul>${globalNav}</ul>`;
     }
   }
+  nav += `</div>`;
   nav += `</div>`;
 
   return nav;

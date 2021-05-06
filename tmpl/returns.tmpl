@@ -2,18 +2,10 @@
 var data = obj || {};
 if (data.description) {
 ?>
-<div class="param-desc">
-    <?js= description ?>
-</div>
+  <?js= description ?>
 <?js } ?>
-
-<?js if (data.type && data.type.names) {?>
-<dl>
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        <?js= this.partial('type.tmpl', data.type.names) ?>
-    </dd>
-</dl>
+<?js if (data.type && data.type.names) { ?>
+<div class="text-preset-small">
+  <?js= this.partial('type.tmpl', data.type.names) ?>
+</div>
 <?js } ?>
