@@ -24,6 +24,10 @@
     z-index: 10;
     width: 40px;
     height: 40px;
+    -webkit-mask-image: url('/images/close-thin.svg');
+    -webkit-mask-size: 12px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
     mask-image: url('/images/close-thin.svg');
     mask-size: 12px;
     mask-repeat: no-repeat;
