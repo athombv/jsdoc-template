@@ -354,7 +354,7 @@ function linktoExternal(longName, name) {
 function buildNav(members, opts) {
   let globalNav;
   let nav = `<header class="navigation__header">
-                <div class="navigation__logo"><a href="index.html"><img class="display-block" src="images/logo.png" width="40" alt="Homey"></a></div>
+                <div class="navigation__logo"><a href="index.html"><img class="display-block" src="images/logo.png" width="40" height="40" alt="Homey"></a></div>
                 <h2 class="navigation__title"><a href="index.html">${opts.mainpagetitle}</a></h2>
                 <button data-navigation-toggle class="navigation__button" title="menu"></button>
              </header>`;
@@ -366,6 +366,7 @@ function buildNav(members, opts) {
             <button data-navigation-search-reset class="search__reset --mask" type="button" title="Reset"></button>
            </div>`;
   nav += `<div data-navigation-scroll class="navigation__scroll scroll trim">`;
+  nav += `<div class="navigation__menu trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
@@ -402,6 +403,7 @@ function buildNav(members, opts) {
       nav += `<h3>Global</h3><ul>${globalNav}</ul>`;
     }
   }
+  nav += `</div>`;
   nav += `</div>`;
   nav += `</div>`;
 
