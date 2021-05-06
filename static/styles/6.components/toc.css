@@ -23,9 +23,18 @@
     display: block;
     font-weight: var(--fontWeight-medium);
     color: var(--color-mono-70);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .toc__list--lvl2 .toc__link {
     color: var(--color-mono-50);
     font-weight: var(--fontWeight-regular);
+}
+
+@media only screen and (min-width: 1700px) {
+    .toc__link,
+    .toc__link:visited {
+        overflow: visible;
+    }
 }

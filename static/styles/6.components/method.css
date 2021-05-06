@@ -73,5 +73,6 @@
         background: var(--color-background-component);
         border-top-left-radius: var(--borderRadius);
         border-top-right-radius: var(--borderRadius);
+        margin-bottom: -8px; /* compensate transform */
     }
 }

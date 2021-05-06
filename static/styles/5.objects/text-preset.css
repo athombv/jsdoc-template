@@ -19,3 +19,11 @@
     line-height: 30px;
     margin: 8px 0;
 }
+
+.text-preset-default {
+    font-size: var(--fontSize-default);
+}
+
+.text-preset-small {
+    font-size: var(--fontSize-small);
+}

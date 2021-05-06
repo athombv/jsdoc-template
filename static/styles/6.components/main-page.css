@@ -1,8 +1,9 @@
-.main-page {
-    padding: 40px;
+.main-page__content {
+    padding: 10px 0;
 }
 
-.main-page__content > p:first-child {
-    margin-top: 0;
-    font-size: 20px;
+@media only screen and (min-width: 768px) {
+    .main-page__content {
+        padding: 40px 80px;
+    }
 }

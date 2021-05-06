@@ -37,8 +37,9 @@
 
     /* Font Sizes */
     --fontSize-xlarge: 24px;
-    --fontSize-medium: 17px;
-    --fontSize-default: 15px;
+    --fontSize-medium: 18px;
+    --fontSize-default: 16px;
+    --fontSize-small: 14px;
 
     /* Z-index */
     --z-index-navigation: 100;
