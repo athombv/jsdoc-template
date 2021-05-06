@@ -354,7 +354,7 @@ function linktoExternal(longName, name) {
 function buildNav(members, opts) {
   let globalNav;
   let nav = `<header class="navigation__header">
-                <div class="navigation__logo"><a href="index.html"><img class="display-block" src="images/logo.png" width="40" alt="Homey"></a></div>
+                <div class="navigation__logo"><a href="index.html"><img class="display-block" src="images/logo.png" width="40" height="40" alt="Homey"></a></div>
                 <h2 class="navigation__title"><a href="index.html">${opts.mainpagetitle}</a></h2>
                 <button data-navigation-toggle class="navigation__button" title="menu"></button>
              </header>`;
