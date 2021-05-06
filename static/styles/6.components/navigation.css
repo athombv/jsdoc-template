@@ -73,7 +73,7 @@
     color: inherit;
 }
 
-.navigation__content{
+.navigation__content {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
@@ -91,6 +91,10 @@
 .navigation__search {
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+.navigation__menu {
+    padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -117,6 +121,10 @@
     .navigation__scroll {
         margin: 10px -20px -20px;
         padding: 0 20px;
+    }
+
+    .navigation__menu {
+        padding-bottom: 20px;
     }
 
     .navigation__logo img {
