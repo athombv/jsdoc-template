@@ -365,7 +365,7 @@ function buildNav(members, opts) {
             <input title="filter" placeholder="Filter..." data-navigation-search class="search__input" type="search">
             <button data-navigation-search-reset class="search__reset --mask" type="button" title="Reset"></button>
            </div>`;
-  nav += `<div data-navigation-scroll class="navigation__scroll trim">`;
+  nav += `<div data-navigation-scroll class="navigation__scroll scroll trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);

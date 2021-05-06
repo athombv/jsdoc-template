@@ -27,6 +27,8 @@
     /* Mono opacity */
     --color-mono-o-02: rgba(0, 0, 0, .02);
     --color-mono-o-10: rgba(0, 0, 0, .1);
+    --color-mono-o-20: rgba(0, 0, 0, .2);
+    --color-mono-o-40: rgba(0, 0, 0, .4);
     --color-mono-o-50: rgba(0, 0, 0, .5);
     /* White opacity */
     --color-white-o-50: rgba(255, 255, 255, .50);
