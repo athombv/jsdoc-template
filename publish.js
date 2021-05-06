@@ -363,7 +363,7 @@ function buildNav(members, opts) {
   nav += `<div class="navigation__content" data-navigation-target>`;
   nav += `<div class="navigation__search search">
             <input title="filter" placeholder="Filter..." data-navigation-search class="search__input" type="search">
-            <button data-navigation-search-reset class="search__reset" type="button" title="Reset"></button>
+            <button data-navigation-search-reset class="search__reset --mask" type="button" title="Reset"></button>
            </div>`;
   nav += `<div data-navigation-scroll class="navigation__scroll trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
