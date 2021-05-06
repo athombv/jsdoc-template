@@ -1,5 +1,6 @@
 input {
-    transition: all var(--duration-fast) var(--curve-fastInNormalOut);
+    transition: var(--duration-fast) var(--curve-fastInNormalOut);
+    transition-property: box-shadow, border-color, background-color;
     color: var(--color-text);
 }
 
