@@ -67,6 +67,7 @@
     font-weight: var(--fontWeight-medium);
     margin: 0;
     flex: 1 1 auto;
+    line-height: 1.2;
 }
 
 .navigation__title a {
