@@ -94,7 +94,7 @@ code, kbd, var, samp {
 pre {
     font-family: var(--fontFamily-code);
     background: var(--color-background-pre);
-    color: var(--color-mono-0);
+    color: var(--color-text);
     display: block;
     padding: 20px;
     border-radius: var(--borderRadius);
