@@ -7,9 +7,6 @@
     flex-direction: column;
 }
 
-.container__navigation{
-    width: var(--container-navigation-width);
-}
 
 .container__main{
     flex: 1 1 auto;
@@ -20,6 +17,10 @@
     .container{
         align-items: start;
         flex-direction: row;
+    }
+
+    .container__navigation{
+        width: var(--container-navigation-width);
     }
 
     .container__main{

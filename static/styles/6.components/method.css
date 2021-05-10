@@ -1,6 +1,7 @@
-:root{
-    --method-padding: 30px;
+:root {
+    --method-padding: 20px;
 }
+
 .method {
     margin: 40px 0;
 }
@@ -9,7 +10,7 @@
     background-color: var(--color-background-code-method);
 }
 
-.method.component{
+.method.component {
     padding: var(--method-padding);
 }
 
@@ -53,6 +54,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+    :root {
+        --method-padding: 30px;
+    }
+
     .method__function {
         top: 0;
         position: sticky;

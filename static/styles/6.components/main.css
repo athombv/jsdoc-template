@@ -13,7 +13,7 @@
 
 .main__content {
     flex: 1 1 auto;
-    width: 100%;
+    width: 0;
     max-width: 900px;
 }
 
