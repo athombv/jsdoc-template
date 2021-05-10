@@ -398,9 +398,9 @@ function buildNav(members, opts) {
 
     if (!globalNav) {
       // turn the heading into a link so you can actually get to the global page
-      nav += `<h3>${linkto('global', 'Global')}</h3>`;
+      nav += `<h3 class="nav-group__title">Global</h3><ul class="nav-group__list"><li class="nav-group__item">${linkto('global', 'All')}</li></ul>`;
     } else {
-      nav += `<h3>Global</h3><ul>${globalNav}</ul>`;
+      nav += `<h3 class="nav-group__title">Global</h3><ul class="nav-group__list">${globalNav}</ul>`;
     }
   }
   nav += `</div>`;
@@ -664,7 +664,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     }
 
     if (myClasses.length) {
-      generate(`${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname],true,'Class');
+      generate(`${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname], true, 'Class');
     }
 
     if (myNamespaces.length) {

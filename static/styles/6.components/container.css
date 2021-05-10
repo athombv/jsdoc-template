@@ -8,7 +8,7 @@
 }
 
 .container__navigation{
-    min-width: var(--container-navigation-width);
+    width: var(--container-navigation-width);
 }
 
 .container__main{
