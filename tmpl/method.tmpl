@@ -61,7 +61,7 @@ function isContentNotEmpty(data) {
   <h3 class="method__name"><?js= name ?></h3>
   <span class="method__function function">
     <?js if (kind === 'class') { ?>
-    <?js= data.attribs + 'new' + name + (data.signature || '') ?>
+    <?js= data.attribs + 'new ' + name + (data.signature || '') ?>
     <?js } else if (kind === 'event') { ?>
     <?js= data.attribs + '.on(\'' + name + '\')' + (data.signature || '') ?>
     <?js } else { ?>
