@@ -12,13 +12,18 @@
   "license": "ISC",
   "dependencies": {
     "css-loader": "^5.2.4",
-    "taffydb": "^2.7.3"
+    "highlight.js": "^10.7.2",
+    "taffydb": "^2.7.3",
+    "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "peerDependencies": {
     "jsdoc": "3.6.x"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
     "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^5.0.2",
     "mini-css-extract-plugin": "^1.6.0",
@@ -29,7 +34,7 @@
     "style-loader": "^2.0.0",
     "svg-url-loader": "^7.1.1",
     "url-loader": "^4.1.1",
-    "webpack": "^5.36.2",
+    "webpack": "^5.37.0",
     "webpack-cli": "^4.6.0"
   }
 }
