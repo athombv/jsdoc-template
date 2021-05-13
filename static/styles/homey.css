@@ -17,6 +17,7 @@
 @import "5.objects/font-weight.css";
 @import "5.objects/scroll.css";
 @import "5.objects/align.css";
+@import "5.objects/position.css";
 @import "5.objects/--mask.css";
 /* Components */
 @import "6.components/container.css";

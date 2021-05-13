@@ -43,6 +43,10 @@
     bottom: 0;
 }
 
+.lvl--group .lvl__indent:last-of-type {
+    margin-top: 30px;
+}
+
 .lvl__indent:first-of-type {
     margin-left: calc(10px + 0.5ch);
 }

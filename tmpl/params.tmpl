@@ -99,9 +99,9 @@ params.forEach(function (param) {
 
     <tr class="table-lvl-<?js= lvl ? lvl : 0 ?>">
       <?js if (params.hasName) { ?>
-      <td class="name">
+      <td class="name position-relative">
         <?js if (param.subparams) { ?>
-        <div class="lvl">
+        <div class="lvl lvl--group">
           <?js
           for(let i = 0; i < lvl+1; i++){
           ?>
