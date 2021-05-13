@@ -9,7 +9,7 @@
     --color-highlight-border: var(--color-blue-o-10);
 
     /* Texts */
-    --color-text: var(--color-mono-90);
+    --color-text: var(--color-mono-80);
     --color-text-light: var(--color-mono-40);
     --color-text-light-hover: var(--color-mono-50);
     --color-text-highlight: var(--color-blue);
@@ -45,9 +45,11 @@
     --color-background-body: var(--color-ice-white);
     --color-background-component: var(--color-mono-0);
     --color-background-hover: var(--color-mono-02);
+    --color-background-active: var(--color-mono-05);
     --color-background-overlay: var(--color-mono-o-50);
-    --color-background-pre: var(--color-mono-90);
-    --color-background-code: var(--color-mono-10);
+    --color-background-pre: var(--color-mono-01);
+    --color-background-code: var(--color-mono-05);
+    --color-background-code-method: var(--color-mono-02);
 
     /* States */
     --color-danger: var(--color-red);

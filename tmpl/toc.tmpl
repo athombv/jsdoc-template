@@ -3,10 +3,15 @@ var self = this;
 var isGlobalPage;
 ?>
 <nav class="toc trim">
-  <h4 class="font-weight-bold">Table of Contents</h4>
+  <h4 class="toc__title font-weight-bold">Table of Contents</h4>
 
   <ul class="toc__list">
     <li class="toc__item"><a class="toc__link" href="#introduction">Introduction</a></li>
+
+    <?js if (self.find({kind:'class'}) && doc.classdesc && !doc.hideconstructor) { ?>
+    <li class="toc__item"><a class="toc__link" href="#section-constructor">Constructor</a></li>
+    <?js } ?>
+
     <?js
     var members = self.find({ kind: 'member', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (members && members.length && members.forEach) {
@@ -16,10 +21,16 @@ var isGlobalPage;
       <ul class="toc__list toc__list--lvl2">
         <?js members.forEach(function(m) { ?>
         <li class="toc__item">
-          <a class="toc__link" href="#<?js= m.name ?>"><?js= m.name ?></a>
+          <a class="toc__link" title="<?js= m.name ?>" href="#<?js= m.name ?>"><?js= m.name ?></a>
         </li>
         <?js }); ?>
       </ul>
+    </li>
+    <?js } ?>
+
+    <?js if (doc.augments && doc.augments.length) { ?>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-extends">Extends</a>
     </li>
     <?js } ?>
 
@@ -32,7 +43,7 @@ var isGlobalPage;
       <ul class="toc__list toc__list--lvl2">
         <?js methods.forEach(function(m) { ?>
         <li class="toc__item">
-          <a class="toc__link" href="#<?js= m.name ?>"><?js= m.name ?></a>
+          <a class="toc__link" title="<?js= m.name ?>" href="#<?js= m.name ?>"><?js= m.name ?></a>
         </li>
         <?js }); ?>
       </ul>
@@ -48,7 +59,7 @@ var isGlobalPage;
       <ul class="toc__list toc__list--lvl2">
         <?js typedefs.forEach(function(m) { ?>
         <li class="toc__item">
-          <a class="toc__link" href="#<?js= m.id ?>"><?js= m.name ?></a>
+          <a class="toc__link" title="<?js= m.name ?>" href="#<?js= m.id ?>"><?js= m.name ?></a>
         </li>
         <?js }); ?>
       </ul>
@@ -64,7 +75,7 @@ var isGlobalPage;
       <ul class="toc__list toc__list--lvl2">
         <?js events.forEach(function(e) { ?>
         <li class="toc__item">
-          <a class="toc__link" href="#event:<?js= e.name ?>"><?js= e.name ?></a>
+          <a class="toc__link" title="<?js= e.name ?>" href="#event:<?js= e.name ?>"><?js= e.name ?></a>
         </li>
         <?js }); ?>
       </ul>

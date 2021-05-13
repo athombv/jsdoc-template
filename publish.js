@@ -354,7 +354,7 @@ function linktoExternal(longName, name) {
 function buildNav(members, opts) {
   let globalNav;
   let nav = `<header class="navigation__header">
-                <div class="navigation__logo"><img class="display-block" src="images/logo.png" width="40" alt="Homey"></div>
+                <div class="navigation__logo"><a href="index.html"><img class="display-block" src="images/logo.png" width="40" height="40" alt="Homey"></a></div>
                 <h2 class="navigation__title"><a href="index.html">${opts.mainpagetitle}</a></h2>
                 <button data-navigation-toggle class="navigation__button" title="menu"></button>
              </header>`;
@@ -363,9 +363,10 @@ function buildNav(members, opts) {
   nav += `<div class="navigation__content" data-navigation-target>`;
   nav += `<div class="navigation__search search">
             <input title="filter" placeholder="Filter..." data-navigation-search class="search__input" type="search">
-            <button data-navigation-search-reset class="search__reset" type="button" title="Reset"></button>
+            <button data-navigation-search-reset class="search__reset --mask" type="button" title="Reset"></button>
            </div>`;
-  nav += `<div data-navigation-scroll class="navigation__scroll trim">`;
+  nav += `<div data-navigation-scroll class="navigation__scroll scroll trim">`;
+  nav += `<div class="navigation__menu trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
@@ -390,18 +391,19 @@ function buildNav(members, opts) {
 
     members.globals.forEach(({ kind, longname, name }) => {
       if (kind !== 'typedef' && !hasOwnProp.call(seen, longname)) {
-        globalNav += `<li>${linkto(longname, name)}</li>`;
+        globalNav += `<li class="nav-group__item">${linkto(longname, name)}</li>`;
       }
       seen[longname] = true;
     });
 
     if (!globalNav) {
       // turn the heading into a link so you can actually get to the global page
-      nav += `<h3>${linkto('global', 'Global')}</h3>`;
+      nav += `<h3 class="nav-group__title">Global</h3><ul class="nav-group__list"><li class="nav-group__item">${linkto('global', 'All')}</li></ul>`;
     } else {
-      nav += `<h3>Global</h3><ul>${globalNav}</ul>`;
+      nav += `<h3 class="nav-group__title">Global</h3><ul class="nav-group__list">${globalNav}</ul>`;
     }
   }
+  nav += `</div>`;
   nav += `</div>`;
   nav += `</div>`;
 
@@ -662,7 +664,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     }
 
     if (myClasses.length) {
-      generate(`${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname],true,'Class');
+      generate(`${myClasses[0].name}`, myClasses, helper.longnameToUrl[longname], true, 'Class');
     }
 
     if (myNamespaces.length) {
