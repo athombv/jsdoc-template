@@ -655,7 +655,7 @@ exports.publish = (taffyData, opts, tutorials) => {
 
   Object.keys(helper.longnameToUrl).forEach(longname => {
     const myClasses = helper.find(classes, { longname: longname });
-    const myExternals = helper.find(externals, { longname: longname });
+    // const myExternals = helper.find(externals, { longname: longname });
     const myInterfaces = helper.find(interfaces, { longname: longname });
     const myMixins = helper.find(mixins, { longname: longname });
     const myModules = helper.find(modules, { longname: longname });
@@ -677,9 +677,9 @@ exports.publish = (taffyData, opts, tutorials) => {
       generate(`Mixin: ${myMixins[0].name}`, myMixins, helper.longnameToUrl[longname]);
     }
 
-    if (myExternals.length) {
-      generate(`External: ${myExternals[0].name}`, myExternals, helper.longnameToUrl[longname]);
-    }
+    // if (myExternals.length) {
+      // generate(`External: ${myExternals[0].name}`, myExternals, helper.longnameToUrl[longname]);
+    // }
 
     if (myInterfaces.length) {
       generate(`Interface: ${myInterfaces[0].name}`, myInterfaces, helper.longnameToUrl[longname]);
