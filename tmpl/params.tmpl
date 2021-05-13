@@ -100,6 +100,19 @@ params.forEach(function (param) {
     <tr class="table-lvl-<?js= lvl ? lvl : 0 ?>">
       <?js if (params.hasName) { ?>
       <td class="name">
+        <?js if (param.subparams) { ?>
+        <div class="lvl">
+          <?js
+          for(let i = 0; i < lvl+1; i++){
+          ?>
+          <div class="lvl__indent"></div>
+          <?js
+          }
+          ?>
+        </div>
+        <code class="font-weight-bold"><?js= param.name ?></code>
+        {
+        <?js }else{ ?>
         <div class="lvl">
           <?js
           for(let i = 0; i < lvl; i++){
@@ -109,10 +122,6 @@ params.forEach(function (param) {
           }
           ?>
         </div>
-        <?js if (param.subparams) { ?>
-        <code class="font-weight-bold"><?js= param.name ?></code>
-        {
-        <?js }else{ ?>
         <code><?js= param.name ?></code>
         <?js } ?>
       </td>
@@ -154,7 +163,18 @@ params.forEach(function (param) {
 
     <?js if(lvl !== 0 && index === params.length - 1){ ?>
     <tr class="table-lvl-<?js= lvl ? lvl - 1 : 0 ?>">
-      <td class="name">}</td>
+      <td class="name">
+        <div class="lvl">
+          <?js
+          for(let i = 0; i < lvl - 1; i++){
+          ?>
+          <div class="lvl__indent"></div>
+          <?js
+          }
+          ?>
+        </div>
+        }
+      </td>
     </tr>
     <?js } ?>
 

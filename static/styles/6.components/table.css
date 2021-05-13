@@ -1,4 +1,6 @@
-.table{}
+.table {
+}
+
 .table-lvl-0 td:first-child {
 
 }
@@ -13,22 +15,40 @@
     padding-left: 50px;
 }
 
-.table-lvl-1 td:first-child::before {
-    content: '';
+/*.table-lvl-1 td:first-child::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 20px;*/
+/*    top: -10px;*/
+/*    bottom: 10px;*/
+/*    border-left: 1px solid var(--color-mono-30);*/
+/*    opacity: 0.5;*/
+/*}*/
+
+/*.table-lvl-2 td:first-child::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 40px;*/
+/*    top: -10px;*/
+/*    bottom: 10px;*/
+/*    border-left: 1px solid var(--color-mono-30);*/
+/*    opacity: 0.5;*/
+/*}*/
+
+.lvl {
     position: absolute;
-    left: 20px;
-    top: -10px;
-    bottom: 10px;
-    border-left: 1px solid var(--color-mono-30);
-    opacity: 0.5;
+    display: flex;
+    top: 0;
+    left: 0;
+    bottom: 0;
 }
 
-.table-lvl-2 td:first-child::before {
-    content: '';
-    position: absolute;
-    left: 40px;
-    top: -10px;
-    bottom: 10px;
-    border-left: 1px solid var(--color-mono-30);
-    opacity: 0.5;
+.lvl__indent:first-of-type {
+    margin-left: calc(10px + 0.5ch);
+}
+
+.lvl__indent {
+    margin-left: 0.5ch;
+    border-left: 1px dashed var(--color-mono-30);
+    width: 20px;
 }
