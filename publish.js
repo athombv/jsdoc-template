@@ -368,7 +368,8 @@ function buildNav(members, opts) {
   nav += `<div data-navigation-scroll class="navigation__scroll scroll trim">`;
   nav += `<div class="navigation__menu trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
-  nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
+  // externals are turned off hardcoded, because we don't use them. Also the Homey ZigbeeDriver can't be configured to turn them off.
+  // nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
 
   /* Exception for SDK Docs*/
@@ -648,12 +649,13 @@ exports.publish = (taffyData, opts, tutorials) => {
   modules = taffy(members.modules);
   namespaces = taffy(members.namespaces);
   mixins = taffy(members.mixins);
-  externals = taffy(members.externals);
+  // externals are turned off hardcoded, because we don't use them. Also the Homey ZigbeeDriver can't be configured to turn them off.
+  // externals = taffy(members.externals);
   interfaces = taffy(members.interfaces);
 
   Object.keys(helper.longnameToUrl).forEach(longname => {
     const myClasses = helper.find(classes, { longname: longname });
-    const myExternals = helper.find(externals, { longname: longname });
+    // const myExternals = helper.find(externals, { longname: longname });
     const myInterfaces = helper.find(interfaces, { longname: longname });
     const myMixins = helper.find(mixins, { longname: longname });
     const myModules = helper.find(modules, { longname: longname });
@@ -675,9 +677,9 @@ exports.publish = (taffyData, opts, tutorials) => {
       generate(`Mixin: ${myMixins[0].name}`, myMixins, helper.longnameToUrl[longname]);
     }
 
-    if (myExternals.length) {
-      generate(`External: ${myExternals[0].name}`, myExternals, helper.longnameToUrl[longname]);
-    }
+    // if (myExternals.length) {
+      // generate(`External: ${myExternals[0].name}`, myExternals, helper.longnameToUrl[longname]);
+    // }
 
     if (myInterfaces.length) {
       generate(`Interface: ${myInterfaces[0].name}`, myInterfaces, helper.longnameToUrl[longname]);
