@@ -48,11 +48,11 @@
 }
 
 .lvl__indent:first-of-type {
-    margin-left: calc(10px + 0.5ch);
+    margin-left: calc(10px + 1px);
 }
 
 .lvl__indent {
-    margin-left: 0.5ch;
-    border-left: 1px dashed var(--color-mono-30);
+    margin-left: 1px;
+    border-left: 1px solid var(--color-mono-10);
     width: 20px;
 }
