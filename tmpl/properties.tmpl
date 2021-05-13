@@ -40,8 +40,14 @@ props.forEach(function (prop) {
     props.hasDefault = true;
   }
 });
+
+if (typeof prevLvl === "undefined") {
+  var prevLvl = 0;
+};
+
 ?>
-<?js if(typeof sub === "undefined"){ ?>
+
+<?js if(typeof lvl === "undefined"){ ?>
 <figure class="table-container trim">
   <table class="props">
     <thead>
@@ -108,10 +114,10 @@ props.forEach(function (prop) {
       <td class="description trim last"><?js= prop.description ?></td>
     </tr>
     <?js if (prop.subprops) { ?>
-    <?js= self.partial('properties.tmpl', { prop: prop, sub: sub ? sub++ : 1 }) ?>
+    <?js= self.partial('properties.tmpl', { prop: prop, prevLvl: lvl, lvl: lvl ? lvl++ : 1 }) ?>
     <?js } ?>
     <?js }); ?>
-    <?js if(typeof sub === "undefined"){ ?>
+    <?js if(typeof lvl === "undefined"){ ?>
     </tbody>
   </table>
 </figure>

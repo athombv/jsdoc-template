@@ -64,38 +64,3 @@ table table td {
 th {
     border-right: 1px solid var(--color-line);
 }
-
-/* TODO move and clean up code */
-.table-lvl-0 {
-
-}
-
-.table-lvl-1 {
-    position: relative;
-    padding-left: 30px;
-}
-
-.table-lvl-2 {
-    position: relative;
-    padding-left: 50px;
-}
-
-.table-lvl-1::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: -10px;
-    bottom: 10px;
-    border-left: 1px dashed var(--color-code-orange);
-    opacity: 0.5;
-}
-
-.table-lvl-2::before {
-    content: '';
-    position: absolute;
-    left: 40px;
-    top: -10px;
-    bottom: 10px;
-    border-left: 1px dashed var(--color-code-orange);
-    opacity: 0.5;
-}
