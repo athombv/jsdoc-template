@@ -399,7 +399,7 @@ function buildNav(members, opts) {
 
     if (!globalNav) {
       // turn the heading into a link so you can actually get to the global page
-      nav += `<h3 class="nav-group__title">Global</h3><ul class="nav-group__list"><li class="nav-group__item">${linkto('global', 'All')}</li></ul>`;
+      nav += `<h3 class="nav-group__title">Global</h3><ul class="nav-group__list"><li class="nav-group__item">${linkto('global', 'Overview')}</li></ul>`;
     } else {
       nav += `<h3 class="nav-group__title">Global</h3><ul class="nav-group__list">${globalNav}</ul>`;
     }
