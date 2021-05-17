@@ -44,6 +44,7 @@
 /* Collapse functionality */
 [data-table-collapsed] {
     cursor: pointer;
+    transition: background-color var(--duration-fast) var(--curve-fastInNormalOut);
 }
 
 [data-table-collapsed]:hover {
