@@ -72,11 +72,7 @@ params.forEach(function (param) {
       <?js } ?>
 
       <th>Type</th>
-
-      <?js if (params.hasDefault) { ?>
-      <th>Default</th>
-      <?js } ?>
-
+      
       <th class="last">Description</th>
     </tr>
     </thead>
@@ -89,17 +85,18 @@ params.forEach(function (param) {
       if (!param) {
         return;
       }
-      var collapsable = param.subparams?`data-table-collapsed=true`:``;
+      var collapsable = param.subparams ? `data-table-collapsed=true` : ``;
       var currentIndex = `${prevIndex}-${index}`;
     ?>
 
-    <tr data-table-lvl="<?js= lvl ? lvl : 0 ?>" data-table-row-id="<?js= currentIndex ?>" data-table-row-parent="<?js= prevIndex ?>" <?js= collapsable ?>>
+    <tr data-table-lvl="<?js= lvl ? lvl : 0 ?>" data-table-row-id="<?js= currentIndex ?>"
+        data-table-row-parent="<?js= prevIndex ?>" <?js= collapsable ?>>
       <?js if (params.hasName) { ?>
       <td class="name position-relative">
         <?js if (param.subparams) { ?>
         <div class="lvl lvl--group">
           <?js
-          for(let i = 0; i < lvl+1; i++){
+          for(let i = 0; i < lvl + 1; i++){
           ?>
           <div class="lvl__indent"></div>
           <?js
@@ -133,23 +130,22 @@ params.forEach(function (param) {
         <?js } ?>
 
         <?js if (param.nullable) { ?>
-            <span class="color-text-light">&lt;nullable></span><br>
+        <span class="color-text-light">&lt;nullable></span><br>
         <?js } ?>
 
         <?js if (param.variable) { ?>
         <span class="color-text-light">&lt;repeatable></span><br>
         <?js } ?>
         <?js } ?>
-      </td>
 
-
-      <?js if (params.hasDefault) { ?>
-      <td class="default">
+        <?js if (params.hasDefault) { ?>
         <?js if (typeof param.defaultvalue !== 'undefined') { ?>
-        <?js= self.htmlsafe(param.defaultvalue) ?>
+        default:<code><?js= self.htmlsafe(param.defaultvalue) ?></code>
         <?js } ?>
+        <?js } ?>
+
       </td>
-      <?js } ?>
+
 
       <td class="description last trim"><?js= param.description ?>
       </td>
@@ -157,7 +153,7 @@ params.forEach(function (param) {
 
     <?js if (param.subparams) { ?>
     <?js= self.partial('params.tmpl', { obj: param.subparams, prevIndex: currentIndex, lvl: lvl ? lvl + 1 : 1 }) ?>
-    <tr data-table-lvl="<?js= lvl  ?>" data-table-row-parent="<?js= currentIndex ?>" data-table-row-is-shown="false">
+    <tr data-table-lvl="<?js= lvl ?>" data-table-row-parent="<?js= currentIndex ?>" data-table-row-is-shown="false">
       <td class="name">
         <div class="lvl">
           <?js
@@ -173,10 +169,9 @@ params.forEach(function (param) {
     </tr>
     <?js } ?>
 
-
-    <?js }); // end for each ?>
-    <?js if(lvl === 0){ ?>
+    <?js }); // end for each  ?>
+    <?js  if(lvl === 0){  ?>
     </tbody>
   </table>
 </figure>
-<?js } ?>
+<?js  }  ?>

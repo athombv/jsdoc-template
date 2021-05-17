@@ -41,15 +41,17 @@ props.forEach(function (prop) {
   }
 });
 
-if (typeof prevLvl === "undefined") {
-  var prevLvl = 0;
-};
+if (typeof lvl === "undefined") {
+  var lvl = 0;
+}
 
+if (typeof prevIndex === "undefined") {
+  var prevIndex = 0
+}
 ?>
-
-<?js if(typeof lvl === "undefined"){ ?>
+<?js if(lvl === 0){ ?>
 <figure class="table-container trim">
-  <table class="properties">
+  <table data-table class="properties">
     <thead>
     <tr>
       <?js if (props.hasName) { ?>
@@ -57,14 +59,6 @@ if (typeof prevLvl === "undefined") {
       <?js } ?>
 
       <th>Type</th>
-
-      <?js if (props.hasAttributes) { ?>
-      <th>Attributes</th>
-      <?js } ?>
-
-      <?js if (props.hasDefault) { ?>
-      <th>Default</th>
-      <?js } ?>
 
       <th class="last">Description</th>
     </tr>
@@ -74,50 +68,92 @@ if (typeof prevLvl === "undefined") {
     <?js } ?>
     <?js
     var self = this;
-    props.forEach(function(prop) {
+    props.forEach(function(prop, index) {
       if (!prop) {
         return;
       }
+      var collapsable = prop.subprops ? `data-table-collapsed=true` : ``;
+      var currentIndex = `${prevIndex}-${index}`;
     ?>
 
-    <tr>
+    <tr data-table-lvl="<?js= lvl ? lvl : 0 ?>" data-table-row-id="<?js= currentIndex ?>"
+        data-table-row-parent="<?js= prevIndex ?>" <?js= collapsable ?>>
       <?js if (props.hasName) { ?>
-      <td class="name"><code><?js= prop.name ?></code></td>
+      <td class="name position-relative">
+        <?js if (prop.subprops) { ?>
+        <div class="lvl lvl--group">
+          <?js
+          for(let i = 0; i < lvl + 1; i++){
+          ?>
+          <div class="lvl__indent"></div>
+          <?js
+          }
+          ?>
+        </div>
+        <code><?js= prop.name ?></code>
+        <?js }else{ ?>
+        <div class="lvl">
+          <?js
+          for(let i = 0; i < lvl; i++){
+          ?>
+          <div class="lvl__indent"></div>
+          <?js
+          }
+          ?>
+        </div>
+        <code><?js= prop.name ?></code>
+        <?js } ?>
+      </td>
       <?js } ?>
 
       <td class="type">
         <?js if (prop.type && prop.type.names) { ?>
         <?js= self.partial('type.tmpl', prop.type.names) ?>
         <?js } ?>
-      </td>
 
-      <?js if (props.hasAttributes) { ?>
-      <td class="attributes">
+        <?js if (props.hasAttributes) { ?>
         <?js if (prop.optional) { ?>
-        &lt;optional><br>
+        <span class="color-text-light">&lt;optional></span>
         <?js } ?>
 
         <?js if (prop.nullable) { ?>
-        &lt;nullable><br>
+        <span class="color-text-light">&lt;nullable></span>>
         <?js } ?>
-      </td>
-      <?js } ?>
+        <?js } ?>
 
-      <?js if (props.hasDefault) { ?>
-      <td class="default">
+        <?js if (props.hasDefault) { ?>
         <?js if (typeof prop.defaultvalue !== 'undefined') { ?>
-        <?js= self.htmlsafe(prop.defaultvalue) ?>
+        default: <code><?js= self.htmlsafe(prop.defaultvalue) ?></code>
+        <?js } ?>
         <?js } ?>
       </td>
-      <?js } ?>
+
 
       <td class="description trim last"><?js= prop.description ?></td>
     </tr>
     <?js if (prop.subprops) { ?>
-    <?js= self.partial('properties.tmpl', { prop: prop, prevLvl: lvl, lvl: lvl ? lvl++ : 1 }) ?>
+    <?js= self.partial('properties.tmpl', {
+      subprops: prop.subprops,
+      prevIndex: currentIndex,
+      lvl: lvl ? lvl + 1 : 1
+    }) ?>
+    <tr data-table-lvl="<?js= lvl ?>" data-table-row-parent="<?js= currentIndex ?>" data-table-row-is-shown="false">
+      <td class="name">
+        <div class="lvl">
+          <?js
+          for(let i = 0; i < lvl ; i++){
+          ?>
+          <div class="lvl__indent"></div>
+          <?js
+          }
+          ?>
+        </div>
+        <span class="font-weight-bold">}</span>
+      </td>
+    </tr>
     <?js } ?>
     <?js }); ?>
-    <?js if(typeof lvl === "undefined"){ ?>
+    <?js if(lvl === 0){ ?>
     </tbody>
   </table>
 </figure>
