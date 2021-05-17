@@ -11,13 +11,6 @@
     bottom: 0;
 }
 
-[data-table-collapsed="true"] .lvl--group .lvl__indent:last-of-type {
-    display: none;
-}
-
-[data-table-collapsed="true"] .lvl:not(.lvl--group) {
-    display: none;
-}
 
 .lvl--group .lvl__indent:last-of-type {
     margin-top: 30px;
@@ -69,14 +62,20 @@
     content: '{...}';
 }
 
-[data-table-lvl]:not([data-table-lvl="0"]) {
+[data-table-collapsed="true"] .lvl:not(.lvl--group), /* hide indent line when not group and is collapsed */
+[data-table-collapsed="true"] .lvl--group .lvl__indent:last-of-type /* hide last indent line when group and is collapsed */
+{
     display: none;
 }
+
+
+[data-table-lvl]:not([data-table-lvl="0"]), /* hide any row at lvl 1+  */
+[data-table-lvl][data-table-row-is-shown="false"] /* hide rows with is-shown false attribute */
+{
+    display: none;
+}
+
 
 [data-table-lvl][data-table-row-is-shown="true"] {
     display: table-row;
-}
-
-[data-table-lvl][data-table-row-is-shown="false"] {
-    display: none;
 }
