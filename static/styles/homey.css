@@ -11,6 +11,7 @@
 @import "4.elements/table.css";
 @import "4.elements/form.css";
 /* Objects */
+@import "5.objects/--mask.css";
 @import "5.objects/flex.css";
 @import "5.objects/display.css";
 @import "5.objects/text-preset.css";
@@ -18,7 +19,7 @@
 @import "5.objects/scroll.css";
 @import "5.objects/align.css";
 @import "5.objects/position.css";
-@import "5.objects/--mask.css";
+@import "5.objects/color.css";
 /* Components */
 @import "6.components/container.css";
 @import "6.components/navigation.css";

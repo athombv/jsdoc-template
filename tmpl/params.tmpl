@@ -128,27 +128,26 @@ params.forEach(function (param) {
       </td>
       <?js } ?>
 
-      <td class="type">
+      <td class="params__type">
         <?js if (param.type && param.type.names) { ?>
         <?js= self.partial('type.tmpl', param.type.names) ?>
         <?js } ?>
-      </td>
 
-      <td class="attributes">
         <?js if (params.hasAttributes) { ?>
         <?js if (param.optional) { ?>
-        &lt;optional><br>
+        <span class="color-text-light">&lt;optional></span><br>
         <?js } ?>
 
         <?js if (param.nullable) { ?>
-        &lt;nullable><br>
+            <span class="color-text-light">&lt;nullable></span><br>
         <?js } ?>
 
         <?js if (param.variable) { ?>
-        &lt;repeatable><br>
+        <span class="color-text-light">&lt;repeatable></span><br>
         <?js } ?>
         <?js } ?>
       </td>
+
 
       <?js if (params.hasDefault) { ?>
       <td class="default">
