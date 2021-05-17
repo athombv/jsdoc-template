@@ -1,12 +1,39 @@
-The default template for JSDoc 3 uses: [the Taffy Database library](http://taffydb.com/) and the [Underscore Template library](http://underscorejs.org/).
+# Homey JSDoc Template
 
+## How to configurate JS Docs project
+1. Add required devDependencies to your project in package.json:
+```json
+{
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "homey-jsdoc-template": "github:athombv/homey-jsdoc-template#1.1",
+    "jsdoc": "^3.6.6",
+    "jsdoc-ts-utils": "^1.1.2",
+    "serve": "^11.3.1",
+    "watch": "^1.0.2"
+  }
+}
+```
 
-## Generating Typeface Fonts
+2. Add scripts in package.json
+```json
+{
+  "scripts": {
+    "serve": "concurrently \"serve build/\" \"npm run build:watch\"",
+    "build": "jsdoc --configure ./docs/jsdoc.json",
+    "build:clean": "rm -rf ./build",
+    "build:watch": "watch \"npm run build:clean && npm run build\" lib docs \"node_modules/homey-jsdoc-template\""
+  }
+}
+```
+3. Don't forget to run `npm install` 😁
 
-The default template uses the [OpenSans](https://www.google.com/fonts/specimen/Open+Sans) typeface. The font files can be regenerated as follows:
+## How to make updates to template
+1. Clone this repository
 
-1. Open the [OpenSans page at Font Squirrel](<http://www.fontsquirrel.com/fonts/open-sans>).
-2. Click on the 'Webfont Kit' tab.
-3. Either leave the subset drop-down as 'Western Latin (Default)', or, if we decide we need more glyphs, than change it to 'No Subsetting'.
-4. Click the 'DOWNLOAD @FONT-FACE KIT' button.
-5. For each typeface variant we plan to use, copy the 'eot', 'svg' and 'woff' files into the 'templates/default/static/fonts' directory.
+2. Link this repository to your current project by:
+```bash
+npm link homey-jsdoc-template
+```
+note: you have to relink the repository each time after you run `npm install` 
+
