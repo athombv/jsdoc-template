@@ -11,7 +11,7 @@
     bottom: 0;
 }
 
-[data-table-collapsed="true"] .lvl--group .lvl__indent:last-of-type{
+[data-table-collapsed="true"] .lvl--group .lvl__indent:last-of-type {
     display: none;
 }
 
@@ -75,4 +75,8 @@
 
 [data-table-lvl][data-table-row-is-shown="true"] {
     display: table-row;
+}
+
+[data-table-lvl][data-table-row-is-shown="false"] {
+    display: none;
 }

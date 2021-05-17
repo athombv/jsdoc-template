@@ -10,23 +10,32 @@
       Array.from($collapsableRows).forEach(($collapsableRow) => {
         $collapsableRow.addEventListener('click', function () {
           const id = this.getAttribute(`data-table-row-id`);
-          // Set collapsed status
-          let collapsed = this.getAttribute(`data-table-collapsed`) === 'true';
-          collapsed=!collapsed;
+          // Get collapsed status
+          let currentCollapseState = this.getAttribute(`data-table-collapsed`) === 'true';
+          // Set new collapsed status
+          let collapsed = !currentCollapseState;
           this.setAttribute('data-table-collapsed', collapsed);
+
           const $children = $table.querySelectorAll(`[data-table-row-parent="${id}"]`);
           const $allChildren = $table.querySelectorAll(`[data-table-row-parent^="${id}"]`);
-          // On close, close all
+          const $allCollapsableChildren = $table.querySelectorAll(`[data-table-row-parent^="${id}"][data-table-collapsed]`);
+
+          // On close close all children
           if (collapsed) {
             Array.from($allChildren).forEach(($child) => {
               $child.setAttribute('data-table-row-is-shown', !collapsed);
             });
-          } else {
+
+            Array.from($allCollapsableChildren).forEach(($child) => {
+              $child.setAttribute('data-table-collapsed', true);
+            });
+          }
+          // On open only direct children
+          else {
             Array.from($children).forEach(($child) => {
               $child.setAttribute('data-table-row-is-shown', !collapsed);
             });
           }
-
         });
       });
     });

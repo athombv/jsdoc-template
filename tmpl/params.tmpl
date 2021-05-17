@@ -73,12 +73,6 @@ params.forEach(function (param) {
 
       <th>Type</th>
 
-      <th>
-        Attributes
-        <?js if (params.hasAttributes) { ?>
-        <?js } ?>
-      </th>
-
       <?js if (params.hasDefault) { ?>
       <th>Default</th>
       <?js } ?>
@@ -95,8 +89,8 @@ params.forEach(function (param) {
       if (!param) {
         return;
       }
-      collapsable = param.subparams?`data-table-collapsed=true`:``;
-      currentIndex = `${prevIndex}-${index}`;
+      var collapsable = param.subparams?`data-table-collapsed=true`:``;
+      var currentIndex = `${prevIndex}-${index}`;
     ?>
 
     <tr data-table-lvl="<?js= lvl ? lvl : 0 ?>" data-table-row-id="<?js= currentIndex ?>" data-table-row-parent="<?js= prevIndex ?>" <?js= collapsable ?>>
@@ -161,12 +155,13 @@ params.forEach(function (param) {
       </td>
     </tr>
 
-    <?js if(lvl !== 0 && index === params.length - 1){ ?>
-    <tr data-table-lvl="<?js= lvl - 1 ?>" data-table-row-parent="<?js= prevIndex ?>" >
+    <?js if (param.subparams) { ?>
+    <?js= self.partial('params.tmpl', { obj: param.subparams, prevIndex: currentIndex, lvl: lvl ? lvl + 1 : 1 }) ?>
+    <tr data-table-lvl="<?js= lvl  ?>" data-table-row-parent="<?js= currentIndex ?>" data-table-row-is-shown="false">
       <td class="name">
         <div class="lvl">
           <?js
-          for(let i = 0; i < lvl - 1; i++){
+          for(let i = 0; i < lvl ; i++){
           ?>
           <div class="lvl__indent"></div>
           <?js
@@ -178,10 +173,8 @@ params.forEach(function (param) {
     </tr>
     <?js } ?>
 
-    <?js if (param.subparams) { ?>
-    <?js= self.partial('params.tmpl', { obj: param.subparams, prevIndex: currentIndex, lvl: lvl ? lvl + 1 : 1 }) ?>
-    <?js } ?>
-    <?js }); ?>
+
+    <?js }); // end for each ?>
     <?js if(lvl === 0){ ?>
     </tbody>
   </table>
