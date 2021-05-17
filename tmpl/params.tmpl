@@ -4,8 +4,8 @@ if (typeof lvl === "undefined") {
   var lvl = 0;
 };
 
-if (typeof prevLvl === "undefined") {
-  var prevLvl = 0;
+if (typeof prevIndex === "undefined") {
+  var prevIndex = 0
 };
 
 /* sort subparams under their parent params (like opts.classname) */
@@ -64,7 +64,7 @@ params.forEach(function (param) {
 ?>
 <?js if(lvl === 0){ ?>
 <figure class="table-container trim">
-  <table class="params">
+  <table data-table class="params">
     <thead>
     <tr>
       <?js if (params.hasName) { ?>
@@ -95,9 +95,11 @@ params.forEach(function (param) {
       if (!param) {
         return;
       }
+      collapsable = param.subparams?`data-table-collapsed=true`:``;
+      currentIndex = `${prevIndex}-${index}`;
     ?>
 
-    <tr class="table-lvl-<?js= lvl ? lvl : 0 ?>">
+    <tr data-table-lvl="<?js= lvl ? lvl : 0 ?>" data-table-row-id="<?js= currentIndex ?>" data-table-row-parent="<?js= prevIndex ?>" <?js= collapsable ?>>
       <?js if (params.hasName) { ?>
       <td class="name position-relative">
         <?js if (param.subparams) { ?>
@@ -110,8 +112,7 @@ params.forEach(function (param) {
           }
           ?>
         </div>
-        <code class="font-weight-bold"><?js= param.name ?></code>
-        {
+        <code><?js= param.name ?></code>
         <?js }else{ ?>
         <div class="lvl">
           <?js
@@ -162,7 +163,7 @@ params.forEach(function (param) {
     </tr>
 
     <?js if(lvl !== 0 && index === params.length - 1){ ?>
-    <tr class="table-lvl-<?js= lvl ? lvl - 1 : 0 ?>">
+    <tr data-table-lvl="<?js= lvl - 1 ?>" data-table-row-parent="<?js= prevIndex ?>" >
       <td class="name">
         <div class="lvl">
           <?js
@@ -173,13 +174,13 @@ params.forEach(function (param) {
           }
           ?>
         </div>
-        }
+        <span class="font-weight-bold">}</span>
       </td>
     </tr>
     <?js } ?>
 
     <?js if (param.subparams) { ?>
-    <?js= self.partial('params.tmpl', { obj: param.subparams, prevLvl: lvl, lvl: lvl ? lvl + 1 : 1 }) ?>
+    <?js= self.partial('params.tmpl', { obj: param.subparams, prevIndex: currentIndex, lvl: lvl ? lvl + 1 : 1 }) ?>
     <?js } ?>
     <?js }); ?>
     <?js if(lvl === 0){ ?>

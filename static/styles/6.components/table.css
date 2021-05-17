@@ -1,40 +1,8 @@
 .table {
 }
 
-.table-lvl-0 td:first-child {
 
-}
-
-.table-lvl-1 td:first-child {
-    position: relative;
-    padding-left: 30px;
-}
-
-.table-lvl-2 td:first-child {
-    position: relative;
-    padding-left: 50px;
-}
-
-/*.table-lvl-1 td:first-child::before {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    left: 20px;*/
-/*    top: -10px;*/
-/*    bottom: 10px;*/
-/*    border-left: 1px solid var(--color-mono-30);*/
-/*    opacity: 0.5;*/
-/*}*/
-
-/*.table-lvl-2 td:first-child::before {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    left: 40px;*/
-/*    top: -10px;*/
-/*    bottom: 10px;*/
-/*    border-left: 1px solid var(--color-mono-30);*/
-/*    opacity: 0.5;*/
-/*}*/
-
+/* Lvl indicator  */
 .lvl {
     position: absolute;
     display: flex;
@@ -53,6 +21,50 @@
 
 .lvl__indent {
     margin-left: 1px;
-    border-left: 1px solid var(--color-mono-10);
+    border-left: 1px solid var(--color-code-orange-o-50);
     width: 20px;
+}
+
+
+[data-table-lvl="0"] td:first-child {
+    /* placeholder */
+}
+
+[data-table-lvl="1"] td:first-child {
+    position: relative;
+    padding-left: 30px;
+}
+
+[data-table-lvl="2"] td:first-child {
+    position: relative;
+    padding-left: 50px;
+}
+
+/* Collapse functionality */
+[data-table-collapsed] {
+    cursor: pointer;
+}
+
+[data-table-collapsed]:hover {
+    background-color: var(--color-mono-02);
+}
+
+[data-table-collapsed="false"] td:first-of-type {
+    font-weight: var(--fontWeight-bold);
+}
+
+[data-table-collapsed="false"] td:first-of-type::after {
+    content: '{';
+}
+
+[data-table-collapsed="true"] td:first-of-type::after {
+    content: '{...}';
+}
+
+[data-table-lvl]:not([data-table-lvl="0"]) {
+    display: none;
+}
+
+[data-table-lvl][data-table-row-is-shown="true"] {
+    display: table-row;
 }
