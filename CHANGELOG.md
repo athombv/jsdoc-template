@@ -1,7 +1,11 @@
 # Changelog
 
+## 1.1.1 Custom Simple Analytics domain
+`2021-05-18`
+- Added option to `jsdoc.json` to configurate Simple Analytics: `"simpleAnalyticsHost": "your-host.extension"`
+
 ## 1.1 Collapsable Tables 
-`2021-05-17 `
+`2021-05-17`
 
 - Added collapsable tables
 - Added shadow to notes

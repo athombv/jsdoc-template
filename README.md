@@ -1,7 +1,9 @@
 # Homey JSDoc Template
 
 ## How to configurate JS Docs project
+
 1. Add required devDependencies to your project in package.json:
+
 ```json
 {
   "devDependencies": {
@@ -16,24 +18,43 @@
 ```
 
 2. Add scripts in package.json
+
 ```json
 {
   "scripts": {
-    "serve": "concurrently \"serve build/\" \"npm run build:watch\"",
-    "build": "jsdoc --configure ./docs/jsdoc.json",
-    "build:clean": "rm -rf ./build",
-    "build:watch": "watch \"npm run build:clean && npm run build\" lib docs \"node_modules/homey-jsdoc-template\""
+    "serve": "concurrently \"serve build/\" \"npm run jsdoc:watch\"",
+    "build": "npm ci; npm run jsdoc:clean; npm run jsdoc;",
+    "jsdoc": "jsdoc --configure ./docs/jsdoc.json;",
+    "jsdoc:clean": "rm -rf ./build",
+    "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" lib docs \"node_modules/homey-jsdoc-template\""
   }
 }
 ```
+
 3. Don't forget to run `npm install` 😁
 
 ## How to make updates to template
+
 1. Clone this repository
 
 2. Link this repository to your current project by:
+
 ```bash
 npm link homey-jsdoc-template
 ```
-note: you have to relink the repository each time after you run `npm install` 
 
+note: you have to relink the repository each time after you run `npm install`
+
+## Configuration
+
+### Simple analytics
+
+To add an alternative cname host for Simple Analytics add the following rule to `jsdoc.json` or `jsdocrc.json`
+
+```json
+{
+  "opts": {
+    "simpleAnalyticsHost": "your-host.extension"
+  }
+}
+```
