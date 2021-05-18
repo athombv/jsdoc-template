@@ -58,3 +58,20 @@ To add an alternative cname host for Simple Analytics add the following rule to 
   }
 }
 ```
+
+## Customization
+### Batches / images / videos
+If you want to add batches a.o elements like images/ video in top of the readme.md it will break the large intro paragraph. Wrap your intro elements in `<header>` tags to avoid this. 
+Example
+`readme.md`
+```
+    <header>
+    
+    # Your heading
+    
+    batches/images/etc
+    
+    </header>
+    
+    My first large paragraph
+```

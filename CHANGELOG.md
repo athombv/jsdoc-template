@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2 Header tag
+`2021-05-18`
+- Add header tag to support batches in readme.md
+
 ## 1.1.1 Custom Simple Analytics domain
 `2021-05-18`
 - Added option to `jsdoc.json` to configurate Simple Analytics: `"simpleAnalyticsHost": "your-host.extension"`
