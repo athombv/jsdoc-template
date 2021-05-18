@@ -36,8 +36,11 @@
 <script src="scripts/highlight.min.js"></script>
 <!--<script src="scripts/linenumber.js"></script>-->
 
+<?js if(env.opts.simpleAnalyticsHost){ ?>
+<script async defer src="https://<?js= env.opts.simpleAnalyticsHost ?>/latest.js"></script>
+<?js }else{ ?>
 <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-
+<?js } ?>
 </body>
 </html>
