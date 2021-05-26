@@ -303,19 +303,29 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 
   if (items.length) {
     let itemsNav = '';
+    let lastLvl = 0;
 
     items.forEach(item => {
       let displayName;
+      let lvl = 0;
+      let lvlComponent = '';
+
+      // Determine indenting lvl
+      if(typeof item.memberof!=='undefined'){
+        lvl = item.memberof.split('.').length;
+        lvlComponent = `<span class="nav-group__lvl">${new Array(lvl+1).join("<span></span>")}</span>`
+        lastLvl = lvl; // todo making ul inside li
+      }
 
       if (!hasOwnProp.call(item, 'longname')) {
-        itemsNav += `<li data-search-key="${item.name.toLowerCase()}" class="nav-group__item">${linktoFn('', item.name)}</li>`;
+        itemsNav += `<li data-lvl="${lvl}" data-search-key="${item.name.toLowerCase()}" class="nav-group__item">${linktoFn('', `${lvlComponent} ${item.name}`)}</li>`;
       } else if (!hasOwnProp.call(itemsSeen, item.longname)) {
         if (env.conf.templates.default.useLongnameInNav) {
           displayName = item.longname;
         } else {
           displayName = item.name;
         }
-        itemsNav += `<li data-search-key="${item.longname.toLowerCase()}" class="nav-group__item">${linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''))}</li>`;
+        itemsNav += `<li data-lvl="${lvl}" data-search-key="${item.longname.toLowerCase()}" class="nav-group__item">${linktoFn(item.longname, `${lvlComponent} ${displayName.replace(/\b(module|event):/g, '')}`)}</li>`;
 
         itemsSeen[item.longname] = true;
       }
