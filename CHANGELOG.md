@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3 ToC
+`2021-05-26`
+- Fix ToC links for static methods
+
 ## 1.1.2 Header tag
 `2021-05-18`
 - Add header tag to support batches in readme.md
