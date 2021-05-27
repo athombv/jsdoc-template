@@ -1,3 +1,5 @@
+[![GitHub Release](https://img.shields.io/github/release/athombv/homey-jsdoc-template?style=flat)]()  
+
 # Homey JSDoc Template
 
 ## How to configurate JS Docs project
