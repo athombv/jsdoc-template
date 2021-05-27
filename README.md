@@ -8,7 +8,7 @@
 {
   "devDependencies": {
     "concurrently": "^5.1.0",
-    "homey-jsdoc-template": "github:athombv/homey-jsdoc-template#1.1",
+    "homey-jsdoc-template": "github:athombv/homey-jsdoc-template#1.2.2",
     "jsdoc": "^3.6.6",
     "jsdoc-ts-utils": "^1.1.2",
     "serve": "^11.3.1",
