@@ -81,16 +81,11 @@
     ?>
     <h2 class="subsection-title">Classes</h2>
 
-    <dl>
+    <ul>
       <?js classes.forEach(function(c) { ?>
-      <dt><?js= self.linkto(c.longname, c.name) ?></dt>
-      <dd>
-        <?js if (c.summary) { ?>
-        <?js= c.summary ?>
-        <?js } ?>
-      </dd>
+      <li><?js= self.linkto(c.longname, c.name) ?></li>
       <?js }); ?>
-    </dl>
+    </ul>
     <?js } ?>
 
     <?js
