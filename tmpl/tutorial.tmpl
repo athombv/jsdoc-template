@@ -1,19 +1,28 @@
-<section>
-
-<header>
-    <?js if (children.length > 0) { ?>
-    <ul><?js
-        var self = this;
-        children.forEach(function(t) { ?>
-        <li><?js= self.tutoriallink(t.name) ?></li>
-    <?js }); ?></ul>
-    <?js } ?>
-
-    <h2><?js= header ?></h2>
-</header>
-
-<article>
-    <?js= content ?>
-</article>
-
-</section>
+<div class="flex flex-direction-column flex-fill max-100">
+  <div class="flex">
+    <div class="main__center">
+      <div class="main__content align-baseline">
+        <h1 id="introduction" class="text-preset-heading-1">
+          <?js= header ?>
+        </h1>
+      </div>
+      <div class="main__index"></div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="main__center">
+      <div class="main__content align-baseline">
+        <?js= content ?>
+      </div>
+      <div class="main__index">
+        <?js if (children.length > 0) { ?>
+          <ul><?js
+            var self = this;
+            children.forEach(function(t) { ?>
+            <li><?js= self.tutoriallink(t.name) ?></li>
+          <?js }); ?></ul>
+          <?js } ?>
+      </div>
+    </div>
+  </div>
+</div>
