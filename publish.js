@@ -22,8 +22,8 @@ function find(spec) {
   return helper.find(data, spec);
 }
 
-function tutoriallink(tutorial) {
-  return helper.toTutorial(tutorial, null, {
+function tutoriallink(longName, name) {
+  return helper.toTutorial(longName, null, {
     tag: 'em',
     classname: 'disabled',
     prefix: 'Tutorial: '
@@ -340,7 +340,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 }
 
 function linktoTutorial(longName, name) {
-  return tutoriallink(name);
+  return tutoriallink(longName, name);
 }
 
 function linktoExternal(longName, name) {
