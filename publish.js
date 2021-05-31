@@ -395,7 +395,7 @@ function buildNav(members, opts) {
   nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto);
   // nav += buildMemberNav(members.events, 'Events', seen, linkto);
   nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto);
-  nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
+  nav += buildMemberNav(members.tutorials, opts.tutorialsNavHeading || 'Tutorials', seenTutorials, linktoTutorial);
 
   if (members.globals.length) {
     globalNav = '';
