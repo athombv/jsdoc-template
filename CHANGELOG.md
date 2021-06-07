@@ -1,5 +1,12 @@
 # Changelog
 
+(unreleased)
+- Fixed event names with double quotes
+
+## 1.3 Tutorials
+`2021-05-28`
+- Add tutorial section
+
 ## 1.2 Menu indenting
 `2021-05-26`
 - Add menu indenting for when a class has multiple levelss
