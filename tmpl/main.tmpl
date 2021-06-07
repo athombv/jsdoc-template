@@ -1,3 +1,15 @@
+<?js
+/**
+ * TODO remove this hack when JSDocs fixed this.
+ * @param input
+ * @returns {*}
+ */
+function fixEventName(input){
+  return input.replace(/"/g, "");
+}
+
+ ?>
+
 <section>
   <header>
     <?js if (!doc.longname || doc.kind !== 'module') { ?>
@@ -204,7 +216,9 @@
     <section id="section-events">
       <h2 class="subsection-title">Events</h2>
 
-      <?js events.forEach(function(e) { ?>
+      <?js events.forEach(function(e) {
+      e.name = fixEventName(e.name);
+      ?>
       <?js= self.partial('method.tmpl', e) ?>
       <?js }); ?>
     </section>

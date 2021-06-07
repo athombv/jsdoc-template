@@ -1,6 +1,16 @@
 <?js
 var self = this;
 var isGlobalPage;
+
+/**
+ * TODO remove this hack when JSDocs fixed this.
+ * @param input
+ * @returns {*}
+ */
+function fixEventName(input){
+  return input.replace(/"/g, "");
+}
+
 ?>
 <nav class="toc trim">
   <h4 class="toc__title font-weight-bold">Table of Contents</h4>
@@ -73,9 +83,12 @@ var isGlobalPage;
     <li class="toc__item">
       <a class="toc__link" href="#section-events">Events</a>
       <ul class="toc__list toc__list--lvl2">
-        <?js events.forEach(function(e) { ?>
+        <?js events.forEach(function(e) {
+          e.id = fixEventName(e.id);
+          e.name = fixEventName(e.name);
+        ?>
         <li class="toc__item">
-          <a class="toc__link" title="<?js= e.name ?>" href="#event:<?js= e.name ?>"><?js= e.name ?></a>
+          <a class="toc__link" title="<?js= e.name ?>" href="#<?js= e.id ?>"><?js= e.name ?></a>
         </li>
         <?js }); ?>
       </ul>
