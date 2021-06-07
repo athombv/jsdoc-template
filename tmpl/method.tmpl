@@ -58,7 +58,7 @@ function isContentNotEmpty(data) {
   <?js if (data.kind !== 'module' && !data.hideconstructor) { ?>
 
   <?js if (data.kind !== 'namespace') { ?>
-  <h3 class="method__name"><?js= name ?></h3>
+  <h3 class="method__name"><a data-hash-link class="method__hash-link" href="#<?js= id ?>"></a><?js= name ?></h3>
   <span class="method__function function">
     <?js if (kind === 'class') { ?>
     <?js= data.attribs + 'new ' + name + (data.signature || '') ?>
