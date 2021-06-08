@@ -116,6 +116,7 @@
     const allMenuItems = document.querySelectorAll(`[data-search-key]`);
     allMenuItems.forEach((item) => {
       item.classList.remove('is-match');
+      item.classList.remove('is-match-parent');
     });
 
     // if no value stop
@@ -128,10 +129,37 @@
     // show match
     $body.classList.add('is-navigation-search');
 
-    const matches = document.querySelectorAll(`[data-search-key*="${navigationSearchTerm.toLowerCase()}"]`);
+    // support multiple keywords
+    const terms = navigationSearchTerm.toLowerCase().trim().split(' ')
+    // build search query
+    let query = '';
+    terms.forEach(function (term) {
+      query += `[data-search-key*="${term}"]`;
+    })
+
+    const matches = document.querySelectorAll(query);
     matches.forEach((match) => {
+      const lvl = match.dataset.lvl - 1;
+      showParentItem(match, lvl);
       match.classList.add('is-match');
     });
   }
 
+  function showParentItem(target, lvl) {
+    let sibling = target.previousSibling;
+
+    if (sibling === null) {
+      return;
+    }
+
+    if (parseInt(sibling.dataset.lvl) === lvl) {
+      sibling.classList.add('is-match-parent');
+
+      if (lvl !== 0) {
+        showParentItem(sibling, lvl - 1);
+      }
+    } else {
+      showParentItem(sibling, lvl);
+    }
+  }
 })();
