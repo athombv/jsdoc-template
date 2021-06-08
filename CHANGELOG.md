@@ -2,6 +2,8 @@
 
 (unreleased)
 - Add 'copy to clipboard' functionality for linking to methods
+- Add multi keyword support for navigation search filter
+- Show whole navigation tree while filtering
 - Fixed event names with double quotes
 
 ## 1.3 Tutorials
