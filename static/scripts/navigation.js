@@ -124,18 +124,17 @@
     // show match
     $body.classList.add('is-navigation-search');
 
-    const terms = navigationSearchTerm.toLowerCase().split(' ')
+    // support multiple keywords
+    const terms = navigationSearchTerm.toLowerCase().trim().split(' ')
+    // build search query
     let query = '';
     terms.forEach(function (term) {
       query += `[data-search-key*="${term}"]`;
     })
-
-    console.log(query);
 
     const matches = document.querySelectorAll(query);
     matches.forEach((match) => {
       match.classList.add('is-match');
     });
   }
-
 })();
