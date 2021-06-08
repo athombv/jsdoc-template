@@ -34,31 +34,35 @@
 .method__hash-link {
     position: absolute;
     left: -5px;
-    transform: translateX(-100%);
+    top: 50%;
+    transform: translateX(-100%) translateY(-40%);
     text-decoration: none;
-    color: var(--color-text-light);
     transition: var(--transition-fast);
     opacity: 0;
     pointer-events: none;
+    width: 16px;
+    height: 16px;
+    mask-image: url('../images/link.svg');;
+    mask-size: 14px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: var(--color-text-light);
 }
 
 .method__hash-link:visited {
-    color: var(--color-text-light);
+    background-color: var(--color-text-light);
 }
 
 .method__hash-link:hover {
-    color: var(--color-text-light-hover);
+    background-color: var(--color-text-light-hover);
     text-decoration: none;
 }
 
 .method__hash-link:active {
-    color: var(--color-text-link);
+    background-color: var(--color-text-link);
 }
 
 
-.method__hash-link::before {
-    content: "#";
-}
 
 .method__function {
     font-size: 14px;

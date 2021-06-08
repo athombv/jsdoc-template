@@ -8,10 +8,11 @@
     left: 50%;
     transform: translateX(-50%);
     padding: var(--component-padding, 10px);
-    border-radius: var(--borderRadius-large);
+    border-radius: var(--borderRadius);
     box-shadow: var(--boxShadow);
     background: var(--color-component);
-    font-weight: var(--fontWeight-bold);
+    font-weight: var(--fontWeight-medium);
+    color: var(--color-highlight);
 }
 
 .toastmessage__link{

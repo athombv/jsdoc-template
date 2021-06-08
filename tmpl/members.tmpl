@@ -3,7 +3,7 @@ var data = obj;
 var self = this;
 ?>
 <section id="<?js= id ?>" class="method component trim">
-  <h3 class="method__name"><?js= name ?></h3>
+  <h3 class="method__name"><a data-hash-link class="method__hash-link" href="#<?js= id ?>"></a><?js= name ?></h3>
   <span class="method__function function">
     <?js= data.attribs + name + (data.signature ? data.signature : '') ?>
   </span>
