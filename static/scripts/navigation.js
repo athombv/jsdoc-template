@@ -21,14 +21,18 @@
      */
     const url = window.location.toString();
     let page = url.substring(url.lastIndexOf('/') + 1).split('#')[0];
-    if(page.indexOf('.html')===-1){
+    if (page.indexOf('.html') === -1) {
       page += '.html';
     }
 
-    const $activeMenuItem = document.querySelector(`[href="${page}"]`);
+    const $activeMenuItemLink = document.querySelector(`[href="${page}"]`);
 
-    if ($activeMenuItem) {
+    if ($activeMenuItemLink) {
+      const $activeMenuItem = $activeMenuItemLink.parentElement;
       $activeMenuItem.classList.add('is-active');
+
+      showChildItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) + 1);
+      showParentItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) - 1);
     }
 
     /**
@@ -139,7 +143,7 @@
 
     const matches = document.querySelectorAll(query);
     matches.forEach((match) => {
-      const lvl = match.dataset.lvl - 1;
+      const lvl = parseInt(match.dataset.lvl) - 1;
       showParentItem(match, lvl);
       match.classList.add('is-match');
     });
@@ -152,7 +156,6 @@
    */
   function showParentItem(target, lvl) {
     let sibling = target.previousSibling;
-
     if (sibling === null) {
       return;
     }
@@ -166,5 +169,68 @@
     } else {
       showParentItem(sibling, lvl);
     }
+  }
+
+  /**
+   * @description Show child item of: active item
+   * - parent item
+   * -- active item
+   * --- child item [this one]
+   * --- child item [this one]
+   * @param target
+   * @param lvl
+   */
+  function showChildItemOfActiveItem(target, lvl) {
+    let sibling = target.nextSibling;
+    if (sibling === null) {
+      return;
+    }
+
+    if (parseInt(sibling.dataset.lvl) === lvl) {
+      sibling.classList.add('is-active-child');
+
+      showChildItemOfActiveItem(sibling, lvl);
+    } else if (parseInt(sibling.dataset.lvl) > lvl) {
+      showChildItemOfActiveItem(sibling, lvl);
+    }
+  }
+
+  /**
+   * @description Show parent item of active menu item
+   * - parent item [this one]
+   * -- active item
+   * @param target
+   * @param lvl
+   */
+  function showParentItemOfActiveItem(target, lvl) {
+    let sibling = target.previousSibling;
+    if (sibling === null) {
+      return;
+    }
+
+    if (parseInt(sibling.dataset.lvl) === lvl) {
+      sibling.classList.add('is-active-parent');
+
+      if (lvl !== 0) {
+        showParentItemOfActiveItem(sibling, lvl - 1);
+      }
+    } else {
+      showParentItemOfActiveItem(sibling, lvl);
+    }
+  }
+
+  /**
+   * @description show Child items of: Parent Item of: Active Item
+   * - parent item
+   * -- child item [this one]
+   * -- active item
+   * --- child active item
+   * --- child active item
+   * -- child item [this one]
+   * @param target
+   * @param lvl
+   */
+  function showChildItemOfParentItemOfActiveItem(target, lvl){
+
   }
 })();

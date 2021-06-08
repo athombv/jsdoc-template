@@ -28,7 +28,7 @@
 }
 
 /* when navigation search, only show matched items */
-.is-navigation-search .nav-group__item:not(.is-match):not(.is-match-parent) {
+body.is-navigation-search .nav-group__item:not(.is-match):not(.is-match-parent) {
     display: none;
 }
 
@@ -53,12 +53,12 @@
     background-color: var(--color-background-active);
 }
 
-.nav-group__item a.is-active {
+.nav-group__item.is-active a {
     color: var(--color-highlight);
     font-weight: var(--fontWeight-medium);
 }
 
-.nav-group__item:not([data-lvl="0"]) a{
+.nav-group__item:not([data-lvl="0"]) a {
     padding-top: 2px;
     padding-bottom: 2px;
 }
@@ -75,6 +75,10 @@
     margin-right: 10px;
 }
 
-.nav-group__lvl span:last-of-type{
+.nav-group__lvl span:last-of-type {
     background: var(--color-mono-30);
+}
+
+.nav-group__item:not([data-lvl="0"]):not(.is-match):not(.is-match-parent):not(.is-active-child):not(.is-active):not(.is-active-parent) {
+    display: none;
 }
