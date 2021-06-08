@@ -28,7 +28,7 @@
 }
 
 /* when navigation search, only show matched items */
-.is-navigation-search .nav-group__item:not(.is-match) {
+.is-navigation-search .nav-group__item:not(.is-match):not(.is-match-parent) {
     display: none;
 }
 

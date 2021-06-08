@@ -112,6 +112,7 @@
     const allMenuItems = document.querySelectorAll(`[data-search-key]`);
     allMenuItems.forEach((item) => {
       item.classList.remove('is-match');
+      item.classList.remove('is-match-parent');
     });
 
     // if no value stop
@@ -134,7 +135,27 @@
 
     const matches = document.querySelectorAll(query);
     matches.forEach((match) => {
+      const lvl = match.dataset.lvl - 1;
+      showParentItem(match, lvl);
       match.classList.add('is-match');
     });
+  }
+
+  function showParentItem(target, lvl) {
+    let sibling = target.previousSibling;
+
+    if (sibling === null) {
+      return;
+    }
+
+    if (parseInt(sibling.dataset.lvl) === lvl) {
+      sibling.classList.add('is-match-parent');
+
+      if (lvl !== 0) {
+        showParentItem(sibling, lvl - 1);
+      }
+    } else {
+      showParentItem(sibling, lvl);
+    }
   }
 })();
