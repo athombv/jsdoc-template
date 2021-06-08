@@ -145,6 +145,11 @@
     });
   }
 
+  /**
+   * @description Show parent item while searching in navigation
+   * @param target
+   * @param lvl
+   */
   function showParentItem(target, lvl) {
     let sibling = target.previousSibling;
 
