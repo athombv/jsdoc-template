@@ -79,6 +79,6 @@ body.is-navigation-search .nav-group__item:not(.is-match):not(.is-match-parent) 
     background: var(--color-mono-30);
 }
 
-.nav-group__item:not([data-lvl="0"]):not(.is-match):not(.is-match-parent):not(.is-active-child):not(.is-active):not(.is-active-parent) {
+.nav-group__item:not([data-lvl="0"]):not(.is-match):not(.is-match-parent):not(.is-active-child):not(.is-active):not(.is-active-parent):not(.is-active-parent-sibling) {
     display: none;
 }

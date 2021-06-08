@@ -17,35 +17,6 @@
     $navigationButton.addEventListener('click', navigationOnClickHandler);
 
     /**
-     * Active menu item
-     */
-    const url = window.location.toString();
-    let page = url.substring(url.lastIndexOf('/') + 1).split('#')[0];
-    if (page.indexOf('.html') === -1) {
-      page += '.html';
-    }
-
-    const $activeMenuItemLink = document.querySelector(`[href="${page}"]`);
-
-    if ($activeMenuItemLink) {
-      const $activeMenuItem = $activeMenuItemLink.parentElement;
-      $activeMenuItem.classList.add('is-active');
-
-      showChildItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) + 1);
-      showParentItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) - 1);
-    }
-
-    /**
-     *  Save menu scroll position
-     */
-    const $navigationScroll = document.querySelector(`[data-navigation-scroll]`);
-
-    $navigationScroll.scrollTop = localStorage.getItem('navigationScroll');
-
-    // reset localstorage for scroll position
-    localStorage.removeItem('navigationScroll');
-
-    /**
      * Navigation Search
      */
     $navigationSearch = document.querySelector(`[data-navigation-search]`);
@@ -63,6 +34,35 @@
 
     // remove local storage for navigation search
     localStorage.removeItem('navigationSearch');
+
+    /**
+     * Active menu item
+     */
+    const url = window.location.toString();
+    let page = url.substring(url.lastIndexOf('/') + 1).split('#')[0];
+    if (page.indexOf('.html') === -1) {
+      page += '.html';
+    }
+
+    const $activeMenuItemLink = document.querySelector(`[href="${page}"]`);
+
+    if ($activeMenuItemLink) {
+      const $activeMenuItem = $activeMenuItemLink.parentElement;
+      $activeMenuItem.classList.add('is-active');
+
+      // Open navigation tree
+      showChildItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) + 1);
+      showParentItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) - 1);
+    }
+
+    /**
+     *  Save menu scroll position
+     */
+    const $navigationScroll = document.querySelector(`[data-navigation-scroll]`);
+    $navigationScroll.scrollTop = localStorage.getItem('navigationScroll');
+
+    // reset localstorage for scroll position
+    localStorage.removeItem('navigationScroll');
 
     /**
      * Save data over multiple pages
@@ -188,9 +188,9 @@
 
     if (parseInt(sibling.dataset.lvl) === lvl) {
       sibling.classList.add('is-active-child');
+    }
 
-      showChildItemOfActiveItem(sibling, lvl);
-    } else if (parseInt(sibling.dataset.lvl) > lvl) {
+    if (parseInt(sibling.dataset.lvl) >= lvl) {
       showChildItemOfActiveItem(sibling, lvl);
     }
   }
@@ -204,12 +204,14 @@
    */
   function showParentItemOfActiveItem(target, lvl) {
     let sibling = target.previousSibling;
-    if (sibling === null) {
+    if (sibling === null || lvl < 0 ) {
       return;
     }
 
     if (parseInt(sibling.dataset.lvl) === lvl) {
       sibling.classList.add('is-active-parent');
+
+      showChildItemOfParentItemOfActiveItem(sibling, lvl + 1);
 
       if (lvl !== 0) {
         showParentItemOfActiveItem(sibling, lvl - 1);
@@ -230,7 +232,18 @@
    * @param target
    * @param lvl
    */
-  function showChildItemOfParentItemOfActiveItem(target, lvl){
+  function showChildItemOfParentItemOfActiveItem(target, lvl) {
+    let sibling = target.nextSibling;
+    if (sibling === null) {
+      return;
+    }
 
+    if (parseInt(sibling.dataset.lvl) === lvl) {
+      sibling.classList.add('is-active-parent-sibling');
+    }
+
+    if (parseInt(sibling.dataset.lvl) >= lvl) {
+      showChildItemOfParentItemOfActiveItem(sibling, lvl);
+    }
   }
 })();
