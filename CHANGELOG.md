@@ -1,6 +1,7 @@
 # Changelog
 
 (unreleased)
+- Add 'copy to clipboard' functionality for linking to methods
 - Fixed event names with double quotes
 
 ## 1.3 Tutorials
