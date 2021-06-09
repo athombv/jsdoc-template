@@ -44,7 +44,7 @@
       page += '.html';
     }
 
-    const $activeMenuItemLink = document.querySelector(`[href="${page}"]`);
+    const $activeMenuItemLink = document.querySelector(`[data-navigation] [href="${page}"]`);
 
     if ($activeMenuItemLink) {
       const $activeMenuItem = $activeMenuItemLink.parentElement;
@@ -54,6 +54,20 @@
       showChildItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) + 1);
       showParentItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) - 1);
     }
+
+    /**
+     * Collapsable menu items
+     */
+    const $menuItems = document.querySelectorAll(`[data-navigation] [data-lvl]`);
+    $menuItems.forEach(($menuItem)=>{
+      if(!$menuItem.nextSibling){
+        return;
+      }
+
+      if($menuItem.dataset.lvl < $menuItem.nextSibling.dataset.lvl){
+        $menuItem.classList.add('is-collapsable');
+      }
+    });
 
     /**
      *  Save menu scroll position
