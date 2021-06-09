@@ -44,7 +44,8 @@
 
     /* Z-index */
     --z-index-navigation: 100;
-    --z-index-toast-message: 200;
+    --z-index-docs-nav: 200;
+    --z-index-toast-message: 300;
 
     /* Input */
 }
