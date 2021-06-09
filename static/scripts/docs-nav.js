@@ -1,20 +1,19 @@
 (function () {
   "use strict";
   let navigationState = false;
-  let navigationSearchTerm = false;
+  let $navigationMenu;
   let $navigationButton;
-  let $navigationSearch;
-  let $navigationSearchReset;
   let $body;
 
   documentReady(function () {
     $body = document.querySelector(`body`);
+    $navigationMenu = document.querySelector(`[data-docs-nav-menu]`);
 
     /**
      * Toggle mobile menu
      */
     $navigationButton = document.querySelector(`[data-docs-nav-toggle]`);
-    $navigationButton.addEventListener('click', navigationOnClickHandler);
+    $navigationButton.addEventListener('click', buttonOnClickHandler, false);
   });
 
   /**
@@ -26,8 +25,20 @@
 
     if (navigationState) {
       $body.classList.add('is-docs-nav-active');
+
+      $navigationMenu.addEventListener("click", function (event) {
+        event.stopPropagation();
+      }, false);
+      $body.addEventListener("click", navigationOnClickHandler);
     } else {
       $body.classList.remove('is-docs-nav-active');
+      $body.removeEventListener("click", navigationOnClickHandler);
+      // todo removeEventListener should be added for $navigationMenu somehow
     }
+  }
+
+  function buttonOnClickHandler(event) {
+    event.stopPropagation();
+    navigationOnClickHandler();
   }
 })();

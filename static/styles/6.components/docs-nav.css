@@ -19,7 +19,7 @@
     display: flex;
     background: var(--color-component);
     box-shadow: var(--boxShadow);
-    border-radius: var(--borderRadius);
+    border-radius: 50%;
     transition: var(--transition-fast);
 }
 
@@ -36,6 +36,10 @@
 
 .docs-nav__button:hover {
     transform: scale(1.05);
+}
+
+.docs-nav__button:active {
+    transform: scale(1);
 }
 
 .docs-nav__button:hover .docs-nav__button-icon {
