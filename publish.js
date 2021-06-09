@@ -376,7 +376,7 @@ function buildNav(members, opts) {
             <button data-navigation-search-reset class="search__reset --mask" type="button" title="Reset"></button>
            </div>`;
   nav += `<div data-navigation-scroll class="navigation__scroll scroll trim">`;
-  nav += `<div class="navigation__menu trim">`;
+  nav += `<div data-navigation class="navigation__menu trim">`;
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   // externals are turned off hardcoded, because we don't use them. Also the Homey ZigbeeDriver can't be configured to turn them off.
   // nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
