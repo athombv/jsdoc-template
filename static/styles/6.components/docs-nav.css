@@ -108,11 +108,33 @@ body.is-docs-nav-active .docs-nav__menu {
     transition: var(--transition-fast);
 }
 
+.docs-nav__item a::after {
+    content: '';
+    background-color: var(--color-text);
+    mask-image: url('../images/arrow-right.svg');
+    mask-size: 12px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transition: var(--transition-fast);
+    margin-left: 1px;
+    transform: translateY(3px);
+}
+
 .docs-nav__item a:hover {
     font-weight: var(--fontWeight-medium);
     background: var(--color-background-hover);
     text-decoration: none;
 }
+
+.docs-nav__item a:hover::after{
+    opacity: 1;
+    transform: translateX(5px) translateY(3px);
+}
+
 
 .docs-nav__item a::before {
     /*content: '- ';*/
