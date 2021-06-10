@@ -49,6 +49,9 @@
     if ($activeMenuItemLink) {
       const $activeMenuItem = $activeMenuItemLink.parentElement;
       $activeMenuItem.classList.add('is-active');
+      $activeMenuItem.classList.add('is-active-current');
+      $activeMenuItem.classList.add('is-open');
+
 
       // Open navigation tree
       showChildItemOfActiveItem($activeMenuItem, parseInt($activeMenuItem.dataset.lvl) + 1);
@@ -59,13 +62,19 @@
      * Collapsable menu items
      */
     const $menuItems = document.querySelectorAll(`[data-navigation] [data-lvl]`);
-    $menuItems.forEach(($menuItem)=>{
-      if(!$menuItem.nextSibling){
+    $menuItems.forEach(($menuItem) => {
+      if (!$menuItem.nextSibling) {
         return;
       }
 
-      if($menuItem.dataset.lvl < $menuItem.nextSibling.dataset.lvl){
+      if ($menuItem.dataset.lvl < $menuItem.nextSibling.dataset.lvl) {
         $menuItem.classList.add('is-collapsable');
+        var collapseButton = document.createElement("button");
+        collapseButton.classList.add('nav-group__item-collapse');
+        $menuItem.appendChild(collapseButton);
+        collapseButton.addEventListener('click', function(){
+          toggleTree($menuItem, parseInt($menuItem.dataset.lvl) + 1);
+        });
       }
     });
 
@@ -218,12 +227,13 @@
    */
   function showParentItemOfActiveItem(target, lvl) {
     let sibling = target.previousSibling;
-    if (sibling === null || lvl < 0 ) {
+    if (sibling === null || lvl < 0) {
       return;
     }
 
     if (parseInt(sibling.dataset.lvl) === lvl) {
       sibling.classList.add('is-active-parent');
+      sibling.classList.add('is-open');
 
       showChildItemOfParentItemOfActiveItem(sibling, lvl + 1);
 
@@ -258,6 +268,68 @@
 
     if (parseInt(sibling.dataset.lvl) >= lvl) {
       showChildItemOfParentItemOfActiveItem(sibling, lvl);
+    }
+  }
+
+  /**
+   * @description show Child items of: Parent Item of: Active Item
+   * - parent item
+   * -- child item [this one]
+   * -- active item
+   * --- child active item
+   * --- child active item
+   * -- child item [this one]
+   * @param target
+   * @param lvl
+   */
+  function showChildItemOfTarget(target, lvl) {
+    let sibling = target.nextSibling;
+    if (sibling === null) {
+      return;
+    }
+
+    if (parseInt(sibling.dataset.lvl) === lvl) {
+      sibling.classList.add('is-active-parent-sibling');
+    }
+
+    if (parseInt(sibling.dataset.lvl) >= lvl) {
+      showChildItemOfTarget(sibling, lvl);
+    }
+  }
+
+  /**
+   * @description hide Child items of: Parent Item of: Active Item
+   * - parent item
+   * -- child item [this one]
+   * -- active item
+   * --- child active item
+   * --- child active item
+   * -- child item [this one]
+   * @param target
+   * @param lvl
+   */
+  function hideChildItemOfTarget(target, lvl) {
+    let sibling = target.nextSibling;
+    if (sibling === null) {
+      return;
+    }
+
+    if (parseInt(sibling.dataset.lvl) >= lvl) {
+      sibling.classList.remove('is-active-child');
+      sibling.classList.remove('is-active-parent-sibling');
+      sibling.classList.remove('is-active-current');
+      sibling.classList.remove('is-open');
+      hideChildItemOfTarget(sibling, lvl);
+    }
+  }
+
+  function toggleTree(target, lvl){
+    if(target.classList.contains('is-open')){
+      target.classList.remove('is-open');
+      hideChildItemOfTarget(target,lvl);
+    }else{
+      target.classList.add('is-open');
+      showChildItemOfTarget(target,lvl);
     }
   }
 })();
