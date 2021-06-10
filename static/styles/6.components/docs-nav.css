@@ -54,7 +54,7 @@
     right: 0;
     opacity: 0;
     transition: all 300ms ease-in-out;
-    transform: perspective(300px) rotateX(-15deg) scale(0.95);
+    transform: perspective(300px) rotateX(-5deg) scale(0.95);
     transform-origin: top right;
 }
 
