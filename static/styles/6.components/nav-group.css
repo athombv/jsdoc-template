@@ -95,32 +95,40 @@ body.is-navigation-search .nav-group__item:not(.is-match):not(.is-match-parent) 
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-text-light);
-    /*border: 1px solid var(--color-line);*/
-    font-size: 20px;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
+    width: 24px;
+    height: 24px;
     border-radius: 5px;
-    font-weight: var(--fontWeight-regular) !important;
     transition: var(--transition-fast);
     cursor: pointer;
     background: var(--color-white);
 }
 
 .nav-group__item-collapse:hover {
-    color: var(--color-text-light-hover);
     border-color: var(--color-line-hover);
     background-color: var(--color-background-hover);
 }
 
+.nav-group__item-collapse:hover::before{
+    color: var(--color-text-light-hover);
+}
+
 .nav-group__item-collapse::before {
-    content: '›';
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-text-light);
+    mask-image: url('../images/chevron-right.svg');
+    mask-size: 8px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transition: var(--transition-fast);
 }
 
 .nav-group__item.is-open .nav-group__item-collapse::before {
-    content: '-';
+    transform: rotate(90deg);
 }
 
 .nav-group__lvl {
@@ -139,6 +147,6 @@ body.is-navigation-search .nav-group__item:not(.is-match):not(.is-match-parent) 
     background: var(--color-mono-30);
 }
 
-.nav-group__item:not([data-lvl="0"]):not(.is-match):not(.is-match-parent):not(.is-active-child):not(.is-active-current):not(.is-active-parent):not(.is-active-parent-sibling):not(.is-active-parent-sibling) {
+.nav-group__item:not([data-lvl="0"]):not(.is-match):not(.is-match-parent):not(.is-active-child):not(.is-active-current):not(.is-active-parent):not(.is-active-parent-sibling):not(.is-active-parent-sibling):not(.is-active-target) {
     display: none;
 }

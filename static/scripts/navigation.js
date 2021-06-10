@@ -289,7 +289,7 @@
     }
 
     if (parseInt(sibling.dataset.lvl) === lvl) {
-      sibling.classList.add('is-active-parent-sibling');
+      sibling.classList.add('is-active-target');
     }
 
     if (parseInt(sibling.dataset.lvl) >= lvl) {
@@ -316,8 +316,10 @@
 
     if (parseInt(sibling.dataset.lvl) >= lvl) {
       sibling.classList.remove('is-active-child');
+      sibling.classList.remove('is-active-parent');
       sibling.classList.remove('is-active-parent-sibling');
       sibling.classList.remove('is-active-current');
+      sibling.classList.remove('is-active-target');
       sibling.classList.remove('is-open');
       hideChildItemOfTarget(sibling, lvl);
     }
