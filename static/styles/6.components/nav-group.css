@@ -92,12 +92,12 @@ body.is-navigation-search .nav-group__item:not(.is-match):not(.is-match-parent) 
 
 .nav-group__item-collapse {
     position: absolute;
-    right: -5px;
+    right: -7px;
     top: 50%;
     transform: translateY(-50%);
     width: 24px;
     height: 24px;
-    border-radius: var(--borderRadius-small);
+    border-radius: 8px;
     transition: var(--transition-fast);
     cursor: pointer;
     background: var(--color-white);
@@ -125,10 +125,11 @@ body.is-navigation-search .nav-group__item:not(.is-match):not(.is-match-parent) 
     mask-repeat: no-repeat;
     mask-position: center;
     transition: var(--transition-fast);
+    transform: translateX(1px);
 }
 
 .nav-group__item.is-open .nav-group__item-collapse::before {
-    transform: rotate(90deg);
+    transform: translateX(1px) rotate(90deg);
 }
 
 .nav-group__lvl {
