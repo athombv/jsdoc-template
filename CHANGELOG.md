@@ -1,9 +1,11 @@
 # Changelog
 
-(unreleased)
+## 1.4 Filter & Navigations
+`2021-06-10`
 - Add 'copy to clipboard' functionality for linking to methods
 - Add multi keyword support for navigation search filter
 - Add collapsable menus
+- Add documentation menu
 - Show whole navigation tree while filtering
 - Fixed event names with double quotes
 
