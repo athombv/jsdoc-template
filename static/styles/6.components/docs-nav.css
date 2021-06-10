@@ -3,9 +3,8 @@
 }
 
 .docs-nav h2 {
-    font-size: 20px;
-    border-bottom: 1px solid var(--color-line);
-    margin-bottom: 30px;
+    font-size: 24px;
+    color: var(--color-white);
 }
 
 .docs-nav h3 {
@@ -59,6 +58,15 @@
     transform-origin: top right;
 }
 
+.docs-nav__banner {
+    margin: -20px;
+    background-image: url(https://etc.athom.com/logo/transparent/1024.png);
+    background-position: 47% -22%;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: var(--borderRadius) var(--borderRadius) 0 0;
+}
+
 body.is-docs-nav-active .docs-nav__menu {
     pointer-events: auto;
     visibility: visible;
@@ -73,7 +81,7 @@ body.is-docs-nav-active .docs-nav__menu {
     top: 0;
     width: 16px;
     height: 16px;
-    background: var(--color-component);
+    background-image: linear-gradient(135deg, #0F70F4 50%, rgba(255,255,255,0));
     border-radius: 4px;
     transform: translateY(-40%) translateX(50%) rotate(45deg);
 }
@@ -107,6 +115,6 @@ body.is-docs-nav-active .docs-nav__menu {
 }
 
 .docs-nav__item a::before {
-    content: '- ';
-    color: var(--color-text-light);
+    /*content: '- ';*/
+    /*color: var(--color-text-light);*/
 }
