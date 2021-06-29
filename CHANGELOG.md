@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.1 
+`2021-06-29`
+- Move custom pages to the top of menu
+
 ## 1.4 Filter & Navigations
 `2021-06-10`
 - Add 'copy to clipboard' functionality for linking to methods
