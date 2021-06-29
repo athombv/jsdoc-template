@@ -10,16 +10,15 @@ docs.forEach(function(doc, i) {
       isGlobalPage = (doc.kind === 'globalobj');
     }
   ?>
-  <?js if (doc.kind === 'mainpage' || (doc.kind === 'package')) {
-    //fix for home page
-  if(i > 0){
-  ?>
+  <?js if (doc.kind === 'package') { ?>
+    <h3><?js= doc.name ?> <?js= doc.version ?></h3>
+  <?js } else if (doc.kind === 'mainpage') { ?>
   <div class="main__center">
     <div class="main__content align-baseline main-page trim">
       <?js= self.partial('mainpage.tmpl', doc) ?>
     </div>
   </div>
-  <?js } } else if (doc.kind === 'source') { ?>
+  <?js } else if (doc.kind === 'source') { ?>
   <div class="main__center">
     <div class="main__content align-baseline">
       <h1 class="text-preset-heading-1">
