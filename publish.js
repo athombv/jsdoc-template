@@ -332,7 +332,12 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     });
 
     if (itemsNav !== '') {
-      nav += `<nav class="nav-group"><h3 class="nav-group__title">${itemHeading}</h3><ul class="nav-group__list">${itemsNav}</ul></nav>`;
+      nav += '<nav class="nav-group">';
+      if (itemHeading !== '') {
+        nav += `<h3 class="nav-group__title">${itemHeading}</h3>`;
+      }
+      nav += `<ul class="nav-group__list">${itemsNav}</ul>`
+      nav += '</nav>';
     }
   }
 
