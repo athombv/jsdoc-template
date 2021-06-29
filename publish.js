@@ -377,6 +377,9 @@ function buildNav(members, opts) {
            </div>`;
   nav += `<div data-navigation-scroll class="navigation__scroll scroll trim">`;
   nav += `<div data-navigation class="navigation__menu trim">`;
+
+  nav += buildMemberNav(members.tutorials, '', seenTutorials, linktoTutorial);
+
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   // externals are turned off hardcoded, because we don't use them. Also the Homey ZigbeeDriver can't be configured to turn them off.
   // nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
@@ -395,7 +398,6 @@ function buildNav(members, opts) {
   nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto);
   // nav += buildMemberNav(members.events, 'Events', seen, linkto);
   nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto);
-  nav += buildMemberNav(members.tutorials, opts.tutorialsNavHeading || 'Tutorials', seenTutorials, linktoTutorial);
 
   if (members.globals.length) {
     globalNav = '';
