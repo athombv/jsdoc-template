@@ -11,7 +11,9 @@ docs.forEach(function(doc, i) {
     }
   ?>
   <?js if (doc.kind === 'package') { ?>
-    <h3><?js= doc.name ?> <?js= doc.version ?></h3>
+    <?js if (doc.name && doc.version) { ?>
+      <h3><?js= doc.name ?> <?js= doc.version ?></h3>
+    <?js } ?>
   <?js } else if (doc.kind === 'mainpage') { ?>
   <div class="main__center">
     <div class="main__content align-baseline main-page trim">
