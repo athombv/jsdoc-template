@@ -22,6 +22,12 @@ function fixEventName(input){
     <li class="toc__item"><a class="toc__link" href="#section-constructor">Constructor</a></li>
     <?js } ?>
 
+    <?js if (doc.augments && doc.augments.length) { ?>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-extends">Extends</a>
+    </li>
+    <?js } ?>
+
     <?js
     var members = self.find({ kind: 'member', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (members && members.length && members.forEach) {
@@ -35,12 +41,6 @@ function fixEventName(input){
         </li>
         <?js }); ?>
       </ul>
-    </li>
-    <?js } ?>
-
-    <?js if (doc.augments && doc.augments.length) { ?>
-    <li class="toc__item">
-      <a class="toc__link" href="#section-extends">Extends</a>
     </li>
     <?js } ?>
 
