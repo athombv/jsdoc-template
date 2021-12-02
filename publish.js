@@ -188,6 +188,15 @@ function addSignatureTypes(f) {
 
 function addAttribs(f) {
   const attribs = helper.getAttribs(f);
+
+  // Add (async) attribute to functions returning Promises
+  if (Array.isArray(f.returns) && Array.isArray(attribs) && attribs.includes('async') === false) {
+    // check whether this function returns a promise
+    if (f.returns.every(item => item.type.names.every(name => name.startsWith('Promise')))) {
+      attribs.push('async');
+    }
+  }
+
   const attribsString = buildAttribsString(attribs);
 
   f.attribs = util.format('<span class="function__type-signature">%s</span>', attribsString);
