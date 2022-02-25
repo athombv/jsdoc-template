@@ -1,6 +1,6 @@
 {
   "name": "homey-jsdoc-template",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "publish.js",
   "scripts": {
