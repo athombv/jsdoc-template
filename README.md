@@ -15,6 +15,7 @@ $ npm i --save-dev github:athombv/homey-jsdoc-template#
 ```json
 {
   "opts": {
+    "mainpagetitle": "Your Project Name",
     "template": "./node_modules/homey-jsdoc-template"
   }
 }
