@@ -2,38 +2,45 @@
 
 # Homey JSDoc Template
 
-## How to configurate JS Docs project
+## How to use this template
 
-1. Add required devDependencies to your project in package.json:
+1. Install as a dev dependency
+
+```bash
+$ npm i --save-dev github:athombv/homey-jsdoc-template#
+```
+
+2. Add to `jsdoc.json`
 
 ```json
 {
-  "devDependencies": {
-    "concurrently": "^5.1.0",
-    "homey-jsdoc-template": "github:athombv/homey-jsdoc-template#1.4.4",
-    "jsdoc": "^3.6.6",
-    "jsdoc-ts-utils": "^1.1.2",
-    "serve": "^11.3.1",
-    "watch": "^1.0.2"
+  "opts": {
+    "template": "./node_modules/homey-jsdoc-template"
   }
 }
 ```
 
-2. Add scripts in package.json
+## Recommended NPM Scripts
+
+This is the recommended approach of integrating this template in your project, additional to the steps above.
+
+```bash
+$ npm i --save-dev concurrently jsdoc serve watch
+```
+
+2. Add scripts to `package.json`
 
 ```json
 {
   "scripts": {
-    "serve": "concurrently \"serve build/\" \"npm run jsdoc:watch\"",
+    "serve": "concurrently \"serve docs/\" \"npm run jsdoc:watch\"",
     "build": "npm ci; npm run jsdoc:clean; npm run jsdoc;",
     "jsdoc": "jsdoc --configure ./docs/jsdoc.json;",
-    "jsdoc:clean": "rm -rf ./build",
-    "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" lib docs \"node_modules/homey-jsdoc-template\""
+    "jsdoc:clean": "rm -rf ./docs",
+    "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" ./lib docs"
   }
 }
 ```
-
-3. Don't forget to run `npm install` 😁
 
 ## How to make updates to template
 
