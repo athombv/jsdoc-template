@@ -2,24 +2,34 @@
 
 # Homey JSDoc Template
 
-## How to configurate JS Docs project
+## How to use this template
 
-1. Add required devDependencies to your project in package.json:
+1. Install as a dev dependency
+
+```bash
+$ npm i --save-dev github:athombv/homey-jsdoc-template#
+```
+
+2. Add to `jsdoc.json`
 
 ```json
 {
-  "devDependencies": {
-    "concurrently": "^5.1.0",
-    "homey-jsdoc-template": "github:athombv/homey-jsdoc-template#1.4.4",
-    "jsdoc": "^3.6.6",
-    "jsdoc-ts-utils": "^1.1.2",
-    "serve": "^11.3.1",
-    "watch": "^1.0.2"
+  "opts": {
+    "mainpagetitle": "Your Project Name",
+    "template": "./node_modules/homey-jsdoc-template"
   }
 }
 ```
 
-2. Add scripts in package.json
+## Recommended NPM Scripts
+
+This is the recommended approach of integrating this template in your project, additional to the steps above.
+
+```bash
+$ npm i --save-dev concurrently jsdoc jsdoc-ts-utils serve watch
+```
+
+2. Add scripts to `package.json`
 
 ```json
 {
@@ -28,12 +38,10 @@
     "build": "npm ci; npm run jsdoc:clean; npm run jsdoc;",
     "jsdoc": "jsdoc --configure ./docs/jsdoc.json;",
     "jsdoc:clean": "rm -rf ./build",
-    "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" lib docs \"node_modules/homey-jsdoc-template\""
+    "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" ./lib docs"
   }
 }
 ```
-
-3. Don't forget to run `npm install` 😁
 
 ## How to make updates to template
 
@@ -77,3 +85,15 @@ Example
     
     My first large paragraph
 ```
+
+# Projects using Homey JSDoc Template 
+- https://github.com/athombv/node-homey-apps-sdk-v2
+- https://github.com/athombv/node-homey-apps-sdk-v3
+- https://github.com/athombv/node-homey-zigbeedriver
+- https://github.com/athombv/node-homey-zwavedriver
+- https://github.com/athombv/node-homey-log
+- https://github.com/athombv/node-homey-rfdriver
+- https://github.com/athombv/node-homey-oauth2app
+- https://github.com/athombv/node-zigbee-clusters
+- https://github.com/athombv/node-homey-api
+- https://github.com/athombv/node-homey-bridge
