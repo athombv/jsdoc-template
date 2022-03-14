@@ -26,7 +26,7 @@ $ npm i --save-dev github:athombv/homey-jsdoc-template#
 This is the recommended approach of integrating this template in your project, additional to the steps above.
 
 ```bash
-$ npm i --save-dev concurrently jsdoc serve watch
+$ npm i --save-dev concurrently jsdoc jsdoc-ts-utils serve watch
 ```
 
 2. Add scripts to `package.json`
@@ -34,10 +34,10 @@ $ npm i --save-dev concurrently jsdoc serve watch
 ```json
 {
   "scripts": {
-    "serve": "concurrently \"serve docs/\" \"npm run jsdoc:watch\"",
+    "serve": "concurrently \"serve build/\" \"npm run jsdoc:watch\"",
     "build": "npm ci; npm run jsdoc:clean; npm run jsdoc;",
     "jsdoc": "jsdoc --configure ./docs/jsdoc.json;",
-    "jsdoc:clean": "rm -rf ./docs",
+    "jsdoc:clean": "rm -rf ./build",
     "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" ./lib docs"
   }
 }
@@ -85,3 +85,15 @@ Example
     
     My first large paragraph
 ```
+
+# Projects using Homey JSDoc Template 
+- https://github.com/athombv/node-homey-apps-sdk-v2
+- https://github.com/athombv/node-homey-apps-sdk-v3
+- https://github.com/athombv/node-homey-zigbeedriver
+- https://github.com/athombv/node-homey-zwavedriver
+- https://github.com/athombv/node-homey-log
+- https://github.com/athombv/node-homey-rfdriver
+- https://github.com/athombv/node-homey-oauth2app
+- https://github.com/athombv/node-zigbee-clusters
+- https://github.com/athombv/node-homey-api
+- https://github.com/athombv/node-homey-bridge
