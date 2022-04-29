@@ -22,7 +22,7 @@
     --color-line                   : var(--color-mono-20);
     --color-line-hover             : var(--color-mono-30);
     --color-line-active            : var(--color-mono-40);
-    --color-line-light             : var(--color-mono-10);
+    --color-line-light             : var(--color-mono-15);
 
     --color-body                   : var(--color-night-black);
     --color-component              : var(--color-mono-07);
