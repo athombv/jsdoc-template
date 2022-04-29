@@ -25,11 +25,12 @@
 @import "5.objects/position.css";
 @import "5.objects/color.css";
 /* Components */
+@import "6.components/component.css";
 @import "6.components/container.css";
+@import "6.components/darkmode-toggle.css";
 @import "6.components/navigation.css";
 @import "6.components/main.css";
 @import "6.components/nav-group.css";
-@import "6.components/component.css";
 @import "6.components/method.css";
 @import "6.components/function.css";
 @import "6.components/params.css";
