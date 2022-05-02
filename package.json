@@ -20,10 +20,10 @@
     "jsdoc": "3.6.x"
   },
   "browserslist": [
-    "last 5 Chrome version",
-    "last 5 Safari version",
-    "last 5 Edge version",
-    "last 5 Firefox version",
+    "last 5 Chrome versions",
+    "last 5 Safari versions",
+    "last 5 Edge versions",
+    "last 5 Firefox versions",
     "> 0.5% and not op_mini all and not ie <= 11"
   ],
   "devDependencies": {
