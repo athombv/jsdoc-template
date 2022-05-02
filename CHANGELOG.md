@@ -1,7 +1,9 @@
 # Changelog
 
-## 1.4.5
-`unreleased`
+## 1.5 Darkmode & Hashlink highlight
+`2022-05-02`
+- Add darkmode support
+- Highlight hashlink sections
 - Fix docs navigation animation
 - Replace localstorage with sessions storage for left navigation
 
