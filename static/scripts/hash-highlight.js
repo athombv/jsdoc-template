@@ -18,7 +18,7 @@
 
     setTimeout(function () {
       component.classList.remove('is-highlight');
-    }, 2000);
+    }, 700);
   }
 
 

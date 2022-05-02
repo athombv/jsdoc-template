@@ -3,10 +3,11 @@
   border-radius: var(--borderRadius);
   box-shadow: var(--boxShadow);
   background: var(--color-component);
-  transition: box-shadow var(--duration-fast) ease-in-out 500ms;
+  transition: box-shadow var(--duration-fast) ease-out 500ms;
 }
 
 .component.is-highlight {
+  transition: box-shadow var(--duration-normal) ease-in-out;
   box-shadow: var(--boxShadow-highlight);
 }
 
