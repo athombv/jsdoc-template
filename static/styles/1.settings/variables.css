@@ -3,7 +3,12 @@
  */
 :root {
   /* Box Shadows */
-  --boxShadow: 0 10px 44px 0 rgba(0, 0, 0, 0.07), 0 2px 12px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  --boxShadow: 0 10px 44px 0 rgba(0, 0, 0, 0.07),
+  0 2px 12px 0 rgba(0, 0, 0, 0.1),
+  0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  --boxShadow-highlight: 0 10px 44px 0 var(--color-blue-o-15),
+  0 2px 12px 0 var(--color-blue-o-20),
+  0 2px 4px 0 var(--color-blue-o-08);
 
   /* Border Radius */
   --borderRadius-large: 20px;
