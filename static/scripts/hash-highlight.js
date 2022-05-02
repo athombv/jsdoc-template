@@ -2,7 +2,8 @@
 
   documentReady(function () {
     setHighlight();
-    window.addEventListener('highlight', () => {
+
+    window.addEventListener('hash-highlight', () => {
       setHighlight()
     });
   });
@@ -13,7 +14,6 @@
     const id = window.location.hash.split('#')[1];
 
     const component = document.getElementById(id);
-    console.log(id, component);
     if (component) {
       component.classList.add('is-highlight');
     }

@@ -10,7 +10,7 @@
 
         navigator.clipboard.writeText($hashLink.href);
         history.pushState({}, $hashLink.href, $hashLink.href);
-        window.dispatchEvent(new CustomEvent('highlight'));
+        window.dispatchEvent(new CustomEvent('hash-highlight'));
 
         const id = $hashLink.href.split('#')[1];
         document.getElementById(id).scrollIntoView({

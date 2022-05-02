@@ -22,7 +22,7 @@
         });
 
         history.pushState({}, this.href, this.href);
-        window.dispatchEvent(new CustomEvent('highlight'));
+        window.dispatchEvent(new CustomEvent('hash-highlight'));
       });
     });
   })
