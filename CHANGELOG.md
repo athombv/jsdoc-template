@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.5
+`unreleased`
+- Fix docs navigation animation
+- Replace localstorage with sessions storage for left navigation
+
 ## 1.4.1 Custom pages
 `2021-06-29`
 - Move custom pages to the top of menu

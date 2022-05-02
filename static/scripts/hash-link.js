@@ -9,6 +9,7 @@
         event.preventDefault();
 
         navigator.clipboard.writeText($hashLink.href);
+        history.pushState({},$hashLink.href,$hashLink.href);
 
         const id = $hashLink.href.split('#')[1];
         document.getElementById(id).scrollIntoView({
