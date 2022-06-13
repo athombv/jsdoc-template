@@ -24,7 +24,10 @@ $ npm i --save-dev github:athombv/homey-jsdoc-template#
       "./lib",
       "./index.js"
     ]
-  }
+  },
+  "plugins": [
+    "plugins/markdown"
+  ]
 }
 ```
 
