@@ -17,6 +17,13 @@ $ npm i --save-dev github:athombv/homey-jsdoc-template#
   "opts": {
     "mainpagetitle": "Your Project Name",
     "template": "./node_modules/homey-jsdoc-template"
+  },
+  "source": {
+    "include": [
+      "./README.md",
+      "./lib",
+      "./index.js"
+    ]
   }
 }
 ```
