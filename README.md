@@ -10,7 +10,7 @@
 $ npm i --save-dev github:athombv/homey-jsdoc-template#
 ```
 
-2. Add to `jsdoc.json`
+2. Add to `./docs/jsdoc.json`:
 
 ```json
 {
