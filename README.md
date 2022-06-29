@@ -96,8 +96,7 @@ Example
     My first large paragraph
 ```
 
-# Projects using Homey JSDoc Template 
-- https://github.com/athombv/node-homey-apps-sdk-v2
+# Projects using Homey JSDoc Template
 - https://github.com/athombv/node-homey-apps-sdk-v3
 - https://github.com/athombv/node-homey-zigbeedriver
 - https://github.com/athombv/node-homey-zwavedriver
@@ -107,3 +106,4 @@ Example
 - https://github.com/athombv/node-zigbee-clusters
 - https://github.com/athombv/node-homey-api
 - https://github.com/athombv/node-homey-bridge
+- https://github.com/athombv/com.athom.homeyscript
