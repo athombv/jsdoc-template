@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.2 
+`2022-06-29`
+- Fix chevron color in navbar for darkmode
+- Fix unhandled javascript error
+- Fix table of content (toc) linking to section
+
+## 1.5.1 
+`2022-06-10`
+- Show class description if constructor is hidden
+
 ## 1.5 Darkmode & Hashlink highlight
 `2022-05-02`
 - Add darkmode support
