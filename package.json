@@ -1,5 +1,5 @@
 {
-  "name": "homey-jsdoc-template",
+  "name": "@athombv/jsdoc-template",
   "version": "1.6.0",
   "description": "",
   "main": "publish.js",
