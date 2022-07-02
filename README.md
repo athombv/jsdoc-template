@@ -13,8 +13,8 @@ $ npm i --save-dev @athombv/jsdoc-template
 ```json
 {
   "opts": {
-    "mainpagetitle": "Your Project Name",
-    "template": "./node_modules/homey-jsdoc-template"
+    "mainpagetitle": "🚨 Your Project Name",
+    "template": "./node_modules/@athombv/jsdoc-template"
   },
   "source": {
     "include": [
@@ -25,7 +25,12 @@ $ npm i --save-dev @athombv/jsdoc-template
   },
   "plugins": [
     "plugins/markdown"
-  ]
+  ],
+  "templates": {
+    "default": {
+      "outputSourceFiles": false
+    }
+  }
 }
 ```
 
@@ -44,7 +49,7 @@ $ npm i --save-dev concurrently jsdoc jsdoc-ts-utils serve watch
   "scripts": {
     "serve": "concurrently \"serve build/\" \"npm run jsdoc:watch\"",
     "build": "npm ci; npm run jsdoc:clean; npm run jsdoc;",
-    "jsdoc": "jsdoc --configure ./docs/jsdoc.json;",
+    "jsdoc": "jsdoc --configure ./docs/jsdoc.json --destination ./jsdoc/",
     "jsdoc:clean": "rm -rf ./build",
     "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" ./lib docs"
   }
@@ -58,10 +63,10 @@ $ npm i --save-dev concurrently jsdoc jsdoc-ts-utils serve watch
 2. Link this repository to your current project by:
 
 ```bash
-npm link homey-jsdoc-template
+npm link @athombv/jsdoc-template
 ```
 
-note: you have to relink the repository each time after you run `npm install`
+> You have to relink the repository each time after you run `npm install`
 
 ## Configuration
 
