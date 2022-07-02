@@ -63,10 +63,10 @@ $ npm i --save-dev concurrently jsdoc jsdoc-ts-utils serve watch
 2. Link this repository to your current project by:
 
 ```bash
-npm link homey-jsdoc-template
+npm link @athombv/jsdoc-template
 ```
 
-note: you have to relink the repository each time after you run `npm install`
+> You have to relink the repository each time after you run `npm install`
 
 ## Configuration
 
