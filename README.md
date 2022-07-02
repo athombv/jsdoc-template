@@ -14,7 +14,7 @@ $ npm i --save-dev @athombv/jsdoc-template
 {
   "opts": {
     "mainpagetitle": "Your Project Name",
-    "template": "./node_modules/homey-jsdoc-template"
+    "template": "./node_modules/@athombv/jsdoc-template"
   },
   "source": {
     "include": [
