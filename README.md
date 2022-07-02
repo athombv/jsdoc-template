@@ -5,7 +5,7 @@
 1. Install as a dev dependency
 
 ```bash
-$ npm i --save-dev github:athombv/homey-jsdoc-template#
+$ npm i --save-dev @athombv/jsdoc-template
 ```
 
 2. Add to `./docs/jsdoc.json`:
