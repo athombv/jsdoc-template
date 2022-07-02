@@ -13,7 +13,7 @@ $ npm i --save-dev @athombv/jsdoc-template
 ```json
 {
   "opts": {
-    "mainpagetitle": "Your Project Name",
+    "mainpagetitle": "🚨 Your Project Name",
     "template": "./node_modules/@athombv/jsdoc-template"
   },
   "source": {
@@ -25,7 +25,12 @@ $ npm i --save-dev @athombv/jsdoc-template
   },
   "plugins": [
     "plugins/markdown"
-  ]
+  ],
+  "templates": {
+    "default": {
+      "outputSourceFiles": false
+    }
+  }
 }
 ```
 
@@ -44,7 +49,7 @@ $ npm i --save-dev concurrently jsdoc jsdoc-ts-utils serve watch
   "scripts": {
     "serve": "concurrently \"serve build/\" \"npm run jsdoc:watch\"",
     "build": "npm ci; npm run jsdoc:clean; npm run jsdoc;",
-    "jsdoc": "jsdoc --configure ./docs/jsdoc.json;",
+    "jsdoc": "jsdoc --configure ./docs/jsdoc.json --destination ./jsdoc/",
     "jsdoc:clean": "rm -rf ./build",
     "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" ./lib docs"
   }
