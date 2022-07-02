@@ -8,13 +8,17 @@
     "watch": "NODE_ENV=none webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "/static",
+    "/tmpl",
+    "/publish.js"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "css-loader": "^5.2.4",
     "highlight.js": "^10.7.2",
-    "taffydb": "^2.7.3",
-    "uglifyjs-webpack-plugin": "^2.2.0"
+    "taffydb": "^2.7.3"
   },
   "peerDependencies": {
     "jsdoc": "3.6.x"

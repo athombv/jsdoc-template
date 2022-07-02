@@ -1,5 +1,3 @@
-[![GitHub Release](https://img.shields.io/github/release/athombv/homey-jsdoc-template?style=flat)]()  
-
 # Homey JSDoc Template
 
 ## How to use this template
@@ -95,15 +93,3 @@ Example
     
     My first large paragraph
 ```
-
-# Projects using Homey JSDoc Template
-- https://github.com/athombv/node-homey-apps-sdk-v3
-- https://github.com/athombv/node-homey-zigbeedriver
-- https://github.com/athombv/node-homey-zwavedriver
-- https://github.com/athombv/node-homey-log
-- https://github.com/athombv/node-homey-rfdriver
-- https://github.com/athombv/node-homey-oauth2app
-- https://github.com/athombv/node-zigbee-clusters
-- https://github.com/athombv/node-homey-api
-- https://github.com/athombv/node-homey-bridge
-- https://github.com/athombv/com.athom.homeyscript

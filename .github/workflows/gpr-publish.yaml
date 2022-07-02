@@ -1,0 +1,46 @@
+name: Publish to GitHub Packages Registry
+
+# Version: 1.0.0
+# Modified: No
+# Requirements:
+# - The `name` in `package.json` should start with `@athombv/`.
+#
+# Ensure you've run `npm version major|minor|patch` on the `master` branch before merging to `production`.
+#
+# This GitHub Workflow:
+# 1. [Optional] If `npm run build` exists. If so, it runs `npm ci` and `npm run build`.
+# 2. Publishes the package to the GitHub Packages Registry.
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout git repository
+        uses: actions/checkout@v3
+
+      - name: Set up node 16 environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Build
+        run: |
+          if cat package.json | jq -e .scripts.build; then
+            echo "`npm run build` does exist. Building..."
+            npm ci
+            npm run build
+          else
+            echo "`npm run build` does not exist. Skipping build..."
+          fi
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
