@@ -98,3 +98,7 @@ Example
     
     My first large paragraph
 ```
+
+## Repositories using this template
+
+[GitHub Search](https://github.com/search?q=org%3Aathombv+%22%40athombv%2Fjsdoc-template%22+filename%3A%22package.json%22&type=code)
