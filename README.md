@@ -70,7 +70,7 @@ npm link @athombv/jsdoc-template
 
 ## Publishing
 1. On the `master` branch run `npm version [version]` (using a semantic version).
-2. Push your changes.
+2. Push your changes, don't forget to push the git tags' as well.
 3. Merge `master` to `production`, this will automatically publish the release.
 
 
