@@ -34,6 +34,11 @@ $ npm i --save-dev @athombv/jsdoc-template
 }
 ```
 
+## Publishing
+1. On the `master` branch run `npm version [version]` (using a semantic version)
+2. Push your changes. 
+3. Merge `master` to `production` this will automatically publish the release. 
+
 ## Recommended NPM Scripts
 
 This is the recommended approach of integrating this template in your project, additional to the steps above.
