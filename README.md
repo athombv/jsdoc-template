@@ -1,4 +1,4 @@
-# Homey JSDoc Template
+# Athom B.V. JSDoc Template
 
 ## How to use this template
 
