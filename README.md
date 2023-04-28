@@ -8,7 +8,7 @@
 $ npm i --save-dev @athombv/jsdoc-template
 ```
 
-2. Add to `./docs/jsdoc.json`:
+2. Create `./jsdoc.json`:
 
 ```json
 {
@@ -49,7 +49,7 @@ $ npm i --save-dev concurrently jsdoc jsdoc-ts-utils serve watch
   "scripts": {
     "serve": "concurrently \"serve build/\" \"npm run jsdoc:watch\"",
     "build": "npm ci; npm run jsdoc:clean; npm run jsdoc;",
-    "jsdoc": "jsdoc --configure ./docs/jsdoc.json --destination ./jsdoc/",
+    "jsdoc": "jsdoc --configure ./jsdoc.json --destination ./jsdoc/",
     "jsdoc:clean": "rm -rf ./build",
     "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" ./lib docs"
   }
