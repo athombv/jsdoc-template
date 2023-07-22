@@ -20,9 +20,6 @@
     "highlight.js": "^10.7.2",
     "taffydb": "^2.7.3"
   },
-  "peerDependencies": {
-    "jsdoc": "3.6.x"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/athombv/homey-jsdoc-template.git"

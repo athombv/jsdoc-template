@@ -29,11 +29,11 @@ function fixEventName(input){
     <?js } ?>
 
     <?js
-    var members = self.find({ kind: 'member', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
+    var members = self.find({ kind: 'member', scope: 'static', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (members && members.length && members.forEach) {
     ?>
     <li class="toc__item">
-      <a class="toc__link" href="#section-members">Properties</a>
+      <a class="toc__link" href="#section-members">Static Properties</a>
       <ul class="toc__list toc__list--lvl2">
         <?js members.forEach(function(m) { ?>
         <li class="toc__item">
@@ -45,11 +45,43 @@ function fixEventName(input){
     <?js } ?>
 
     <?js
-    var methods = self.find({ kind: 'function', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
+    var members = self.find({ kind: 'member', scope: 'instance', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
+    if (members && members.length && members.forEach) {
+    ?>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-members">Instance Properties</a>
+      <ul class="toc__list toc__list--lvl2">
+        <?js members.forEach(function(m) { ?>
+        <li class="toc__item">
+          <a class="toc__link" title="<?js= m.name ?>" href="#<?js= m.id ?>"><?js= m.name ?></a>
+        </li>
+        <?js }); ?>
+      </ul>
+    </li>
+    <?js } ?>
+
+    <?js
+    var methods = self.find({ kind: 'function', scope: 'static', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
     if (methods && methods.length && methods.forEach) {
     ?>
     <li class="toc__item">
-      <a class="toc__link" href="#section-methods">Methods</a>
+      <a class="toc__link" href="#section-methods">Static Methods</a>
+      <ul class="toc__list toc__list--lvl2">
+        <?js methods.forEach(function(m) { ?>
+        <li class="toc__item">
+          <a class="toc__link" title="<?js= m.name ?>" href="#<?js= m.id ?>"><?js= m.name ?></a>
+        </li>
+        <?js }); ?>
+      </ul>
+    </li>
+    <?js } ?>
+
+    <?js
+    var methods = self.find({ kind: 'function', scope: 'instance', memberof: isGlobalPage ? { isUndefined: true } : doc.longname });
+    if (methods && methods.length && methods.forEach) {
+    ?>
+    <li class="toc__item">
+      <a class="toc__link" href="#section-methods">Instance Methods</a>
       <ul class="toc__list toc__list--lvl2">
         <?js methods.forEach(function(m) { ?>
         <li class="toc__item">
