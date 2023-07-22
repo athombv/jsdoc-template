@@ -1,4 +1,4 @@
-# Homey JSDoc Template
+# Athom B.V. JSDoc Template
 
 ## How to use this template
 
@@ -8,7 +8,7 @@
 $ npm i --save-dev @athombv/jsdoc-template
 ```
 
-2. Add to `./docs/jsdoc.json`:
+2. Create `./jsdoc.json`:
 
 ```json
 {
@@ -49,7 +49,7 @@ $ npm i --save-dev concurrently jsdoc jsdoc-ts-utils serve watch
   "scripts": {
     "serve": "concurrently \"serve build/\" \"npm run jsdoc:watch\"",
     "build": "npm ci; npm run jsdoc:clean; npm run jsdoc;",
-    "jsdoc": "jsdoc --configure ./docs/jsdoc.json --destination ./jsdoc/",
+    "jsdoc": "jsdoc --configure ./jsdoc.json --destination ./jsdoc/",
     "jsdoc:clean": "rm -rf ./build",
     "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" ./lib docs"
   }
@@ -67,6 +67,12 @@ npm link @athombv/jsdoc-template
 ```
 
 > You have to relink the repository each time after you run `npm install`
+
+## Publishing
+1. On the `master` branch run `npm version [version]` (using a semantic version).
+2. Push your changes, don't forget to push the git tags' as well.
+3. Merge `master` to `production`, this will automatically publish the release.
+
 
 ## Configuration
 
@@ -98,3 +104,7 @@ Example
     
     My first large paragraph
 ```
+
+## Repositories using this template
+
+[GitHub Search](https://github.com/search?q=org%3Aathombv+%22%40athombv%2Fjsdoc-template%22+filename%3A%22package.json%22&type=code)

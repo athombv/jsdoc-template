@@ -1,6 +1,6 @@
 {
   "name": "@athombv/jsdoc-template",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "",
   "main": "publish.js",
   "scripts": {
@@ -19,9 +19,6 @@
     "css-loader": "^5.2.4",
     "highlight.js": "^10.7.2",
     "taffydb": "^2.7.3"
-  },
-  "peerDependencies": {
-    "jsdoc": "3.6.x"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.6.1
+`2022-07-02`
+- Fix implementation of Github Packages
+
+## v1.6.0 
+`2022-07-02`
+- Implement Github Packages
+
 ## 1.5.2 
 `2022-06-29`
 - Fix chevron color in navbar for darkmode
