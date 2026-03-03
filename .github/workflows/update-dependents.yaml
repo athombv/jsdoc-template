@@ -18,6 +18,9 @@ on:
         required: false
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   update-dependents:
     name: Update Dependent Repos
@@ -33,9 +36,11 @@ jobs:
 
       - name: Extract version
         id: version
+        env:
+          VERSION_OVERRIDE: ${{ inputs.version_override }}
         run: |
-          if [ -n "${{ inputs.version_override }}" ]; then
-            VERSION="${{ inputs.version_override }}"
+          if [ -n "$VERSION_OVERRIDE" ]; then
+            VERSION="$VERSION_OVERRIDE"
           else
             VERSION=$(jq -r .version package.json)
           fi
@@ -46,6 +51,7 @@ jobs:
         id: discover
         env:
           GH_TOKEN: ${{ secrets.DEPENDENTS_PAT }}
+          SOURCE_REPO: ${{ github.repository }}
         run: |
           echo "Searching for repos that depend on @athombv/jsdoc-template..."
 
@@ -55,7 +61,6 @@ jobs:
             --jq '.items[].repository.full_name' | sort -u)
 
           # Filter out this repo itself
-          SOURCE_REPO="${{ github.repository }}"
           REPOS=$(echo "$REPOS" | grep -v "^${SOURCE_REPO}$" || true)
 
           if [ -z "$REPOS" ]; then
@@ -76,9 +81,9 @@ jobs:
           GH_TOKEN: ${{ secrets.DEPENDENTS_PAT }}
           VERSION: ${{ steps.version.outputs.version }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          REPOS: ${{ steps.discover.outputs.repos }}
         run: |
           BRANCH_NAME="chore/update-jsdoc-template-${VERSION}"
-          REPOS="${{ steps.discover.outputs.repos }}"
 
           SUCCESSES=0
           SKIPS=0
@@ -186,7 +191,7 @@ jobs:
             fi
 
             # Create PR
-            PR_URL=$(gh pr create \
+            if PR_URL=$(gh pr create \
               --repo "$REPO" \
               --head "$BRANCH_NAME" \
               --title "chore: update @athombv/jsdoc-template to ${NEW_SPEC}" \
@@ -197,9 +202,7 @@ jobs:
           - [ ] Run \`npm install\` locally to update \`package-lock.json\`
           - [ ] Verify the build still works
           EOF
-            )" 2>&1) || true
-
-            if [ -n "$PR_URL" ]; then
+            )" 2>/dev/null); then
               echo "SUCCESS: Created PR -> $PR_URL"
               SUCCESSES=$((SUCCESSES + 1))
               SUMMARY="${SUMMARY}\n  OK: ${REPO} -> ${PR_URL}"
