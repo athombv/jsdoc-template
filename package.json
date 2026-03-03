@@ -1,6 +1,6 @@
 {
   "name": "@athombv/jsdoc-template",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "",
   "main": "publish.js",
   "scripts": {
