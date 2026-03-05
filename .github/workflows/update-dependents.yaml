@@ -166,7 +166,7 @@ jobs:
             echo "//npm.pkg.github.com/:_authToken=${GH_TOKEN}" >> .npmrc
 
             # Update lockfile
-            npm install --package-lock-only
+            npm install --package-lock-only --ignore-scripts
 
             # Commit and push
             git config user.name "github-actions[bot]"
