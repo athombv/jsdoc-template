@@ -99,12 +99,6 @@ jobs:
 
             # Check if a PR already exists for this branch
             EXISTING_PR=$(gh pr list --repo "$REPO" --head "$BRANCH_NAME" --json number --jq '.[0].number' 2>/dev/null || true)
-            if [ -n "$EXISTING_PR" ]; then
-              echo "SKIP: PR #$EXISTING_PR already exists for branch $BRANCH_NAME"
-              SKIPS=$((SKIPS + 1))
-              SUMMARY="${SUMMARY}\n  SKIP: ${REPO} (PR #${EXISTING_PR} already exists)"
-              continue
-            fi
 
             if [ "$DRY_RUN" = "true" ]; then
               echo "DRY RUN: Would create PR in $REPO"
@@ -151,16 +145,6 @@ jobs:
             PREFIX=$(echo "$CURRENT" | sed -E 's/^([^0-9]*).*/\1/')
             CURRENT_VERSION=$(echo "$CURRENT" | sed -E 's/^[^0-9]*//')
 
-            if [ "$CURRENT_VERSION" = "$VERSION" ]; then
-              echo "SKIP: Already on version $VERSION"
-              SKIPS=$((SKIPS + 1))
-              SUMMARY="${SUMMARY}\n  SKIP: ${REPO} (already on ${VERSION})"
-              cd - > /dev/null
-              rm -rf "$WORK_DIR"
-              sleep 2
-              continue
-            fi
-
             NEW_SPEC="${PREFIX}${VERSION}"
             echo "Updating: $CURRENT -> $NEW_SPEC"
 
@@ -177,13 +161,16 @@ jobs:
               else . end
             ' package.json > package.json.tmp && mv package.json.tmp package.json
 
+            # Update lockfile
+            npm install --package-lock-only
+
             # Commit and push
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add package.json
+            git add package.json package-lock.json
             git commit -m "chore: update @athombv/jsdoc-template to ${NEW_SPEC}"
 
-            if ! git push origin "$BRANCH_NAME" 2>&1; then
+            if ! git push --force origin "$BRANCH_NAME" 2>&1; then
               echo "FAIL: Could not push to $REPO"
               FAILURES=$((FAILURES + 1))
               SUMMARY="${SUMMARY}\n  FAIL: ${REPO} (push failed)"
@@ -193,8 +180,12 @@ jobs:
               continue
             fi
 
-            # Create PR
-            if PR_URL=$(gh pr create \
+            # Create PR if one doesn't already exist
+            if [ -n "$EXISTING_PR" ]; then
+              echo "SUCCESS: Updated existing PR #$EXISTING_PR"
+              SUCCESSES=$((SUCCESSES + 1))
+              SUMMARY="${SUMMARY}\n  OK: ${REPO} (updated PR #${EXISTING_PR})"
+            elif PR_URL=$(gh pr create \
               --repo "$REPO" \
               --head "$BRANCH_NAME" \
               --title "chore: update @athombv/jsdoc-template to ${NEW_SPEC}" \
@@ -202,7 +193,6 @@ jobs:
           Automated update of \`@athombv/jsdoc-template\` from \`${CURRENT}\` to \`${NEW_SPEC}\`.
 
           ## Checklist
-          - [ ] Run \`npm install\` locally to update \`package-lock.json\`
           - [ ] Verify the build still works
           EOF
             )" 2>/dev/null); then
