@@ -50,7 +50,7 @@ jobs:
       - name: Discover dependent repos
         id: discover
         env:
-          GH_TOKEN: ${{ secrets.DEPENDENTS_PAT }}
+          GH_TOKEN: ${{ secrets.HOMEY_GITHUB_ACTIONS_BOT_PERSONAL_ACCESS_TOKEN }}
           SOURCE_REPO: ${{ github.repository }}
         run: |
           echo "Searching for repos that depend on @athombv/jsdoc-template..."
@@ -78,7 +78,7 @@ jobs:
       - name: Create PRs in dependent repos
         if: steps.discover.outputs.repos != ''
         env:
-          GH_TOKEN: ${{ secrets.DEPENDENTS_PAT }}
+          GH_TOKEN: ${{ secrets.HOMEY_GITHUB_ACTIONS_BOT_PERSONAL_ACCESS_TOKEN }}
           VERSION: ${{ steps.version.outputs.version }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           REPOS: ${{ steps.discover.outputs.repos }}
