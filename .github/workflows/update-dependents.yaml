@@ -126,6 +126,9 @@ jobs:
 
             cd "$WORK_DIR"
 
+            # Configure git to use the token for pushing
+            git config credential.helper '!f() { echo "username=x-access-token"; echo "password=${GH_TOKEN}"; }; f'
+
             # Check current version in package.json
             CURRENT=$(jq -r '
               (.devDependencies // {} | .["@athombv/jsdoc-template"] // empty),
