@@ -161,6 +161,9 @@ jobs:
               else . end
             ' package.json > package.json.tmp && mv package.json.tmp package.json
 
+            # Authenticate npm with GitHub Packages
+            echo "//npm.pkg.github.com/:_authToken=${GH_TOKEN}" >> .npmrc
+
             # Update lockfile
             npm install --package-lock-only
 
