@@ -2,13 +2,21 @@
 
 ## How to use this template
 
-1. Install as a dev dependency
+This package is publicly distributed via [GitHub Packages](https://github.com/athombv/homey-jsdoc-template/pkgs/npm/jsdoc-template).
+
+1. Add a `.npmrc` in the root of your project so npm resolves the `@athombv` scope to GitHub Packages:
+
+```
+@athombv:registry=https://npm.pkg.github.com
+```
+
+2. Install as a dev dependency
 
 ```bash
 $ npm i --save-dev @athombv/jsdoc-template
 ```
 
-2. Create `./jsdoc.json`:
+3. Create `./jsdoc.json`:
 
 ```json
 {
