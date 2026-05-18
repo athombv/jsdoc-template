@@ -1,7 +1,7 @@
 {
   "name": "@athombv/jsdoc-template",
   "version": "1.6.3",
-  "description": "",
+  "description": "JSDoc template used for Athom (Homey) developer documentation.",
   "main": "publish.js",
   "scripts": {
     "build": "NODE_ENV=none webpack",
@@ -13,8 +13,8 @@
     "/tmpl",
     "/publish.js"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Athom B.V.",
+  "license": "GPL-3.0",
   "dependencies": {
     "css-loader": "^5.2.4",
     "highlight.js": "^10.7.2",
