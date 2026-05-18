@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/athombv/homey-jsdoc-template.git"
+    "url": "git+https://github.com/athombv/jsdoc-template.git"
   },
   "browserslist": [
     "last 5 Chrome versions",
