@@ -177,9 +177,12 @@ jobs:
             # Commit and push
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            # Stage updates and any .npmrc add/modify/delete
-            git add -A -- package.json package-lock.json .npmrc 2>/dev/null || true
-            git add package.json package-lock.json
+            # Stage the version bump, plus any add/modify/delete to .npmrc
+            # if it currently exists or is tracked in the repo.
+            git add -A -- package.json package-lock.json
+            if [ -e .npmrc ] || git ls-files --error-unmatch .npmrc > /dev/null 2>&1; then
+              git add -A -- .npmrc
+            fi
             git commit -m "chore: update @athombv/jsdoc-template to ${NEW_SPEC}"
 
             if ! git push --force origin "$BRANCH_NAME" 2>&1; then
