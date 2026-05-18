@@ -2,21 +2,13 @@
 
 ## How to use this template
 
-This package is publicly distributed via [GitHub Packages](https://github.com/athombv/homey-jsdoc-template/pkgs/npm/jsdoc-template). No GitHub token is required to install it.
-
-1. Add a `.npmrc` in the root of your project so npm resolves the `@athombv` scope to GitHub Packages:
-
-```
-@athombv:registry=https://npm.pkg.github.com
-```
-
-2. Install as a dev dependency
+1. Install as a dev dependency
 
 ```bash
 $ npm i --save-dev @athombv/jsdoc-template
 ```
 
-3. Create `./jsdoc.json`:
+2. Create `./jsdoc.json`:
 
 ```json
 {
@@ -78,7 +70,7 @@ npm link @athombv/jsdoc-template
 
 ## Publishing
 1. Bump the version on `master` via the [Version workflow](https://github.com/athombv/jsdoc-template/actions/workflows/version.yaml).
-2. Merge `master` to `production` — this will automatically publish the release to the GitHub Packages Registry.
+2. Merge `master` to `production` - this will automatically publish the release to npmjs.org via OIDC (Trusted Publisher).
 3. Create PRs in dependent repos via the [Update Dependents workflow](https://github.com/athombv/jsdoc-template/actions/workflows/update-dependents.yaml). This will automatically discover repos in the `athombv` org that use `@athombv/jsdoc-template` and open PRs to update them to the new version.
 
 

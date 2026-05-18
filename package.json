@@ -13,6 +13,9 @@
     "/tmpl",
     "/publish.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Athom B.V.",
   "license": "GPL-3.0",
   "dependencies": {

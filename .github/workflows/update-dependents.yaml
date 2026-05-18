@@ -2,7 +2,7 @@ name: Update Dependent Repos
 
 on:
   workflow_run:
-    workflows: ["Publish to GitHub Packages Registry"]
+    workflows: ["Publish to NPM"]
     types:
       - completed
 
@@ -161,9 +161,15 @@ jobs:
               else . end
             ' package.json > package.json.tmp && mv package.json.tmp package.json
 
-            # Configure npm to use GitHub Packages for @athombv scope
-            echo "@athombv:registry=https://npm.pkg.github.com" >> .npmrc
-            echo "//npm.pkg.github.com/:_authToken=${GH_TOKEN}" >> .npmrc
+            # Strip any leftover @athombv -> GitHub Packages mapping from .npmrc
+            # so the new version resolves from npmjs.org. Remove the file when
+            # nothing meaningful remains.
+            if [ -f .npmrc ]; then
+              sed -i '/@athombv:registry/d; /npm.pkg.github.com/d' .npmrc
+              if [ ! -s .npmrc ] || ! grep -qv '^\s*$' .npmrc; then
+                rm -f .npmrc
+              fi
+            fi
 
             # Update lockfile
             npm install --package-lock-only --ignore-scripts
@@ -171,6 +177,8 @@ jobs:
             # Commit and push
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
+            # Stage updates and any .npmrc add/modify/delete
+            git add -A -- package.json package-lock.json .npmrc 2>/dev/null || true
             git add package.json package-lock.json
             git commit -m "chore: update @athombv/jsdoc-template to ${NEW_SPEC}"
 

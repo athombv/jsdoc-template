@@ -1,0 +1,66 @@
+name: Publish to NPM
+
+# Publishes the package to npmjs.org using OIDC (Trusted Publisher).
+#
+# Requirements:
+# - The `@athombv/jsdoc-template` package must have a Trusted Publisher
+#   configured on npmjs.org pointing at this repository and workflow file.
+# - Bump the version on `master` via the Version workflow before merging to
+#   `production`.
+#
+# Steps:
+# 1. Verifies a `files` array is present in package.json.
+# 2. Installs dependencies and runs `npm run build` if it exists.
+# 3. On `workflow_dispatch`: runs `npm publish --dry-run`.
+# 4. On push to `production`: publishes to npmjs.org.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - production
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout git repository
+        uses: actions/checkout@v4
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Verify files field in package.json
+        run: |
+          if ! jq -e .files package.json > /dev/null; then
+            echo "Missing 'files' array in package.json."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --audit=false
+
+      - name: Build
+        run: |
+          if jq --exit-status '.scripts | has("build")' package.json > /dev/null; then
+            echo "Running npm run build..."
+            npm run build
+          else
+            echo "No build script; skipping."
+          fi
+
+      - name: Publish dry run
+        if: github.event_name == 'workflow_dispatch'
+        run: npm publish --dry-run
+
+      - name: Publish
+        if: github.ref == 'refs/heads/production'
+        run: npm publish
