@@ -60,8 +60,8 @@ jobs:
 
       - name: Publish dry run
         if: github.event_name == 'workflow_dispatch'
-        run: npm publish --dry-run
+        run: npm publish --dry-run --provenance
 
       - name: Publish
-        if: github.ref == 'refs/heads/production'
-        run: npm publish
+        if: github.event_name == 'push' && github.ref == 'refs/heads/production'
+        run: npm publish --provenance
