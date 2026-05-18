@@ -2,7 +2,7 @@
 
 ## How to use this template
 
-This package is publicly distributed via [GitHub Packages](https://github.com/athombv/homey-jsdoc-template/pkgs/npm/jsdoc-template).
+This package is publicly distributed via [GitHub Packages](https://github.com/athombv/homey-jsdoc-template/pkgs/npm/jsdoc-template). No GitHub token is required to install it.
 
 1. Add a `.npmrc` in the root of your project so npm resolves the `@athombv` scope to GitHub Packages:
 
