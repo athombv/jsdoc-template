@@ -1,6 +1,6 @@
 {
   "name": "@athombv/jsdoc-template",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "description": "JSDoc template used for Athom (Homey) developer documentation.",
   "main": "publish.js",
   "scripts": {
