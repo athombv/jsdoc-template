@@ -69,9 +69,9 @@ npm link @athombv/jsdoc-template
 > You have to relink the repository each time after you run `npm install`
 
 ## Publishing
-1. On the `master` branch run `npm version [version]` (using a semantic version).
-2. Push your changes, don't forget to push the git tags' as well.
-3. Merge `master` to `production`, this will automatically publish the release.
+1. Bump the version on `master` via the [Version workflow](https://github.com/athombv/jsdoc-template/actions/workflows/version.yaml).
+2. Merge `master` to `production` - this will automatically publish the release to npmjs.org via OIDC (Trusted Publisher).
+3. Create PRs in dependent repos via the [Update Dependents workflow](https://github.com/athombv/jsdoc-template/actions/workflows/update-dependents.yaml). This will automatically discover repos in the `athombv` org that use `@athombv/jsdoc-template` and open PRs to update them to the new version.
 
 
 ## Configuration
